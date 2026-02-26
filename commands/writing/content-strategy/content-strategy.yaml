@@ -1,0 +1,23 @@
+command: "content-strategy"
+path: commands/writing/content-strategy/COMMAND.md
+description: docs/workflow/content-strategy.md
+inputs:
+  - name: source-path
+    type: string
+    required: true
+    description: Path to source material (files, folders, or vault directory)
+  - name: vault-path
+    type: string
+    required: false
+    description: Path to vault for knowledge capture
+outputs:
+  - name: knowledge-map
+    type: document
+    description: Knowledge map of the research corpus
+  - name: content-plan
+    type: document
+    description: Multi-article content plan with production order
+requires: []
+status: existing
+argument-hint: "<source-path> [--vault-path PATH]"
+repeat: false

@@ -1,0 +1,51 @@
+{
+  "name": "writing-with-agents",
+  "owner": {
+    "name": "dmitry"
+  },
+  "metadata": {
+    "description": "AI-assisted writing skills based on Betty Flowers' four-phase framework with collaborative oscillation model",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "writing-with-agents",
+      "source": "./",
+      "description": "10 specialized writing skills implementing Betty Flowers' Madman-Architect-Carpenter-Judge framework with Bryan Garner's whirlybird technique, SEO optimization, quality rubric, and multi-article content strategy. Includes 4 workflow commands for the Flowers writing cycle, content strategy, research capture, and session setup.",
+      "version": "0.1.0",
+      "author": {
+        "name": "dmitry",
+        "email": "github@dmitry"
+      },
+      "homepage": "https://github.com/dmitry/writing-with-agents",
+      "repository": "https://github.com/dmitry/writing-with-agents",
+      "license": "MIT",
+      "keywords": [
+        "claude-skill",
+        "claude-code",
+        "writing",
+        "content-strategy",
+        "seo",
+        "flowers-method",
+        "whirlybird",
+        "technical-writing",
+        "nonfiction",
+        "editing",
+        "quality-rubric",
+        "research",
+        "knowledge-management",
+        "model-invoked"
+      ],
+      "category": "writing",
+      "tags": [
+        "writing",
+        "content",
+        "seo",
+        "research",
+        "editing"
+      ],
+      "skills": "./skills/",
+      "commands": "./commands/"
+    }
+  ]
+}

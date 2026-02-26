@@ -1,0 +1,26 @@
+name: writing-with-agents
+description: Writing workflows based on Betty Flowers' four-phase framework with collaborative oscillation model
+version: "0.1.0"
+
+phases:
+  writing:
+    description: docs/workflow/writing-phase.md
+    commands:
+      - command: flowers-cycle
+        definition: commands/writing/flowers-cycle/flowers-cycle.yaml
+        description: "Single-article inner loop: Madman, Whirlybird, Architect, Carpenter, Judge, Quality Rubric"
+      - command: content-strategy
+        definition: commands/writing/content-strategy/content-strategy.yaml
+        description: "Multi-article outer loop: Intake, Gap Analysis, Domain Mapping, Content Plan, Knowledge Harvest"
+
+  capture:
+    description: docs/workflow/capture-phase.md
+    commands:
+      - command: capture
+        definition: commands/capture/capture.yaml
+        description: "Capture content from URL, file, or text into a structured Flowers research-source note"
+
+utilities:
+  - command: writing-setup
+    definition: commands/utilities/writing-setup/writing-setup.yaml
+    description: "Configure session defaults (vault path, content type, SEO preference)"

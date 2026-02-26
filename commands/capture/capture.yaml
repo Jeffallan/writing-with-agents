@@ -1,0 +1,20 @@
+command: "capture"
+path: commands/capture/COMMAND.md
+description: docs/workflow/capture.md
+inputs:
+  - name: path
+    type: string
+    required: true
+    description: Where to write the research-source note (file path)
+  - name: source
+    type: string
+    required: true
+    description: "URL, file path, or quoted text string to capture"
+outputs:
+  - name: note
+    type: file
+    description: Structured Flowers research-source note at the specified path
+requires: []
+status: existing
+argument-hint: "<path> <source>"
+repeat: false

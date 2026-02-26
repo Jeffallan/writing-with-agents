@@ -1,0 +1,21 @@
+command: "writing-setup"
+path: commands/utilities/writing-setup/COMMAND.md
+description: docs/workflow/writing-setup.md
+inputs:
+  - name: vault-path
+    type: string
+    required: false
+    description: Default vault path for knowledge capture
+  - name: content-type
+    type: string
+    required: false
+    description: Default content type preference
+outputs:
+  - name: config
+    type: file
+    path: "~/.claude/writing-with-agents/config.json"
+    description: Session configuration for writing workflows
+requires: []
+status: existing
+argument-hint: "[--vault-path PATH] [--content-type TYPE]"
+repeat: false

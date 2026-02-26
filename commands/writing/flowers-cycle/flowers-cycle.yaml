@@ -1,0 +1,30 @@
+command: "flowers-cycle"
+path: commands/writing/flowers-cycle/COMMAND.md
+description: docs/workflow/flowers-cycle.md
+inputs:
+  - name: topic
+    type: string
+    required: true
+    description: The topic or subject to write about
+  - name: content-type
+    type: string
+    required: false
+    description: "Content type: article, tutorial, blog-post, white-paper, case-study, documentation"
+  - name: seo
+    type: flag
+    required: false
+    description: Enable SEO optimization layer
+outputs:
+  - name: article
+    type: document
+    description: Finished article after all phases
+  - name: judge-report
+    type: report
+    description: Judge detection report with findings
+  - name: quality-scorecard
+    type: report
+    description: Quality rubric scorecard with dimension scores
+requires: []
+status: existing
+argument-hint: "<topic> [--content-type TYPE] [--seo]"
+repeat: false
