@@ -3,3 +3,12 @@ __pycache__/
 .DS_Store
 node_modules/
 .env
+
+# Astro docs site
+site/node_modules/
+site/dist/
+site/.astro/
+site/src/content/docs/skills/
+site/src/content/docs/workflows/
+site/src/content/docs/readme.md
+site/src/content/docs/changelog.md
