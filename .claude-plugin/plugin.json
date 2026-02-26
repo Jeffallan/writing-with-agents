@@ -3,11 +3,11 @@
   "version": "0.1.0",
   "description": "10 specialized writing skills implementing Betty Flowers' Madman-Architect-Carpenter-Judge framework with Bryan Garner's whirlybird technique, SEO optimization, quality rubric, and multi-article content strategy. Features collaborative oscillation between AI and human across all phases.",
   "author": {
-    "name": "dmitry",
-    "email": "github@dmitry"
+    "name": "jeffallan",
+    "email": "github@jeffallan"
   },
   "license": "MIT",
-  "repository": "https://github.com/dmitry/writing-with-agents",
+  "repository": "https://github.com/Jeffallan/writing-with-agents",
   "keywords": [
     "claude-skill",
     "claude-code",

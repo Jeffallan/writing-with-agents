@@ -31,7 +31,7 @@ claude install /path/to/writing-with-agents
 Or clone and install:
 
 ```bash
-git clone https://github.com/dmitry/writing-with-agents.git
+git clone https://github.com/Jeffallan/writing-with-agents.git
 claude install ./writing-with-agents
 ```
 
