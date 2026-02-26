@@ -1,14 +1,31 @@
-# Writing With Agents
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:4B0082,100:6A5ACD&height=200&section=header&text=Writing%20With%20Agents&fontSize=42&fontColor=ffffff&animation=fadeIn&fontAlignY=35" width="100%" alt="Writing With Agents" />
+</p>
 
-A Claude Code skill plugin implementing Betty Flowers' "Madman, Architect, Carpenter, Judge" writing framework (1981) with Bryan Garner's whirlybird technique, SEO optimization, a 10-dimension quality rubric, and multi-article content strategy.
+<p align="center">
+  <!-- SKILL_COUNT -->10<!-- /SKILL_COUNT --> Skills · <!-- REFERENCE_COUNT -->31<!-- /REFERENCE_COUNT --> References · <!-- WORKFLOW_COUNT -->4<!-- /WORKFLOW_COUNT --> Workflows
+</p>
 
-<!-- SKILL_COUNT -->10<!-- /SKILL_COUNT --> specialized writing skills | <!-- REFERENCE_COUNT -->31<!-- /REFERENCE_COUNT --> reference files | <!-- WORKFLOW_COUNT -->4<!-- /WORKFLOW_COUNT --> workflow commands
+<p align="center">
+  <img src="https://img.shields.io/badge/version-0.1.0-blue.svg" alt="Version" />
+  <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" />
+  <img src="https://img.shields.io/badge/Claude%20Code-Plugin-blueviolet.svg" alt="Claude Code Plugin" />
+  <a href="https://github.com/Jeffallan/writing-with-agents/stargazers"><img src="https://img.shields.io/github/stars/Jeffallan/writing-with-agents" alt="GitHub Stars" /></a>
+</p>
+
+---
+
+## Why This Exists
+
+Most AI writing tools mix brainstorming, structuring, and editing into a single prompt. The result is flat, mediocre output that sounds like everything else. Betty Flowers identified in 1981 that writing requires four distinct cognitive modes, each demanding a different kind of thinking. Mixing them produces internal conflict: your inner critic shuts down your inner generator before it can produce anything worth editing.
+
+This plugin gives each mode its own skill, workflow, and quality gates. The AI and human trade leadership at every phase: AI generates raw volume when quantity matters, human decides structure when judgment matters.
 
 ---
 
 ## What This Is
 
-A structured AI-assisted writing methodology that separates creative energy from critical energy across distinct phases. Each phase defines a **lead** and a **support** role — the AI and human collaborate throughout, but who drives changes at each step.
+A Claude Code plugin that separates the writing process into five phases, each with a defined lead and support role:
 
 | Phase | Lead | Support | Deliverable |
 |-------|------|---------|-------------|
@@ -18,7 +35,7 @@ A structured AI-assisted writing methodology that separates creative energy from
 | Carpenter | AI builds | Human spot-checks | Complete draft |
 | Judge | AI detects | Human decides | Polished final piece |
 
-This is the **collaborative oscillation model** — not AI-only automation, not human-only writing. Each phase leverages what each party does best.
+This is the **collaborative oscillation model**: not AI-only automation, not human-only writing. Each phase leverages what each party does best.
 
 ---
 
@@ -77,28 +94,28 @@ This runs the full Flowers cycle: Madman, Whirlybird, Architect, Carpenter, Judg
 
 ### Inner Loop (Single Article)
 
-| Skill | Domain | Role |
-|-------|--------|------|
-| `madman` | generation | Creative generator — produces 3-5x raw material |
-| `whirlybird` | structure | Nonlinear outlining via Mermaid mindmaps |
-| `architect` | structure | Strategic structuring — throughline and blueprint |
-| `carpenter` | craft | Prose construction from blueprint |
-| `judge` | quality | 5 detection passes with consolidated report |
-| `quality-rubric` | quality | 10-dimension scoring with phase-rework routing |
+| Skill | Domain | What It Does |
+|-------|--------|-------------|
+| `madman` | generation | Generates 3-5x raw material from human-seeded topics across 8 dimensions. Quantity over quality. |
+| `whirlybird` | structure | Produces nonlinear Mermaid mindmaps. Human selects and combines branches into a working outline. |
+| `architect` | structure | Builds a throughline and section blueprint from the chosen outline. Human leads structural decisions. |
+| `carpenter` | craft | Constructs full prose from the blueprint. Human spot-checks voice, tone, and accuracy. |
+| `judge` | quality | Runs 5 editing passes (AI voice, Strunk & White, readability, consistency, SEO). Human approves changes before any edits. |
+| `quality-rubric` | quality | Scores across 10 dimensions (1-5 scale). Routes any dimension below 4 back to the responsible phase for targeted rework. |
 
 ### Cross-Cutting
 
-| Skill | Domain | Role |
-|-------|--------|------|
-| `seo-writer` | seo | SEO integration across Architect/Carpenter/Judge |
+| Skill | Domain | What It Does |
+|-------|--------|-------------|
+| `seo-writer` | seo | Integrates during Architect (keyword mapping), Carpenter (natural placement), and Judge (validation). Not a post-draft bolt-on. |
 
 ### Outer Loop (Multi-Article)
 
-| Skill | Domain | Role |
-|-------|--------|------|
-| `research-intake` | research | Source ingestion and gap analysis |
-| `content-strategist` | strategy | Domain mapping and content planning |
-| `knowledge-harvester` | research | Vault capture and feedback loop |
+| Skill | Domain | What It Does |
+|-------|--------|-------------|
+| `research-intake` | research | Ingests sources into structured research notes and identifies gaps in coverage. |
+| `content-strategist` | strategy | Maps a domain into a multi-article content plan with prioritized topics and linking strategy. |
+| `knowledge-harvester` | research | Captures insights from completed articles back into the research vault for future use. |
 
 ---
 
@@ -131,7 +148,7 @@ Each skill loads in two tiers:
 - **Tier 1 (SKILL.md):** ~80-100 lines with role, triggers, workflow, constraints, routing table
 - **Tier 2 (references/):** Detailed procedural content loaded only when context requires
 
-This reduces initial token usage by ~50%.
+This reduces initial token usage by ~50%. In practice, each skill conversation starts with ~80-100 lines instead of 400+, preserving your context window for actual content.
 
 ---
 
