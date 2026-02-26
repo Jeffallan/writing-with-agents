@@ -52,6 +52,8 @@ git clone https://github.com/Jeffallan/writing-with-agents.git
 claude install ./writing-with-agents
 ```
 
+**Full documentation:** [jeffallan.github.io/writing-with-agents](https://jeffallan.github.io/writing-with-agents)
+
 ---
 
 ## Quick Start

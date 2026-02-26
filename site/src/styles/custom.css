@@ -1,0 +1,55 @@
+/* Indigo theme matching the README capsule-render banner (#4B0082 → #6A5ACD) */
+
+:root {
+  --sl-color-accent-low: #e0e7ff;
+  --sl-color-accent: #4f46e5;
+  --sl-color-accent-high: #312e81;
+  --sl-color-white: #1a1a2e;
+  --sl-color-gray-1: #3d3d5c;
+  --sl-color-gray-2: #53536e;
+  --sl-color-gray-3: #8888a0;
+  --sl-color-gray-4: #b8b8cc;
+  --sl-color-gray-5: #d4d4e0;
+  --sl-color-gray-6: #ededf4;
+  --sl-color-black: #fafafe;
+}
+
+:root[data-theme='dark'] {
+  --sl-color-accent-low: #1e1b4b;
+  --sl-color-accent: #818cf8;
+  --sl-color-accent-high: #c7d2fe;
+  --sl-color-white: #fafafe;
+  --sl-color-gray-1: #ededf4;
+  --sl-color-gray-2: #d4d4e0;
+  --sl-color-gray-3: #8888a0;
+  --sl-color-gray-4: #53536e;
+  --sl-color-gray-5: #3d3d5c;
+  --sl-color-gray-6: #1a1a2e;
+  --sl-color-black: #0f0f1a;
+}
+
+/* Gradient accent bar under site header — indigo to slate-blue */
+header.header {
+  border-bottom: 2px solid transparent;
+  border-image: linear-gradient(90deg, #4b0082, #4f46e5, #6366f1, #6a5acd) 1;
+}
+
+/* Skill metadata tables: tighter layout */
+.sl-markdown-content table:first-of-type {
+  margin-top: 0.5rem;
+}
+
+/* Mermaid diagrams */
+.mermaid {
+  margin: 1.5rem 0;
+  text-align: center;
+  background: var(--sl-color-gray-6);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  overflow-x: auto;
+}
+
+.mermaid svg {
+  max-width: 100%;
+  height: auto;
+}
