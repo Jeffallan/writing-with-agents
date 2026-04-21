@@ -443,13 +443,17 @@ Separate brainstorming, structuring, and editing into distinct AI-assisted phase
 
 ## Quick Install
 
-\`\`\`bash
-claude install /path/to/writing-with-agents
+Inside Claude Code, add this repo as a plugin marketplace and install:
+
+\`\`\`
+/plugin marketplace add Jeffallan/writing-with-agents
+/plugin install writing-with-agents@Jeffallan/writing-with-agents
 \`\`\`
 
+Or via [skills.sh](https://skills.sh):
+
 \`\`\`bash
-git clone https://github.com/Jeffallan/writing-with-agents.git
-claude install ./writing-with-agents
+npx skills add Jeffallan/writing-with-agents
 \`\`\`
 
 ## Stats

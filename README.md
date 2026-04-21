@@ -41,16 +41,24 @@ This is the **collaborative oscillation model**: not AI-only automation, not hum
 
 ## Installation
 
-```bash
-claude install /path/to/writing-with-agents
+### Option 1: Claude Code plugin marketplace (native)
+
+Inside Claude Code, add this repo as a plugin marketplace and install the plugin:
+
+```
+/plugin marketplace add Jeffallan/writing-with-agents
+/plugin install writing-with-agents@Jeffallan/writing-with-agents
 ```
 
-Or clone and install:
+If you're already in a session, run `/reload-plugins` to activate.
+
+### Option 2: skills.sh via npx
 
 ```bash
-git clone https://github.com/Jeffallan/writing-with-agents.git
-claude install ./writing-with-agents
+npx skills add Jeffallan/writing-with-agents
 ```
+
+Add `-g` to install globally across all projects.
 
 **Full documentation:** [jeffallan.github.io/writing-with-agents](https://jeffallan.github.io/writing-with-agents)
 
