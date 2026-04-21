@@ -36,9 +36,16 @@ The Judge does not rewrite. If a detection pass reveals structural problems -- a
 
 ## Core Workflow
 
-**Step 1: Receive Complete Draft from Carpenter Phase**
+**Step 1: Receive Draft, Edit Copy, and Blueprint**
 
-Read the full draft and the original Architect blueprint. Confirm with the human that the draft has been spot-checked and is ready for Judge review. Do not begin detection passes on a draft that has not been through human spot-check.
+Read three inputs: the preservation draft (`draft-N.md`), the marked-up edit copy (`draft-N-human-edits.md`), and the original Architect blueprint. Confirm with the human that routing to the Judge has been approved (per the Carpenter's routing step; structural edits belong to the Architect, not here).
+
+Parse the edit copy to extract two user-originated signal types:
+
+- **Auto-propagate:** strikethroughs (`~~text~~`) and direct inline rewrites. These are user directives — apply unconditionally without asking.
+- **Resolve:** bracketed commentary (`[text]`) — questions, alternative phrasings, direction for the AI. For each bracket, draft a proposed resolution to present alongside the detection findings later.
+
+The third signal type, Judge detection findings, is produced by Steps 2 and 3.
 
 **Step 2: Run Detection Passes in Order**
 
@@ -50,17 +57,40 @@ Execute all five passes in sequence. Each pass builds on the context of prior pa
 4. **Consistency Audit** -- Cross-document checks. Catches terminology drift, tone shifts, formatting inconsistencies, and number/date format mismatches. See `references/consistency-audit.md`.
 5. **SEO Validation** -- Only when the Architect blueprint includes SEO requirements. Checks keyword placement, meta description, heading structure, and internal linking. Skip this pass entirely for non-SEO content.
 
-**Step 3: Consolidate Findings into a Single Report**
+**Step 3: Consolidate All Three Signal Types into One Report**
 
-Merge all pass results into one report grouped by severity: must-fix issues and review-and-decide issues. Include a metrics summary. See `references/judge-consolidated-report.md` for the report format.
+Merge the user's edits and the detection pass results into a single consolidated report with three sections:
 
-**Step 4: Present Report to Human for Decision**
+- **Auto-propagate** — list every strikethrough and direct rewrite the user made. These apply unconditionally; the list exists for transparency, not for approval.
+- **Brackets to resolve** — each bracketed comment from the edit copy, paired with the Judge's proposed resolution.
+- **Detection findings** — output of the 5 passes, grouped by severity (must-fix / review-and-decide), with the metrics summary.
 
-Deliver the full report. Do not make any changes to the draft yet. The human reviews each finding and decides which to accept, reject, or modify. Wait for explicit approval before proceeding.
+See `references/judge-consolidated-report.md` for the report format.
 
-**Step 5: Implement Approved Changes and Deliver Polished Piece**
+**Step 4: Present Report and Route via a Single AskUserQuestion**
 
-Apply only the changes the human approved. Do not sneak in additional edits. After applying changes, run a quick verification pass to confirm no new issues were introduced. Deliver the polished piece with a summary of changes made.
+Deliver the full report. Do not make any changes to the draft yet. Use a single `AskUserQuestion` call covering every decision at once:
+
+- For each bracket: accept, modify, or reject the Judge's proposed resolution.
+- For each review-and-decide detection finding: apply or skip.
+- **Routing choice:** full Carpenter rebuild or light polish.
+
+Routing criteria:
+
+- **Full Carpenter rebuild** — edits are substantial though not structural (multiple paragraphs rewritten, running threads added, significant tonal shifts). Rebuilding prose from the outline is cleaner than patching.
+- **Light polish** — edits are minor (grammar, word choice, small rephrasing within the existing structure). The Judge applies them inline.
+
+Wait for explicit approval on every decision before proceeding.
+
+**Step 5: Execute the Routing Decision**
+
+Bundle the approved items into one set: auto-propagated edits (unconditionally) + accepted bracket resolutions + accepted detection findings. Then branch on the routing decision.
+
+**If routing = full Carpenter rebuild:** Hand off the approved bundle to the Carpenter. The Carpenter integrates all approved items into a fresh draft built from the existing outline. Output: `draft-N+1.md` + `draft-N+1-human-edits.md` (draft lineage continues, counter increments). Do not apply edits inline — the Carpenter owns reconstruction.
+
+**If routing = light polish:** Apply the approved bundle inline to the preservation draft. Run a quick verification pass to confirm no new issues were introduced. Output: `final-draft-X.md` + `final-draft-X-human-edits.md`, where `X` starts a new counter at 1 the first time the light-polish route is taken for this piece. Subsequent human edits on `final-draft-X-human-edits.md` return to the Judge (not the Carpenter), producing `final-draft-X+1.md` + `final-draft-X+1-human-edits.md` until the user is satisfied.
+
+For either path, tell the user explicitly which file is the edit copy: **"Edit `[name]-human-edits.md`. The original is preserved in `[name].md`."**
 
 ## Reference Guide
 
@@ -77,10 +107,14 @@ Apply only the changes the human approved. Do not sneak in additional edits. Aft
 **MUST DO:**
 
 - Run all five detection passes in order (skip SEO only if not applicable).
-- Present all findings to the human before making any changes to the draft.
-- Group findings by severity: must-fix vs. review-and-decide.
+- Parse the marked-up edit copy and classify every mark into auto-propagate, resolve, or out-of-scope before running detection passes.
+- Present all three signal types (auto-propagate, brackets, detection findings) in a single consolidated report.
+- Use a single `AskUserQuestion` call covering every decision at once: bracket resolutions, review-and-decide findings, and the full-rebuild-vs-light-polish routing choice.
+- Group detection findings by severity: must-fix vs. review-and-decide.
 - Flag structural problems and route them back to the Architect or Carpenter.
-- Implement only the changes the human explicitly approves.
+- Apply auto-propagate items (strikethroughs and direct rewrites) unconditionally; do not ask the user to confirm directives they have already issued.
+- Implement only the bracket resolutions and detection findings the human explicitly approves.
+- Deliver every final draft as two files: `final-draft-X.md` (preservation copy, never edited) and `final-draft-X-human-edits.md` (edit copy). Tell the user which file to edit. `X` starts a new counter at 1 the first time the light-polish route is taken.
 
 **MUST NOT DO:**
 
@@ -90,20 +124,57 @@ Apply only the changes the human approved. Do not sneak in additional edits. Aft
 - Combine detection and editing into one step. Detect first, then edit after approval.
 - Add new content. The Judge refines what exists; it does not generate new material.
 
+## Handling Fool Output
+
+When `the-fool` skill has produced criticism and the routing decision sent tonal-only revisions to the Judge, incorporate the Fool's findings alongside the five detection passes during aggregation. Treat Fool tonal items (word swaps, register adjustments, softening absolutes) as additional candidates in the consolidated report — the human still decides which to accept.
+
+Reject Fool output that contains structural revisions (scoping, reframing, adding evidence, repositioning arguments, new sections). Structural changes belong to the Architect. Route the structural items back and proceed with only the tonal remainder.
+
+If `the-fool` is not present in the available skills list, recommend the user install it from <https://github.com/Jeffallan/claude-skills/tree/main/skills/the-fool> (part of the `fullstack-dev-skills` plugin).
+
+## Output Frontmatter
+
+Every Judge artifact opens with YAML frontmatter so downstream phases can trace provenance:
+
+```yaml
+---
+type: judge-report
+version: N
+parent: draft-<N>.md
+---
+```
+
+`type` values:
+- `judge-report` — the detection findings document (parent is the draft that was evaluated)
+- `final-draft` — the polished piece (light-polish route); parent is the most recent draft
+- `final-draft-human-edits` — the edit copy of a final draft; parent is the corresponding `final-draft-<N>.md`
+
+Increment `version` per Judge iteration within the same draft lineage.
+
 ## Output Templates
 
-**Judge Detection Report**
+**Judge Consolidated Report**
 
 ```
-# Judge Detection Report: [Article Title]
+# Judge Consolidated Report: [Article Title]
 
-## Must-Fix Issues
-[Issue]: [Location] -- [Explanation]
+## Auto-Propagate (user directives, applied unconditionally)
+[Strikethrough at location]: [what was cut]
+[Direct rewrite at location]: [before] → [after]
+
+## Brackets to Resolve (user commentary + Judge proposed resolutions)
+[Bracket location]: "[user text]"
+  Proposed resolution: [Judge's draft resolution]
+  Decision: accept / modify / reject?
+
+## Detection Findings
+
+### Must-Fix Issues
 [Issue]: [Location] -- [Explanation]
 
-## Review-and-Decide Issues
+### Review-and-Decide Issues
 [Issue]: [Location] -- [Explanation and recommendation]
-[Issue]: [Location] -- [Explanation and recommendation]
+  Decision: apply / skip?
 
 ## Metrics Summary
 - Word count: [n]
@@ -117,18 +188,45 @@ Apply only the changes the human approved. Do not sneak in additional edits. Aft
 - [ ] Primary keyword in first 100 words
 - [ ] Meta description within character limit
 - [ ] Heading hierarchy valid
+
+## Routing Recommendation
+[Full Carpenter rebuild / Light polish] -- [one-sentence reasoning]
 ```
 
-**Post-Edit Summary**
+Pair this report with an `AskUserQuestion` call covering bracket decisions, review-and-decide decisions, and the routing choice.
+
+**Post-Edit Summary (Light Polish route)**
 
 ```
-## Judge Edit Complete
+## Judge Light Polish Complete
 
-Changes applied: [count]
-Changes declined by human: [count]
+Files written:
+  - final-draft-X.md              (preservation copy, do not edit)
+  - final-draft-X-human-edits.md  (edit copy — mark up this one)
+
+Auto-propagated: [count]
+Brackets resolved: [count accepted] / [count total]
+Detection findings applied: [count accepted] / [count total]
 Structural issues routed back: [list, if any]
 Final word count: [n]
-Ready for: Publication
+Ready for: Further light-polish pass through Judge, or publication
+```
+
+**Post-Edit Summary (Full Carpenter Rebuild route)**
+
+```
+## Judge → Carpenter Handoff
+
+Approved items bundled for rebuild:
+  - Auto-propagate: [count]
+  - Bracket resolutions accepted: [count]
+  - Detection findings accepted: [count]
+
+Carpenter will output:
+  - draft-N+1.md
+  - draft-N+1-human-edits.md
+
+Outline used: outline-N.md (unchanged)
 ```
 
 ## Knowledge Reference

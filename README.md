@@ -7,7 +7,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/version-0.1.0-blue.svg" alt="Version" />
+  <img src="https://img.shields.io/badge/version-0.2.0-blue.svg" alt="Version" />
   <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" />
   <img src="https://img.shields.io/badge/Claude%20Code-Plugin-blueviolet.svg" alt="Claude Code Plugin" />
   <a href="https://github.com/Jeffallan/writing-with-agents/stargazers"><img src="https://img.shields.io/github/stars/Jeffallan/writing-with-agents" alt="GitHub Stars" /></a>

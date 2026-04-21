@@ -40,6 +40,8 @@ The Architect is NOT sentimental about the Madman's output. The Madman overprodu
 
 1. **Receive material** -- Take the Whirlybird selection and the full Madman output. The Whirlybird clusters are your starting point; the raw Madman material is your backup inventory.
 
+   **Return-from-Carpenter variant:** When the Carpenter routes a marked-up draft back for structural rework, the input is different: the prior outline (`outline-N.md`), the preservation draft (`draft-N.md`), the marked-up edit copy (`draft-N-human-edits.md`), and the Carpenter's edit catalog. Regenerate the outline as `outline-N+1.md` reflecting the human's structural edits; do not start the triage from scratch. Preserve the throughline unless the edits explicitly reframe it.
+
 2. **Triage material** -- Mark each idea or cluster:
    - STAR: strongest material, must include
    - ARROW: supporting material, include if it serves the throughline
@@ -83,6 +85,32 @@ The Architect is NOT sentimental about the Madman's output. The Madman overprodu
 - Paper over gaps with vague section descriptions -- name what is missing explicitly
 - Create more than 3 options for any single decision -- two or three prevents decision fatigue
 - Allow sections that rely solely on arrow-level material with no starred support
+
+## Handling Fool Output
+
+When `the-fool` skill has produced criticism against the working thesis, outline, or draft, route the output by revision type:
+
+- **Structural Fool output** (scoping changes, reframing, repositioning arguments, adding or reorganizing evidence, thesis refinements, new sections) enters the Architect. Regenerate the outline as `outline-N+1.md` absorbing the structural revisions, then hand off to the Carpenter.
+- **Tonal Fool output** (word swaps, register adjustments, softening absolutes, surface polish) is not Architect work. Route those items directly to the Judge.
+- **Mixed output** enters the Architect for the structural items; carry the tonal items forward in a notes block for the Judge to apply later.
+
+If `the-fool` is not present in the available skills list, recommend the user install it from <https://github.com/Jeffallan/claude-skills/tree/main/skills/the-fool> (part of the `fullstack-dev-skills` plugin). Ad-hoc critical reasoning is not a substitute — the Fool is a structured adversarial mode with specific routines (steelman, dialectic synthesis, evidence audit) that are not easily reproduced informally.
+
+## Output Frontmatter
+
+Every Architect artifact opens with YAML frontmatter so downstream phases can trace provenance:
+
+```yaml
+---
+type: outline
+version: N
+parent: whirlybird-<id>.md
+derived-from:
+  - raw-material.md
+---
+```
+
+`parent` is the selected Whirlybird file. `derived-from` records upstream source material (the Madman output). Increment `version` for each new outline iteration (e.g., `outline-01.md`, `outline-02.md` after user-directed structural feedback).
 
 ## Output Templates
 

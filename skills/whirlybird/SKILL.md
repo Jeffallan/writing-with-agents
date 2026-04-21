@@ -40,7 +40,7 @@ Priority is not assigned during this phase. It is discovered afterward by examin
 
 ## Core Workflow
 
-1. **Receive Madman output** -- Take the raw material dump from the Madman phase. Scan for recurring themes, candidate arguments, key evidence clusters, and natural groupings. If no Madman output exists, ask the human for the topic and raw ideas before proceeding.
+1. **Receive Madman output** -- Take the raw material dump from the Madman phase. Scan for recurring themes, candidate arguments, key evidence clusters, and natural groupings. If no Madman output exists, ask the human for the topic and raw ideas before proceeding. If a Fool stress-test was run between Madman and Whirlybird, absorb the refined thesis and any surfaced weaknesses into the scan — the centers of gravity you identify should reflect the stress-tested thesis, not the pre-Fool version.
 
 2. **Identify 2-3 candidate centers of gravity** -- Each center reframes the same material through a different lens or emphasis. A center of gravity is not a title -- it is the idea everything else orbits. Different centers produce different articles from identical raw material.
 
@@ -85,6 +85,20 @@ Priority is not assigned during this phase. It is discovered afterward by examin
 - Present whirlybird options without clear labels distinguishing each center of gravity
 - Nest branches more than two levels deep -- the mindmap is a spatial overview, not a hierarchical outline
 - Duplicate feather labels across different branches within the same whirlybird
+
+## Output Frontmatter
+
+Every Whirlybird artifact opens with YAML frontmatter so downstream phases can trace provenance:
+
+```yaml
+---
+type: whirlybird
+version: N
+parent: raw-material.md
+---
+```
+
+Write one file per option (e.g., `whirlybird-a-<slug>.md`, `whirlybird-b-<slug>.md`). `parent` points to the Madman output. Omit `derived-from` when it is identical to `parent`.
 
 ## Output Templates
 

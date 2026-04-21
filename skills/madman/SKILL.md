@@ -52,6 +52,8 @@ The Judge is NOT INVITED to this phase. There is no evaluation, no filtering, no
 
 5. **Present raw material dump** -- Deliver the full unfiltered output to the human for review. The human selects what resonates and what to discard before moving to the Whirlybird phase.
 
+6. **Recommend a Thesis Stress-Test Before Whirlybird** -- Before the human proceeds to structural work, suggest invoking `the-fool` skill against the working thesis. Dialectic synthesis and evidence audit at this stage surface weaknesses while the piece is still malleable — before any structural commitment is made. This step is recommended (not required) and is most valuable for argument-driven or long-form pieces. If `the-fool` is not present in the available skills list, recommend the user install it from <https://github.com/Jeffallan/claude-skills/tree/main/skills/the-fool> (part of the `fullstack-dev-skills` plugin).
+
 ## Reference Guide
 
 | Topic | Reference | Load When |
@@ -86,6 +88,19 @@ The Judge is NOT INVITED to this phase. There is no evaluation, no filtering, no
 - Default to safe, predictable takes when the human's seed invites bold exploration
 - Combine generation and organization in the same pass -- raw material must stay raw
 - Present material in outline form -- bullet dumps and paragraph fragments are the correct format
+
+## Output Frontmatter
+
+Every Madman artifact opens with YAML frontmatter so downstream phases can trace provenance:
+
+```yaml
+---
+type: raw-material
+version: N
+---
+```
+
+Madman starts the chain, so `parent` and `derived-from` are omitted. Increment `version` only if the Madman is re-run after human feedback.
 
 ## Output Template
 

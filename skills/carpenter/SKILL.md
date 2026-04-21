@@ -45,9 +45,15 @@ Think of it as framing a house. The Architect drew the plans. The Carpenter cuts
 
 4. **Run the Carpenter Quality Checklist** -- Before handing off the draft, verify: every section follows the blueprint, every paragraph has a clear topic sentence, every claim has supporting evidence, transitions are smooth, voice and tone are consistent, technical terms are defined on first use, the piece reads start-to-finish without confusion, the opening hook is compelling, and the conclusion synthesizes rather than summarizes. See `references/carpenter-process.md` for the full checklist.
 
-5. **Deliver the Complete Draft** -- Hand the finished draft to the human for a spot-check before the Judge phase. Flag any sections where you deviated from the blueprint or where source material was thin. The human reviews for voice accuracy and factual correctness, then either approves for Judge review or returns specific sections for revision.
+5. **Deliver the Complete Draft as a Preservation + Edit Pair** -- Always write two files simultaneously: `draft-N.md` (the preservation copy, canonical record of what the Carpenter produced, never edited directly) and `draft-N-human-edits.md` (the edit copy the human marks up). Tell the user explicitly: **"Edit `draft-N-human-edits.md`. The original is preserved in `draft-N.md`."** Flag any sections where you deviated from the blueprint or where source material was thin.
 
-6. **Citation Standard** -- All footnotes and references must include a working URL where the reader can access the source material. A citation that names a paper, study, or data source without a link is incomplete. Format: `[^N]: Author/Source (Year). "Title." *Publication*. URL`. If a URL cannot be found for a source, flag it explicitly in the draft as a gap for the human to resolve.
+6. **Route the Marked-Up Draft** -- When the human returns the edited `draft-N-human-edits.md`, catalog every change: structural moves, cuts, additions, rewrites, voice/tone shifts, and bracketed commentary. Use `AskUserQuestion` to confirm the routing destination before acting:
+   - **Return to Architect** -- the edits are structural (sections reordered, cut, or added; thesis reframed; voice changed; running threads introduced). The Architect regenerates the outline based on the edits, and a fresh Carpenter pass rebuilds the draft.
+   - **Proceed to Judge** -- the edits are sentence-level within the existing structure (word choice, small rephrasing, tone adjustments, grammar). The Judge takes over from here.
+
+   Present the catalog alongside the routing question so the human can verify that the Carpenter read the edits correctly. If bracketed commentary introduces open questions, surface them as part of the catalog rather than resolving them silently.
+
+7. **Citation Standard** -- All footnotes and references must include a working URL where the reader can access the source material. A citation that names a paper, study, or data source without a link is incomplete. Format: `[^N]: Author/Source (Year). "Title." *Publication*. URL`. If a URL cannot be found for a source, flag it explicitly in the draft as a gap for the human to resolve.
 
 ## Reference Guide
 
@@ -67,6 +73,8 @@ Think of it as framing a house. The Architect drew the plans. The Carpenter cuts
 - Define technical terms on first use.
 - Provide evidence or examples for every claim.
 - Flag deviations from the blueprint when they are unavoidable.
+- Deliver every draft as two files: `draft-N.md` (preservation copy, never edited) and `draft-N-human-edits.md` (edit copy). Tell the user which file to edit.
+- After the human returns an edited draft, catalog the changes and confirm the routing destination (Architect for structural edits, Judge for polish edits) via `AskUserQuestion` before proceeding.
 - Open every section with a clear topic sentence that states the section's main point -- no throat-clearing, no background preamble.
 - Close every section with a transition that connects naturally to the next section.
 - Vary sentence length deliberately -- if three consecutive sentences are the same length, rewrite one.
@@ -88,6 +96,23 @@ Think of it as framing a house. The Architect drew the plans. The Carpenter cuts
 - Begin sentences with "And" or "But" unless the user explicitly permits it. Rewrite to connect the idea differently.
 - Allow unintentional alliteration. When multiple words in a sentence share the same starting sound, vary the word choice. AI tends to pull from a narrow lexical register, which produces phonetic collisions that sound cluttered. Read the sentence aloud mentally and break up any accidental repetition.
 
+## Output Frontmatter
+
+Every Carpenter artifact opens with YAML frontmatter so downstream phases can trace provenance:
+
+```yaml
+---
+type: draft
+version: N
+parent: outline-<N>.md
+derived-from:
+  - whirlybird-<id>.md
+  - raw-material.md
+---
+```
+
+For the edit copy (see the preservation/edit pair convention), use `type: draft-human-edits` and set `parent` to the corresponding `draft-<N>.md`. Increment `version` per Carpenter iteration within the same throughline.
+
 ## Output Templates
 
 **Section Draft Block**
@@ -107,11 +132,38 @@ Think of it as framing a house. The Architect drew the plans. The Carpenter cuts
 ```
 ## Carpenter Draft Complete
 
+Files written:
+  - draft-N.md              (preservation copy, do not edit)
+  - draft-N-human-edits.md  (edit copy — mark up this one)
+
 Sections built: [count]
 Blueprint followed: Yes / No (explain deviations)
 Flagged sections: [list any sections needing human attention]
 Ready for: Human spot-check, then Judge phase
 ```
+
+**Edit Pass Catalog + Routing Prompt** (when the human returns an edited draft)
+
+```
+## Edit Pass Cataloged
+
+Structural changes:
+  - [sections moved, cut, or added]
+  - [thesis or throughline shifts]
+  - [voice or POV changes]
+
+Content changes:
+  - [sentence rewrites, tone adjustments]
+  - [bracketed commentary requiring AI input]
+
+Open questions from bracketed commentary:
+  - [questions the human raised that need resolution]
+
+Recommended routing: [Architect / Judge]
+Reasoning: [why this destination matches the edit profile]
+```
+
+Pair this catalog with an `AskUserQuestion` call offering both routes explicitly.
 
 **Structural Problem Report** (when returning issues to the Architect)
 
