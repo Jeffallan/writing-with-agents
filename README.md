@@ -199,13 +199,23 @@ writing-with-agents/
 
 ---
 
+## Author
+
+Built by [**jeffallan**](https://jeffallan.github.io) [<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" width="16" height="16" alt="LinkedIn"/>](https://www.linkedin.com/in/jeff-smolinski/)
+
+**Principal Consultant** at [**Synergetic Solutions**](https://synergetic.solutions) [<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" width="16" height="16" alt="LinkedIn"/>](https://www.linkedin.com/company/synergetic-holdings)
+
+Fullstack engineering, security engineering, compliance, and technical due diligence.
+
+---
+
 ## Attribution
 
 Based on Betty S. Flowers' "Madman, Architect, Carpenter, Judge: Roles and the Writing Process" (*Language Arts*, Vol. 58, No. 7, October 1981). Extended with Bryan Garner's whirlybird technique from *The Winning Brief*.
 
-Collaborative oscillation model developed through dialectic conversation between Jeff (Synergetic Solutions) and Claude (Anthropic).
+Collaborative oscillation model developed through dialectic conversation between the maintainer ([@jeffallan](https://github.com/jeffallan)) and Claude (Anthropic).
 
-Plugin structure adapted from [fullstack-dev-skills](https://github.com/jeffallan/claude-skills) by Jeff Allan (@jeffallan).
+Plugin structure adapted from [fullstack-dev-skills](https://github.com/jeffallan/claude-skills) by [@jeffallan](https://github.com/jeffallan).
 
 ---
 

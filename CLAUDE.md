@@ -118,6 +118,6 @@ Based on Betty S. Flowers' "Madman, Architect, Carpenter, Judge" framework (1981
 extended with Bryan Garner's whirlybird technique from *The Winning Brief*.
 
 Collaborative oscillation model developed through dialectic conversation between
-Jeff (Synergetic Solutions) and Claude.
+the maintainer ([@jeffallan](https://github.com/jeffallan)) and Claude.
 
-Plugin structure adapted from [fullstack-dev-skills](https://github.com/jeffallan/claude-skills) by Jeff Allan.
+Plugin structure adapted from [fullstack-dev-skills](https://github.com/jeffallan/claude-skills) by [@jeffallan](https://github.com/jeffallan).
