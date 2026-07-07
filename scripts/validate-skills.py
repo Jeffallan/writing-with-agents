@@ -1677,9 +1677,11 @@ class SkillValidator:
             print(f"Error: Skills directory not found: {self.skills_dir}")
             sys.exit(1)
 
+        # Directories prefixed with "_" (e.g. _shared) hold assets shared across
+        # skills, not skills themselves. Skip them; they have no SKILL.md.
         skill_dirs = sorted([
             d for d in self.skills_dir.iterdir()
-            if d.is_dir() and not d.name.startswith(".")
+            if d.is_dir() and not d.name.startswith((".", "_"))
         ])
 
         # Filter to specific skill if requested
