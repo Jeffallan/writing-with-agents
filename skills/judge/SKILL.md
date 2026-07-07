@@ -40,7 +40,7 @@ The Judge does not rewrite. If a detection pass reveals structural problems -- a
 
 Read three inputs: the preservation draft (`draft-N.md`), the marked-up edit copy (`draft-N-human-edits.md`), and the original Architect blueprint. Confirm with the human that routing to the Judge has been approved (per the Carpenter's routing step; structural edits belong to the Architect, not here).
 
-Parse the edit copy to extract two user-originated signal types:
+Parse the edit copy to extract two user-originated signal types (canonical definitions in `../_shared/markup-convention.md`):
 
 - **Auto-propagate:** strikethroughs (`~~text~~`) and direct inline rewrites. These are user directives — apply unconditionally without asking.
 - **Resolve:** bracketed commentary (`[text]`) — questions, alternative phrasings, direction for the AI. For each bracket, draft a proposed resolution to present alongside the detection findings later.
@@ -101,6 +101,7 @@ For either path, tell the user explicitly which file is the edit copy: **"Edit `
 | Readability Scoring | `references/readability-scoring.md` | Pass 3: Flesch-Kincaid, sentence/paragraph stats |
 | Consistency Audit | `references/consistency-audit.md` | Pass 4: terminology, tone, formatting checks |
 | Consolidated Report | `references/judge-consolidated-report.md` | Unified report format with severity grouping |
+| Markup Convention | `../_shared/markup-convention.md` | Step 1: parsing strikethroughs, brackets, and rewrites from the edit copy |
 
 ## Constraints
 

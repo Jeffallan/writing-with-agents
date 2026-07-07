@@ -45,7 +45,7 @@ Think of it as framing a house. The Architect drew the plans. The Carpenter cuts
 
 4. **Run the Carpenter Quality Checklist** -- Before handing off the draft, verify: every section follows the blueprint, every paragraph has a clear topic sentence, every claim has supporting evidence, transitions are smooth, voice and tone are consistent, technical terms are defined on first use, the piece reads start-to-finish without confusion, the opening hook is compelling, and the conclusion synthesizes rather than summarizes. See `references/carpenter-process.md` for the full checklist.
 
-5. **Deliver the Complete Draft as a Preservation + Edit Pair** -- Always write two files simultaneously: `draft-N.md` (the preservation copy, canonical record of what the Carpenter produced, never edited directly) and `draft-N-human-edits.md` (the edit copy the human marks up). Tell the user explicitly: **"Edit `draft-N-human-edits.md`. The original is preserved in `draft-N.md`."** Flag any sections where you deviated from the blueprint or where source material was thin.
+5. **Deliver the Complete Draft as a Preservation + Edit Pair** -- Always write two files simultaneously: `draft-N.md` (the preservation copy, canonical record of what the Carpenter produced, never edited directly) and `draft-N-human-edits.md` (the edit copy the human marks up). Tell the user explicitly: **"Edit `draft-N-human-edits.md`. The original is preserved in `draft-N.md`."** Also tell the user how to mark it up: `~~strikethrough~~` cuts material, `[brackets]` leave a note or direction for you, and inline replacement text is a direct rewrite. See `../_shared/markup-convention.md` for the canonical definition. Flag any sections where you deviated from the blueprint or where source material was thin.
 
 6. **Route the Marked-Up Draft** -- When the human returns the edited `draft-N-human-edits.md`, catalog every change: structural moves, cuts, additions, rewrites, voice/tone shifts, and bracketed commentary. Use `AskUserQuestion` to confirm the routing destination before acting:
    - **Return to Architect** -- the edits are structural (sections reordered, cut, or added; thesis reframed; voice changed; running threads introduced). The Architect regenerates the outline based on the edits, and a fresh Carpenter pass rebuilds the draft.
@@ -62,6 +62,7 @@ Think of it as framing a house. The Architect drew the plans. The Carpenter cuts
 | Construction Process | `references/carpenter-process.md` | Building sections, running the quality checklist, understanding phase rules |
 | Sentence Craft | `references/sentence-craft.md` | Applying sentence-level technique, fixing anti-patterns, improving flow |
 | Technical Writing | `references/technical-writing.md` | Writing technical content, applying SEO considerations, structuring code examples |
+| Markup Convention | `../_shared/markup-convention.md` | Delivering the edit copy, telling the user how to mark it up, cataloging returned marks |
 
 ## Constraints
 
