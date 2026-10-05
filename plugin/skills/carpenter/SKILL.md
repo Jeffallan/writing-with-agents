@@ -64,6 +64,7 @@ Think of it as framing a house. The Architect drew the plans. The Carpenter cuts
 | Sentence Craft | `references/sentence-craft.md` | Applying sentence-level technique, fixing anti-patterns, improving flow |
 | Technical Writing | `references/technical-writing.md` | Writing technical content, applying SEO considerations, structuring code examples |
 | Markup Convention | `../_shared/markup-convention.md` | Delivering the edit copy, telling the user how to mark it up, cataloging returned marks |
+| Handoff Templates | `references/carpenter-handoff.md` | Steps 5-6: delivering the draft, cataloging edits and routing, reporting structural problems |
 
 ## Constraints
 
@@ -129,58 +130,11 @@ For the edit copy (see the preservation/edit pair convention), use `type: draft-
 [Transition sentence connecting to the next section.]
 ```
 
-**Draft Handoff Summary**
-
-```
-## Carpenter Draft Complete
-
-Files written:
-  - draft-N.md              (preservation copy, do not edit)
-  - draft-N-human-edits.md  (edit copy — mark up this one)
-
-Sections built: [count]
-Blueprint followed: Yes / No (explain deviations)
-Flagged sections: [list any sections needing human attention]
-Ready for: Human spot-check, then Judge phase
-```
-
-**Edit Pass Catalog + Routing Prompt** (when the human returns an edited draft)
-
-```
-## Edit Pass Cataloged
-
-Structural changes:
-  - [sections moved, cut, or added]
-  - [thesis or throughline shifts]
-  - [voice or POV changes]
-
-Content changes:
-  - [sentence rewrites, tone adjustments]
-  - [bracketed commentary requiring AI input]
-
-Open questions from bracketed commentary:
-  - [questions the human raised that need resolution]
-
-Recommended routing: [Architect / Judge]
-Reasoning: [why this destination matches the edit profile]
-```
-
-Pair this catalog with an `AskUserQuestion` call offering both routes explicitly.
-
-**Structural Problem Report** (when returning issues to the Architect)
-
-```
-## Structural Problem Identified
-
-Section affected: [section title]
-Problem: [impossible transition / insufficient material / duplicate argument / other]
-Description: [specific details of what broke during construction]
-Suggested resolution: [optional -- the Architect decides, but the Carpenter can note observations]
-```
+**Handoff templates:** the Draft Handoff Summary (Step 5), the Edit Pass Catalog and routing prompt (Step 6), and the Structural Problem Report are in `references/carpenter-handoff.md`.
 
 ## Knowledge Reference
 
-The Carpenter skill draws on three reference documents that contain detailed technique and process guidance. Read each reference before beginning construction. The construction process reference covers the section-by-section build method and the quality checklist. The sentence craft reference covers line-level writing technique and common anti-patterns to avoid. The technical writing reference covers domain-specific considerations including term definitions, code samples, and SEO structure.
+The Carpenter skill draws on four reference documents that contain detailed technique, process, and handoff guidance. Read the first three before beginning construction. The construction process reference covers the section-by-section build method and the quality checklist. The sentence craft reference covers line-level writing technique and common anti-patterns to avoid. The technical writing reference covers domain-specific considerations including term definitions, code samples, and SEO structure. The handoff reference holds the templates for delivering a draft, cataloging and routing a returned edit pass, and reporting structural problems.
 
 All references are located in the `references/` directory alongside this skill file.
 

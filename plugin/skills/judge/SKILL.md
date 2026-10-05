@@ -101,8 +101,9 @@ For either path, tell the user explicitly which file is the edit copy: **"Edit `
 | Strunk & White Rules | `references/strunk-white-rules.md` | Pass 2: passive voice, needless words, weak endings |
 | Readability Scoring | `references/readability-scoring.md` | Pass 3: Flesch-Kincaid, sentence/paragraph stats |
 | Consistency Audit | `references/consistency-audit.md` | Pass 4: terminology, tone, formatting checks |
-| Consolidated Report | `references/judge-consolidated-report.md` | Unified report format with severity grouping |
+| Consolidated Report | `references/judge-consolidated-report.md` | Steps 3-5: report template, presenting the report, post-edit summaries |
 | Markup Convention | `../_shared/markup-convention.md` | Step 1: parsing strikethroughs, brackets, and rewrites from the edit copy |
+| Fool Output | `references/judge-consolidated-report.md` | Step 3: when `the-fool` criticism was routed to the Judge |
 
 ## Constraints
 
@@ -126,14 +127,6 @@ For either path, tell the user explicitly which file is the edit copy: **"Edit `
 - Combine detection and editing into one step. Detect first, then edit after approval.
 - Add new content. The Judge refines what exists; it does not generate new material.
 
-## Handling Fool Output
-
-When `the-fool` skill has produced criticism and the routing decision sent tonal-only revisions to the Judge, incorporate the Fool's findings alongside the five detection passes during aggregation. Treat Fool tonal items (word swaps, register adjustments, softening absolutes) as additional candidates in the consolidated report — the human still decides which to accept.
-
-Reject Fool output that contains structural revisions (scoping, reframing, adding evidence, repositioning arguments, new sections). Structural changes belong to the Architect. Route the structural items back and proceed with only the tonal remainder.
-
-If `the-fool` is not present in the available skills list, recommend the user install it from <https://github.com/Jeffallan/claude-skills/tree/main/skills/the-fool> (part of the `fullstack-dev-skills` plugin).
-
 ## Output Frontmatter
 
 Every Judge artifact opens with YAML frontmatter so downstream phases can trace provenance:
@@ -155,81 +148,11 @@ Increment `version` per Judge iteration within the same draft lineage.
 
 ## Output Templates
 
-**Judge Consolidated Report**
+Use the templates in `references/judge-consolidated-report.md`:
 
-```
-# Judge Consolidated Report: [Article Title]
-
-## Auto-Propagate (user directives, applied unconditionally)
-[Strikethrough at location]: [what was cut]
-[Direct rewrite at location]: [before] → [after]
-
-## Brackets to Resolve (user commentary + Judge proposed resolutions)
-[Bracket location]: "[user text]"
-  Proposed resolution: [Judge's draft resolution]
-  Decision: accept / modify / reject?
-
-## Detection Findings
-
-### Must-Fix Issues
-[Issue]: [Location] -- [Explanation]
-
-### Review-and-Decide Issues
-[Issue]: [Location] -- [Explanation and recommendation]
-  Decision: apply / skip?
-
-## Metrics Summary
-- Word count: [n]
-- Flesch-Kincaid grade: [n]
-- Average sentence length: [n] words
-- Passive voice: [n]%
-- AI voice risk: [Low / Medium / High]
-
-## SEO Status (if applicable)
-- [ ] Primary keyword in title
-- [ ] Primary keyword in first 100 words
-- [ ] Meta description within character limit
-- [ ] Heading hierarchy valid
-
-## Routing Recommendation
-[Full Carpenter rebuild / Light polish] -- [one-sentence reasoning]
-```
-
-Pair this report with an `AskUserQuestion` call covering bracket decisions, review-and-decide decisions, and the routing choice.
-
-**Post-Edit Summary (Light Polish route)**
-
-```
-## Judge Light Polish Complete
-
-Files written:
-  - final-draft-X.md              (preservation copy, do not edit)
-  - final-draft-X-human-edits.md  (edit copy — mark up this one)
-
-Auto-propagated: [count]
-Brackets resolved: [count accepted] / [count total]
-Detection findings applied: [count accepted] / [count total]
-Structural issues routed back: [list, if any]
-Final word count: [n]
-Ready for: Further light-polish pass through Judge, or publication
-```
-
-**Post-Edit Summary (Full Carpenter Rebuild route)**
-
-```
-## Judge → Carpenter Handoff
-
-Approved items bundled for rebuild:
-  - Auto-propagate: [count]
-  - Bracket resolutions accepted: [count]
-  - Detection findings accepted: [count]
-
-Carpenter will output:
-  - draft-N+1.md
-  - draft-N+1-human-edits.md
-
-Outline used: outline-N.md (unchanged)
-```
+- **Judge Consolidated Report** (Step 3), paired with the single `AskUserQuestion` call in Step 4
+- **Post-Edit Summary, Light Polish route** (Step 5)
+- **Judge → Carpenter Handoff, Full Carpenter Rebuild route** (Step 5)
 
 ## Knowledge Reference
 

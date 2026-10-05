@@ -20,10 +20,11 @@ This reference defines the output format for the Architect phase. The blueprint 
 ### [Section Title]
 **Purpose:** [What this section accomplishes]
 **Key points:**
-- [Point 1 -- from Madman material]
+- [Point 1 -- from Madman material, with triage mark: STAR/ARROW]
 - [Point 2]
 **Evidence:** [What supports these points]
 **Transition to next:** [How this connects forward]
+**Gaps:** [Missing evidence or thin material, flagged for the Carpenter]
 
 ### [Next Section Title]
 ...
