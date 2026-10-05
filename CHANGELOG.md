@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.3.1] - 2026-10-05
+
+### Added
+
+- `plugin/README.md`, required by the plugin directory, listing the skills and commands and stating what the plugin reads, writes, and fetches
+
+### Fixed
+
+- Commands now register under their documented names (`/writing-with-agents:flowers-cycle`, `:content-strategy`, `:capture`, `:writing-setup`). The nested `commands/` layout had registered them as `writing-with-agents:writing:flowers-cycle:COMMAND` and similar
+
 ## [0.3.0] - 2026-10-05
 
 ### Added
