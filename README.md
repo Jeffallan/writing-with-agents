@@ -167,27 +167,30 @@ This reduces initial token usage by ~50%. In practice, each skill conversation s
 ```
 writing-with-agents/
   .claude-plugin/
-    plugin.json
     marketplace.json
-  skills/
-    madman/          (SKILL.md + 3 references)
-    whirlybird/      (SKILL.md + 3 references)
-    architect/       (SKILL.md + 3 references)
-    carpenter/       (SKILL.md + 3 references)
-    judge/           (SKILL.md + 5 references)
-    quality-rubric/  (SKILL.md + 2 references)
-    seo-writer/      (SKILL.md + 5 references)
-    content-strategist/ (SKILL.md + 3 references)
-    research-intake/ (SKILL.md + 2 references)
-    knowledge-harvester/ (SKILL.md + 2 references)
-  commands/
-    writing/
-      flowers-cycle/    (COMMAND.md + yaml)
-      content-strategy/ (COMMAND.md + yaml)
-    capture/            (COMMAND.md + yaml + references/)
-    utilities/
-      writing-setup/    (COMMAND.md + yaml)
-    workflow-manifest.yaml
+  plugin/              (everything the plugin ships)
+    .claude-plugin/
+      plugin.json
+    LICENSE
+    skills/
+      madman/          (SKILL.md + 3 references)
+      whirlybird/      (SKILL.md + 3 references)
+      architect/       (SKILL.md + 3 references)
+      carpenter/       (SKILL.md + 3 references)
+      judge/           (SKILL.md + 5 references)
+      quality-rubric/  (SKILL.md + 2 references)
+      seo-writer/      (SKILL.md + 5 references)
+      content-strategist/ (SKILL.md + 3 references)
+      research-intake/ (SKILL.md + 2 references)
+      knowledge-harvester/ (SKILL.md + 2 references)
+    commands/
+      writing/
+        flowers-cycle/    (COMMAND.md + yaml)
+        content-strategy/ (COMMAND.md + yaml)
+      capture/            (COMMAND.md + yaml + references/)
+      utilities/
+        writing-setup/    (COMMAND.md + yaml)
+      workflow-manifest.yaml
   scripts/
     validate-skills.py
     validate-markdown.py

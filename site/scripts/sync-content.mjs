@@ -252,7 +252,7 @@ function syncWorkflowDocs() {
 
 function buildSkillIndex() {
   const index = new Map(); // name → { domain, title }
-  const skillsDir = path.join(ROOT, 'skills');
+  const skillsDir = path.join(ROOT, 'plugin', 'skills');
   const dirs = fs.readdirSync(skillsDir).filter((d) => fs.statSync(path.join(skillsDir, d)).isDirectory());
 
   for (const dir of dirs) {
@@ -272,7 +272,7 @@ function buildSkillIndex() {
 // ─── Sync skill pages ───────────────────────────────────────────────
 
 function syncSkillPages(skillIndex) {
-  const skillsDir = path.join(ROOT, 'skills');
+  const skillsDir = path.join(ROOT, 'plugin', 'skills');
   const dirs = fs.readdirSync(skillsDir).filter((d) => fs.statSync(path.join(skillsDir, d)).isDirectory());
 
   let count = 0;
@@ -333,7 +333,7 @@ function syncSkillPages(skillIndex) {
     // Rewrite reference table links to GitHub blob URLs
     body = body.replace(
       /`references\/([^`]+)`/g,
-      (_match, refPath) => `[references/${refPath}](${GITHUB_BLOB}/skills/${dir}/references/${refPath})`,
+      (_match, refPath) => `[references/${refPath}](${GITHUB_BLOB}/plugin/skills/${dir}/references/${refPath})`,
     );
 
     body = rewriteLinks(body);

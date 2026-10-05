@@ -131,7 +131,7 @@ def parse_yaml(yaml_str: str) -> dict:
 # Constants
 # =============================================================================
 
-SKILLS_DIR = "skills"
+SKILLS_DIR = "plugin/skills"
 REQUIRED_FIELDS = ["name", "description"]
 MAX_DESCRIPTION_LENGTH = 1024
 DESCRIPTION_PREFIX = "Use when"
@@ -180,7 +180,7 @@ H2_HEADER_PATTERN = re.compile(r"^##\s+(.+)$", re.MULTILINE)
 
 # Files to check for count consistency
 COUNT_FILES = [
-    ".claude-plugin/plugin.json",
+    "plugin/.claude-plugin/plugin.json",
     ".claude-plugin/marketplace.json",
     "README.md",
 ]
@@ -190,8 +190,8 @@ COUNT_FILES = [
 # Workflow Constants
 # =============================================================================
 
-COMMANDS_DIR_WORKFLOW = "commands"
-MANIFEST_FILE = "commands/workflow-manifest.yaml"
+COMMANDS_DIR_WORKFLOW = "plugin/commands"
+MANIFEST_FILE = "plugin/commands/workflow-manifest.yaml"
 
 # Required fields in per-command YAML definitions
 REQUIRED_DEFINITION_FIELDS = [

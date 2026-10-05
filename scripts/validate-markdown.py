@@ -208,8 +208,8 @@ def main() -> int:
     parser.add_argument(
         "--path",
         type=Path,
-        default=Path("skills"),
-        help="Path to validate (default: skills/)",
+        default=Path("plugin/skills"),
+        help="Path to validate (default: plugin/skills/)",
     )
     parser.add_argument(
         "--format",

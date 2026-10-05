@@ -7,20 +7,20 @@ phases:
     description: docs/workflow/writing-phase.md
     commands:
       - command: flowers-cycle
-        definition: commands/writing/flowers-cycle/flowers-cycle.yaml
+        definition: plugin/commands/writing/flowers-cycle/flowers-cycle.yaml
         description: "Single-article inner loop: Madman, Whirlybird, Architect, Carpenter, Judge, Quality Rubric"
       - command: content-strategy
-        definition: commands/writing/content-strategy/content-strategy.yaml
+        definition: plugin/commands/writing/content-strategy/content-strategy.yaml
         description: "Multi-article outer loop: Intake, Gap Analysis, Domain Mapping, Content Plan, Knowledge Harvest"
 
   capture:
     description: docs/workflow/capture-phase.md
     commands:
       - command: capture
-        definition: commands/capture/capture.yaml
+        definition: plugin/commands/capture/capture.yaml
         description: "Capture content from URL, file, or text into a structured Flowers research-source note"
 
 utilities:
   - command: writing-setup
-    definition: commands/utilities/writing-setup/writing-setup.yaml
+    definition: plugin/commands/utilities/writing-setup/writing-setup.yaml
     description: "Configure session defaults (vault path, content type, SEO preference)"

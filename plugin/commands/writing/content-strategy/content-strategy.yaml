@@ -1,5 +1,5 @@
 command: "content-strategy"
-path: commands/writing/content-strategy/COMMAND.md
+path: plugin/commands/writing/content-strategy/COMMAND.md
 description: docs/workflow/content-strategy.md
 inputs:
   - name: source-path

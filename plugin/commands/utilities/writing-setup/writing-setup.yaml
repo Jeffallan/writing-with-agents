@@ -1,5 +1,5 @@
 command: "writing-setup"
-path: commands/utilities/writing-setup/COMMAND.md
+path: plugin/commands/utilities/writing-setup/COMMAND.md
 description: docs/workflow/writing-setup.md
 inputs:
   - name: vault-path
