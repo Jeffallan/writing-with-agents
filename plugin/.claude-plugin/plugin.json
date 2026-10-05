@@ -30,5 +30,18 @@
     "model-invoked"
   ],
   "skills": "./skills/",
-  "commands": "./commands/"
+  "commands": {
+    "flowers-cycle": {
+      "source": "./commands/writing/flowers-cycle/COMMAND.md"
+    },
+    "content-strategy": {
+      "source": "./commands/writing/content-strategy/COMMAND.md"
+    },
+    "capture": {
+      "source": "./commands/capture/COMMAND.md"
+    },
+    "writing-setup": {
+      "source": "./commands/utilities/writing-setup/COMMAND.md"
+    }
+  }
 }

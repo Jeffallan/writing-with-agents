@@ -45,8 +45,7 @@
         "research",
         "editing"
       ],
-      "skills": "./skills/",
-      "commands": "./commands/"
+      "skills": "./skills/"
     }
   ]
 }
