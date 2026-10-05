@@ -22,10 +22,12 @@ The five passes run in a specific sequence. Each pass builds on the context esta
 
 ## Report Template
 
-```markdown
-# Judge Detection Report: [Article Title]
+The report carries all three signal types from Step 3: the user's auto-propagate edits, the brackets to resolve, and the detection findings.
 
-**Draft received from:** Carpenter phase
+```markdown
+# Judge Consolidated Report: [Article Title]
+
+**Draft:** draft-N.md (edit copy: draft-N-human-edits.md)
 **Architect blueprint:** [reference to blueprint]
 **Target audience:** [from blueprint]
 **Content type:** [General / Technical]
@@ -33,39 +35,60 @@ The five passes run in a specific sequence. Each pass builds on the context esta
 
 ---
 
-## Must-Fix Issues
+## Auto-Propagate (user directives, applied unconditionally)
 
-Issues that almost always improve the piece. These include needless words, throat-clearing, filler transitions, broken parallelism, negative form, clear formatting errors, and broken heading hierarchy.
+Listed for transparency, not for approval.
 
-### From Pass 1: AI Voice Detection
-- [Finding]: [Location] -- [Explanation]
-
-### From Pass 2: Strunk & White
-- [Finding]: [Location] -- [Explanation and suggested replacement]
-
-### From Pass 3: Readability
-- [Finding]: [Location] -- [Metric value vs. target]
-
-### From Pass 4: Consistency
-- [Finding]: [Location] -- [Explanation]
+- [Strikethrough at location]: [what was cut]
+- [Direct rewrite at location]: [before] → [after]
 
 ---
 
-## Review-and-Decide Issues
+## Brackets to Resolve (user commentary + Judge proposed resolutions)
+
+- [Bracket location]: "[user text]"
+  Proposed resolution: [Judge's draft resolution]
+  Decision: accept / modify / reject?
+
+---
+
+## Detection Findings
+
+### Must-Fix Issues
+
+Issues that almost always improve the piece. These include needless words, throat-clearing, filler transitions, broken parallelism, negative form, clear formatting errors, and broken heading hierarchy.
+
+#### From Pass 1: AI Voice Detection
+- [Finding]: [Location] -- [Explanation]
+
+#### From Pass 2: Strunk & White
+- [Finding]: [Location] -- [Explanation and suggested replacement]
+
+#### From Pass 3: Readability
+- [Finding]: [Location] -- [Metric value vs. target]
+
+#### From Pass 4: Consistency
+- [Finding]: [Location] -- [Explanation]
+
+### Review-and-Decide Issues
 
 Issues that require human judgment. The AI flags these but does not presume they are wrong. Passive voice may be justified. A hedge word may reflect genuine uncertainty. A long sentence may be deliberately complex.
 
-### From Pass 1: AI Voice Detection
+#### From Pass 1: AI Voice Detection
 - [Finding]: [Location] -- [Explanation and recommendation]
+  Decision: apply / skip?
 
-### From Pass 2: Strunk & White
+#### From Pass 2: Strunk & White
 - [Finding]: [Location] -- [Explanation and recommendation]
+  Decision: apply / skip?
 
-### From Pass 3: Readability
+#### From Pass 3: Readability
 - [Finding]: [Location] -- [Metric value vs. target, context]
+  Decision: apply / skip?
 
-### From Pass 4: Consistency
+#### From Pass 4: Consistency
 - [Finding]: [Location] -- [Explanation and options]
+  Decision: apply / skip?
 
 ---
 
@@ -101,7 +124,25 @@ Skip this section entirely for non-SEO content.
 - [ ] URL slug is concise and contains primary keyword
 
 **SEO notes:** [Any observations about keyword density, missed opportunities, or conflicts between SEO requirements and prose quality]
+
+---
+
+## Routing Recommendation
+
+[Full Carpenter rebuild / Light polish] -- [one-sentence reasoning]
 ```
+
+Pair this report with a single `AskUserQuestion` call covering bracket decisions, review-and-decide decisions, and the routing choice.
+
+---
+
+## Incorporating Fool Output
+
+When `the-fool` skill has produced criticism and the routing decision sent tonal-only revisions to the Judge, incorporate the Fool's findings alongside the five detection passes during aggregation. Treat Fool tonal items (word swaps, register adjustments, softening absolutes) as additional candidates in the consolidated report — the human still decides which to accept.
+
+Reject Fool output that contains structural revisions (scoping, reframing, adding evidence, repositioning arguments, new sections). Structural changes belong to the Architect. Route the structural items back and proceed with only the tonal remainder.
+
+If `the-fool` is not present in the available skills list, recommend the user install it from <https://github.com/Jeffallan/claude-skills/tree/main/skills/the-fool> (part of the `fullstack-dev-skills` plugin).
 
 ---
 
@@ -134,9 +175,47 @@ When assigning findings to "Must-Fix" or "Review-and-Decide," use these criteria
 
 When delivering the consolidated report to the human:
 
-1. State the total count of must-fix and review-and-decide issues.
-2. Present the full report.
-3. Ask the human which review-and-decide items to accept, reject, or modify.
-4. Do not begin editing until the human has responded.
-5. After receiving approval, implement only the approved changes.
-6. Deliver the polished piece with a summary of changes made.
+1. State the counts: auto-propagate edits, brackets to resolve, must-fix issues, and review-and-decide issues.
+2. Present the full report. Do not change the draft yet.
+3. Use a single `AskUserQuestion` call for every decision: each bracket resolution (accept, modify, reject), each review-and-decide finding (apply, skip), and the routing choice (full Carpenter rebuild or light polish).
+4. Wait for explicit approval on every decision before proceeding.
+5. Execute the routing decision with the approved bundle: auto-propagate edits, accepted bracket resolutions, and accepted detection findings.
+6. Close with the matching post-edit summary below.
+
+---
+
+## Post-Edit Summary: Light Polish Route
+
+```
+## Judge Light Polish Complete
+
+Files written:
+  - final-draft-X.md              (preservation copy, do not edit)
+  - final-draft-X-human-edits.md  (edit copy — mark up this one)
+
+Auto-propagated: [count]
+Brackets resolved: [count accepted] / [count total]
+Detection findings applied: [count accepted] / [count total]
+Structural issues routed back: [list, if any]
+Final word count: [n]
+Ready for: Further light-polish pass through Judge, or publication
+```
+
+---
+
+## Post-Edit Summary: Full Carpenter Rebuild Route
+
+```
+## Judge → Carpenter Handoff
+
+Approved items bundled for rebuild:
+  - Auto-propagate: [count]
+  - Bracket resolutions accepted: [count]
+  - Detection findings accepted: [count]
+
+Carpenter will output:
+  - draft-N+1.md
+  - draft-N+1-human-edits.md
+
+Outline used: outline-N.md (unchanged)
+```

@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  <!-- SKILL_COUNT -->10<!-- /SKILL_COUNT --> Skills · <!-- REFERENCE_COUNT -->31<!-- /REFERENCE_COUNT --> References · <!-- WORKFLOW_COUNT -->4<!-- /WORKFLOW_COUNT --> Workflows
+  <!-- SKILL_COUNT -->10<!-- /SKILL_COUNT --> Skills · <!-- REFERENCE_COUNT -->32<!-- /REFERENCE_COUNT --> References · <!-- WORKFLOW_COUNT -->4<!-- /WORKFLOW_COUNT --> Workflows
 </p>
 
 <p align="center">
@@ -176,7 +176,7 @@ writing-with-agents/
       madman/          (SKILL.md + 3 references)
       whirlybird/      (SKILL.md + 3 references)
       architect/       (SKILL.md + 3 references)
-      carpenter/       (SKILL.md + 3 references)
+      carpenter/       (SKILL.md + 4 references)
       judge/           (SKILL.md + 5 references)
       quality-rubric/  (SKILL.md + 2 references)
       seo-writer/      (SKILL.md + 5 references)

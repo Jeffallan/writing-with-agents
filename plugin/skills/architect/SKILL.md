@@ -120,18 +120,9 @@ The primary output is the **Architect Blueprint**. See `references/blueprint-tem
 A minimal blueprint contains:
 - Thesis (single sentence)
 - Target audience
-- Section-by-section structure with purpose, key points, evidence, and transitions
+- Section-by-section structure with purpose, key points (with STAR/ARROW marks), evidence, transitions, and gaps
 - Gaps to fill
 - SEO notes (when applicable)
-
-**Section Mapping Entry Format**
-
-Each section in the blueprint should include:
-- **Purpose** -- what this section accomplishes for the reader
-- **Key points** -- specific ideas mapped from Madman material, with triage marks (STAR/ARROW)
-- **Evidence** -- data, examples, or case studies assigned to support the key points
-- **Transition to next** -- the logical connection that leads into the following section
-- **Gaps** -- any missing evidence or thin material flagged for the Carpenter
 
 **Throughline Options Format**
 
