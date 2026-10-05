@@ -81,6 +81,20 @@ This skill sits downstream of the Judge phase. The Judge handles line-level dete
 - Combine multiple dimension failures into a single rework action -- each failing dimension gets its own targeted rework directive.
 - Use the rubric to evaluate in-progress drafts -- the Quality Rubric applies only to drafts that have completed the Judge phase.
 
+## Output Frontmatter
+
+Every Quality Scorecard opens with YAML frontmatter so downstream phases can trace provenance:
+
+```yaml
+---
+type: quality-scorecard
+version: N
+applies-to: final-draft-<X>.md
+---
+```
+
+The scorecard evaluates a draft rather than deriving from it, so it uses `applies-to` instead of `parent`. Point `applies-to` at the exact draft scored. Increment `version` each time the same piece is re-scored after rework.
+
 ## Output Templates
 
 **Quality Scorecard**

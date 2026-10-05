@@ -84,6 +84,24 @@ The SEO Writer understands search intent classification, keyword-to-heading mapp
 - Ignore heading hierarchy violations -- H1 to H3 with no H2 confuses crawlers and screen readers.
 - Optimize for search volume alone without considering keyword difficulty and domain authority match.
 
+## Output Frontmatter
+
+Every SEO artifact opens with YAML frontmatter so downstream phases can trace provenance:
+
+```yaml
+---
+type: seo-report
+version: N
+applies-to: draft-<N>.md
+---
+```
+
+SEO work attaches to inner-loop artifacts rather than deriving from them, so it uses `applies-to` instead of `parent`. `type` values:
+- `seo-keyword-map` -- Architect phase keyword mapping; `applies-to` is the `outline-<N>.md` it maps
+- `seo-report` -- Judge phase validation; `applies-to` is the `draft-<N>.md` or `final-draft-<X>.md` audited
+
+Carpenter-phase keyword integration lives in the draft itself and needs no separate artifact.
+
 ## Output Templates
 
 **SEO Report**

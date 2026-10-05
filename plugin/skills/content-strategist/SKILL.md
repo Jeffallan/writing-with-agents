@@ -88,6 +88,26 @@ The Content Strategist sits between research-intake (which builds the knowledge 
 - Insert cross-links as footer lists -- links must be contextual, embedded in relevant text
 - Duplicate research across articles -- all articles draw from the shared research corpus established during research-intake
 
+## Output Frontmatter
+
+Every Content Strategist artifact opens with YAML frontmatter so downstream phases can trace provenance:
+
+```yaml
+---
+type: content-plan
+version: N
+parent: domain-whirlybird-<id>.md
+derived-from:
+  - knowledge-map-<domain>.md
+---
+```
+
+`type` values:
+- `domain-whirlybird` -- one file per option; `parent` is the knowledge map
+- `content-plan` -- `parent` is the domain whirlybird the human selected; `derived-from` records the knowledge map
+
+Increment `version` when the topology, article list, or production order changes. Status tracker updates do not bump the version.
+
 ## Output Templates
 
 The primary output is the **Content Plan**. See `references/content-plan-template.md` for the full template.
