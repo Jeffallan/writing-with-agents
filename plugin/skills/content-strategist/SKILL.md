@@ -130,3 +130,7 @@ Cross-article efficiency comes from the shared research corpus. The research-int
 When a cluster article enters its Flowers cycle, its article-level whirlybird is scoped to the branch it covers in the domain whirlybird. The branch label becomes the article whirlybird center. The feathers from that branch become the article whirlybird branches. Additional feathers may emerge from the article's Madman phase. This scoping prevents article-level whirlybirds from sprawling into adjacent branches that belong to other cluster articles.
 
 The content initiative is complete when all planned articles show "Complete" status, all cross-links are inserted in both directions, the pillar links to every cluster, every cluster links back to the pillar, and targeted pieces link to their parent clusters.
+
+Maintained by [@jeffallan](https://github.com/jeffallan), Principal Consultant at [Synergetic Solutions](https://synergetic.solutions)
+
+[Documentation](https://jeffallan.github.io/writing-with-agents/skills/strategy/content-strategist/)

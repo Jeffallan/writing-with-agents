@@ -236,3 +236,7 @@ Outline used: outline-N.md (unchanged)
 This skill implements the Judge phase from Betty S. Flowers' "Madman, Architect, Carpenter, Judge" framework (1981). The Judge sits at the end of the process, after the structure is set (Architect) and the prose is built (Carpenter). Its job is fine-grained detection and polish, not reconstruction.
 
 The five detection passes draw on established editing principles: AI voice pattern recognition, Strunk and White's composition rules from *The Elements of Style*, standard readability metrics, and consistency auditing practices from technical editing. Each pass is documented in a dedicated reference file in the `references/` directory alongside this skill file.
+
+Maintained by [@jeffallan](https://github.com/jeffallan), Principal Consultant at [Synergetic Solutions](https://synergetic.solutions)
+
+[Documentation](https://jeffallan.github.io/writing-with-agents/skills/quality/judge/)

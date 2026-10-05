@@ -129,3 +129,7 @@ The distinction between the Judge and the Quality Rubric is scope. The Judge wor
 The re-scoring requirement after rework exists to prevent the common failure mode where a fix in one dimension degrades another. Restructuring to improve flow (dimension 3) can weaken the opening hook (dimension 6) if sections are reordered. Re-scoring catches these regression effects before publication.
 
 Content type determines which dimensions are critical. A technical tutorial requires high scores on Technical Accuracy and Structure but may tolerate a lower Voice score. A thought leadership piece requires high Originality and Voice but may tolerate lighter Technical Accuracy. The minimum standards reference file defines these critical-dimension profiles per content type. Applying the wrong profile leads to false passes or unnecessary rework.
+
+Maintained by [@jeffallan](https://github.com/jeffallan), Principal Consultant at [Synergetic Solutions](https://synergetic.solutions)
+
+[Documentation](https://jeffallan.github.io/writing-with-agents/skills/quality/quality-rubric/)

@@ -128,3 +128,7 @@ The four artifact types serve distinct purposes in the feedback loop. Research s
 Frontmatter consistency across all captured artifacts enables programmatic discovery. When every artifact carries structured YAML metadata with type, domain, date, tags, and relationship fields, future research-intake passes can index the vault efficiently. Inconsistent metadata forces manual discovery and defeats the purpose of structured capture. The frontmatter templates in the reference files enforce this consistency at the point of creation rather than relying on retroactive cleanup.
 
 The human approval gate before vault writes serves two purposes. First, it prevents low-value artifacts from cluttering the knowledge base. Not every research finding or connection justifies permanent storage. The human filters for lasting value. Second, it gives the human an opportunity to adjust titles, tags, and connections before the artifact enters the vault's link graph. Adjustments at write time are trivial. Corrections after the artifact has been linked to by other notes are disruptive.
+
+Maintained by [@jeffallan](https://github.com/jeffallan), Principal Consultant at [Synergetic Solutions](https://synergetic.solutions)
+
+[Documentation](https://jeffallan.github.io/writing-with-agents/skills/research/knowledge-harvester/)

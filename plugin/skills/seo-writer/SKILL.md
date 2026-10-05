@@ -126,3 +126,7 @@ E-E-A-T signals (Experience, Expertise, Authoritativeness, Trustworthiness) are 
 Featured snippet targeting requires format-specific optimization. Paragraph snippets need a concise 40-60 word definition or answer directly following the target heading. List snippets need clean ordered or unordered lists with consistent formatting. Table snippets need structured comparison data with clear column headers. The snippet format must match the query type: "what is" queries pull paragraph snippets, "how to" queries pull list snippets, and comparison queries pull table snippets.
 
 Heading architecture serves both readers and crawlers. Every H2 should map to a secondary keyword or a People Also Ask question. Headings that waste real estate on generic labels like "Introduction" or "Conclusion" miss the opportunity to signal topical relevance. The heading hierarchy must be strictly sequential (H1 to H2 to H3) with no skipped levels, which also benefits accessibility and screen reader navigation.
+
+Maintained by [@jeffallan](https://github.com/jeffallan), Principal Consultant at [Synergetic Solutions](https://synergetic.solutions)
+
+[Documentation](https://jeffallan.github.io/writing-with-agents/skills/seo/seo-writer/)

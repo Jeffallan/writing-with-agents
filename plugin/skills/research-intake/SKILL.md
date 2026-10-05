@@ -126,3 +126,7 @@ The depth assessment scale (deep, moderate, surface) provides a quick triage of 
 Connection mapping across source files reveals relationships that no single document contains. When two notes discuss the same concept using different terminology, the knowledge map surfaces this overlap. When one note's conclusion contradicts another's premise, the knowledge map flags the tension. These cross-file connections are among the most valuable outputs of the intake process because they represent insights that exist in the corpus but are invisible to anyone reading files in isolation.
 
 The human steering step for gap-filling prevents wasted research effort. Not every gap is worth investigating. A gap in a peripheral topic may be irrelevant to the planned content. A gap in a core topic may be critical. Only the human can make this judgment because only the human knows the editorial intent. Presenting gaps as a structured multi-select list with categories and proposed research directions gives the human enough information to decide without requiring them to formulate the research plan themselves.
+
+Maintained by [@jeffallan](https://github.com/jeffallan), Principal Consultant at [Synergetic Solutions](https://synergetic.solutions)
+
+[Documentation](https://jeffallan.github.io/writing-with-agents/skills/research/research-intake/)

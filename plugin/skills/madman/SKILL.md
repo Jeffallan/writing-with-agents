@@ -143,3 +143,7 @@ The collaborative seeding model adapts Flowers' solo-writer framework for human-
 The 3-5x overproduction ratio is deliberate. Research on creative output consistently shows that quantity correlates with quality -- not because every idea is good, but because the best ideas emerge only after the obvious ones are exhausted. Stopping early leaves the strongest material undiscovered.
 
 The generation dimensions checklist ensures comprehensive coverage. Core arguments establish the thesis candidates. Evidence and examples provide supporting material. Anecdotes add narrative texture. Counterarguments stress-test the position. Analogies and metaphors create explanatory bridges. Audience questions anticipate reader needs. Contrarian angles challenge assumptions. Real-world applications ground abstract ideas. Connections to adjacent topics reveal expansion opportunities. Covering all dimensions before stopping prevents the common failure of generating depth in one area while leaving others unexplored.
+
+Maintained by [@jeffallan](https://github.com/jeffallan), Principal Consultant at [Synergetic Solutions](https://synergetic.solutions)
+
+[Documentation](https://jeffallan.github.io/writing-with-agents/skills/generation/madman/)
