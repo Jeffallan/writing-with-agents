@@ -4,8 +4,13 @@
   "description": "10 specialized writing skills implementing Betty Flowers' Madman-Architect-Carpenter-Judge framework with Bryan Garner's whirlybird technique, SEO optimization, quality rubric, and multi-article content strategy. Features collaborative oscillation between AI and human across all phases.",
   "author": {
     "name": "jeffallan",
-    "email": "github@jeffallan"
+    "email": "jeff@synergetic.solutions",
+    "url": "https://github.com/jeffallan"
   },
+  "homepage": "https://jeffallan.github.io/writing-with-agents/",
+  "documentationUrl": "https://jeffallan.github.io/writing-with-agents/",
+  "supportUrl": "https://github.com/Jeffallan/writing-with-agents/issues",
+  "privacyPolicyUrl": "https://jeffallan.github.io/writing-with-agents/privacy/",
   "license": "MIT",
   "repository": "https://github.com/Jeffallan/writing-with-agents",
   "keywords": [

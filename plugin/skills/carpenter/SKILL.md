@@ -3,7 +3,8 @@ name: carpenter
 description: Use when writing prose from a structured outline, building draft content section by section, or constructing clear sentences and paragraphs from an approved blueprint.
 license: MIT
 metadata:
-  author: https://github.com/dmitry
+  author: https://github.com/Jeffallan
+  company: https://synergetic.solutions
   version: "1.0.0"
   domain: craft
   triggers: write draft, build prose, carpenter, construct content, write sections, draft article, sentence craft, paragraph construction, prose building

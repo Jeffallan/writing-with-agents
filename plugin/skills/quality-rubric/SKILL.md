@@ -3,7 +3,8 @@ name: quality-rubric
 description: Use when scoring finished content against quality dimensions, evaluating whether a piece meets publishable standards, or determining which workflow phase needs rework based on quality gaps.
 license: MIT
 metadata:
-  author: https://github.com/dmitry
+  author: https://github.com/Jeffallan
+  company: https://synergetic.solutions
   version: "1.0.0"
   domain: quality
   triggers: quality score, rubric, evaluate content, publishable, content quality, scoring dimensions, rework routing, quality assessment, content evaluation

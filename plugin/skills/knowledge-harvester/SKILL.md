@@ -3,7 +3,8 @@ name: knowledge-harvester
 description: Use when capturing research artifacts to a vault or knowledge base, formatting source citations, saving synthesized connections from a writing project, or enriching a knowledge base with produced content.
 license: MIT
 metadata:
-  author: https://github.com/dmitry
+  author: https://github.com/Jeffallan
+  company: https://synergetic.solutions
   version: "1.0.0"
   domain: research
   triggers: knowledge harvest, vault capture, save research, citation metadata, knowledge base, capture artifacts, save to vault, research feedback loop

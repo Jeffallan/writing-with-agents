@@ -3,7 +3,8 @@ name: seo-writer
 description: Use when writing content targeting search visibility, optimizing articles for keywords and featured snippets, planning SEO-aware heading architecture, or validating on-page SEO elements.
 license: MIT
 metadata:
-  author: https://github.com/dmitry
+  author: https://github.com/Jeffallan
+  company: https://synergetic.solutions
   version: "1.0.0"
   domain: seo
   triggers: SEO, search optimization, keywords, featured snippets, search intent, keyword mapping, SERP analysis, meta description, heading architecture, E-E-A-T, on-page SEO
