@@ -3,7 +3,8 @@ name: madman
 description: Use when brainstorming ideas, generating raw material, or starting the creative phase of a writing project. Invoke for topic exploration, idea generation, angle discovery, or producing abundant raw content before organizing.
 license: MIT
 metadata:
-  author: https://github.com/dmitry
+  author: https://github.com/Jeffallan
+  company: https://synergetic.solutions
   version: "1.0.0"
   domain: generation
   triggers: brainstorm, generate ideas, raw material, creative phase, madman, explore topic, idea generation, free writing, content generation

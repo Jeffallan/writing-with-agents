@@ -3,7 +3,8 @@ name: architect
 description: Use when organizing raw material into a coherent structure, defining the throughline of a piece, building an outline, or making strategic decisions about what to include and cut from generated content.
 license: MIT
 metadata:
-  author: https://github.com/dmitry
+  author: https://github.com/Jeffallan
+  company: https://synergetic.solutions
   version: "1.0.0"
   domain: structure
   triggers: organize, structure, outline, throughline, blueprint, architect, arrange content, content structure, information architecture, editorial decision

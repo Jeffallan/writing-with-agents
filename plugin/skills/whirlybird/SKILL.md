@@ -3,7 +3,8 @@ name: whirlybird
 description: Use when creating nonlinear outlines, generating mindmap diagrams for article structure, mapping a knowledge domain visually, or bridging raw ideas into structured options for the user to select from.
 license: MIT
 metadata:
-  author: https://github.com/dmitry
+  author: https://github.com/Jeffallan
+  company: https://synergetic.solutions
   version: "1.0.0"
   domain: structure
   triggers: whirlybird, mindmap, nonlinear outline, diagram, brainstorm structure, map ideas, mermaid mindmap, visual outline, idea mapping

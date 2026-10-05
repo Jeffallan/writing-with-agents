@@ -3,7 +3,8 @@ name: content-strategist
 description: Use when planning a multi-article content strategy from a research corpus, creating domain maps for content topology, building production plans for pillar and cluster articles, or tracking cross-article production.
 license: MIT
 metadata:
-  author: https://github.com/dmitry
+  author: https://github.com/Jeffallan
+  company: https://synergetic.solutions
   version: "1.0.0"
   domain: strategy
   triggers: content strategy, content plan, pillar article, cluster articles, domain mapping, content topology, multi-article planning, editorial calendar, content production

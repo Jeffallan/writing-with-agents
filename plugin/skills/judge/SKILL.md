@@ -3,7 +3,8 @@ name: judge
 description: Use when editing a draft, checking for AI voice patterns, reviewing prose quality, running readability analysis, auditing consistency, or validating SEO requirements on finished content.
 license: MIT
 metadata:
-  author: https://github.com/dmitry
+  author: https://github.com/Jeffallan
+  company: https://synergetic.solutions
   version: "1.0.0"
   domain: quality
   triggers: edit, review draft, judge, check quality, AI voice detection, readability, consistency check, proofread, polish, Strunk and White, editing pass

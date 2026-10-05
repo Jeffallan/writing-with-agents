@@ -3,7 +3,8 @@ name: research-intake
 description: Use when ingesting source material for a writing project, building a knowledge map from notes and documents, identifying research gaps, or preparing a research corpus for content creation.
 license: MIT
 metadata:
-  author: https://github.com/dmitry
+  author: https://github.com/Jeffallan
+  company: https://synergetic.solutions
   version: "1.0.0"
   domain: research
   triggers: research intake, ingest sources, knowledge map, gap analysis, source material, research corpus, note ingestion, document analysis, research preparation

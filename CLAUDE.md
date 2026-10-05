@@ -34,7 +34,8 @@ name: skill-name-with-hyphens
 description: Use when [triggering conditions] - max 1024 chars
 license: MIT
 metadata:
-  author: https://github.com/dmitry
+  author: https://github.com/Jeffallan
+  company: https://synergetic.solutions
   version: "1.0.0"
   domain: generation | structure | craft | quality | strategy | seo | research
   triggers: keyword1, keyword2, keyword3
