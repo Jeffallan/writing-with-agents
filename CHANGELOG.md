@@ -5,6 +5,35 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.3.0] - 2026-10-05
+
+### Added
+
+- Output Frontmatter on the five outer-loop and cross-cutting skills, extending the v0.2.0 provenance chain: `knowledge-map` (research-intake), `domain-whirlybird` and `content-plan` (content-strategist), `harvest-report` (knowledge-harvester), `quality-scorecard` (quality-rubric), `seo-keyword-map` and `seo-report` (seo-writer). Cross-cutting artifacts attach with `applies-to` instead of `parent`
+- Canonical edit-copy markup convention in `skills/_shared/markup-convention.md`, shared by Carpenter and Judge
+- Carpenter handoff templates reference (`references/carpenter-handoff.md`)
+- Plugin directory listing metadata in `plugin.json`: `homepage`, `documentationUrl`, `supportUrl`, `privacyPolicyUrl`
+- Privacy policy on the documentation site
+- Maintainer credit and documentation link at the end of every SKILL.md, with a site footer showing the credit once per page
+- Representative use cases in `docs/examples.md`
+
+### Changed
+
+- The plugin now lives in `plugin/`, and the marketplace source points to `./plugin`, so installs ship only skills, commands, references, and LICENSE instead of the whole repository
+- `flowers-cycle` command synced with the v0.2.0 skills: optional Fool stress-test after Madman, Architect re-entry from Carpenter, preservation + edit pair delivery and routing at Carpenter, three-signal Judge Consolidated Report with full-rebuild vs light-polish routing
+- Judge templates and Fool output handling moved to `references/judge-consolidated-report.md`, replacing the pre-v0.2.0 "Judge Detection Report" template it still held
+- Architect section mapping format moved into `references/blueprint-template.md`, which gains STAR/ARROW marks and per-section gaps
+- Capture note template moved from `commands/capture/references/` to `references/capture/`, linked through `${CLAUDE_PLUGIN_ROOT}`
+- Skill validator accepts 5-7 Core Workflow steps (was exactly 5); the 100-line limit is unchanged and all skills now pass with zero warnings
+- Skill metadata `author` corrected and `company` added; plugin author email corrected
+- GitHub Actions moved off Node 20: configure-pages v6, upload-pages-artifact v5, deploy-pages v5, action-gh-release v3; the docs site builds on Node 24
+- GitHub Pages deploy split into its own CI workflow
+
+### Fixed
+
+- Install command in README and docs site: `writing-with-agents@writing-with-agents` (the documented `@Jeffallan/writing-with-agents` form fails)
+- Skill validation skips underscore-prefixed directories such as `skills/_shared/`
+
 ## [0.2.0] - 2026-04-21
 
 ### Added
