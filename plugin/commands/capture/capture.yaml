@@ -1,5 +1,5 @@
 command: "capture"
-path: commands/capture/COMMAND.md
+path: plugin/commands/capture/COMMAND.md
 description: docs/workflow/capture.md
 inputs:
   - name: path

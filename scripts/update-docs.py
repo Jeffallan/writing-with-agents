@@ -36,12 +36,12 @@ from pathlib import Path
 # =============================================================================
 
 VERSION_FILE = "version.json"
-SKILLS_DIR = "skills"
-COMMANDS_DIR = "commands"
+SKILLS_DIR = "plugin/skills"
+COMMANDS_DIR = "plugin/commands"
 
 # Files to update and their patterns
 FILES_TO_UPDATE = {
-    ".claude-plugin/plugin.json": "json",
+    "plugin/.claude-plugin/plugin.json": "json",
     ".claude-plugin/marketplace.json": "json",
     "README.md": "markdown",
 }

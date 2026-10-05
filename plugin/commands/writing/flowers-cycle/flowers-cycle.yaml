@@ -1,5 +1,5 @@
 command: "flowers-cycle"
-path: commands/writing/flowers-cycle/COMMAND.md
+path: plugin/commands/writing/flowers-cycle/COMMAND.md
 description: docs/workflow/flowers-cycle.md
 inputs:
   - name: topic
