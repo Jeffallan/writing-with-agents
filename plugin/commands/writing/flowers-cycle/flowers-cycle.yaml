@@ -20,7 +20,7 @@ outputs:
     description: Finished article after all phases
   - name: judge-report
     type: report
-    description: Judge detection report with findings
+    description: Judge Consolidated Report (auto-propagate, brackets to resolve, detection findings)
   - name: quality-scorecard
     type: report
     description: Quality rubric scorecard with dimension scores

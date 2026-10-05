@@ -48,7 +48,9 @@ Execute these 6 phases in order. Each phase uses the corresponding skill. Do not
 
 4. Present raw material dump to human for review
 
-**Handoff:** Raw material dump to Phase 2
+5. Offer an optional thesis stress-test with `the-fool` skill via AskUserQuestion (run it or skip it). Recommend it for argument-driven or long-form pieces, since weaknesses are cheapest to fix before any structural commitment. If `the-fool` is not in the available skills list, recommend installing it from <https://github.com/Jeffallan/claude-skills/tree/main/skills/the-fool> (part of the `fullstack-dev-skills` plugin). Carry any Fool findings forward by type: structural items go to the Architect in Phase 3, tonal items to the Judge in Phase 5.
+
+**Handoff:** Raw material dump (plus any Fool findings) to Phase 2
 
 ---
 
@@ -78,7 +80,7 @@ Execute these 6 phases in order. Each phase uses the corresponding skill. Do not
 
 2. Triage Madman material against the selected whirlybird
 
-3. Identify the throughline (single-sentence thesis)
+3. Identify the throughline (single-sentence thesis). Absorb any structural Fool findings from Phase 1.
 
 4. Build the Architect Blueprint with section map
 
@@ -87,6 +89,8 @@ Execute these 6 phases in order. Each phase uses the corresponding skill. Do not
 6. Present blueprint to human for approval via AskUserQuestion
 
 7. Human may request changes to structure before proceeding
+
+**Re-entry from Phase 4:** When the Carpenter routes a marked-up draft back for structural rework, use the Architect's return-from-Carpenter variant: read `outline-N.md`, `draft-N.md`, `draft-N-human-edits.md`, and the Carpenter's edit catalog, then regenerate the outline as `outline-N+1.md`. Do not restart triage from scratch.
 
 **Handoff:** Approved Architect Blueprint to Phase 4
 
@@ -105,9 +109,13 @@ Execute these 6 phases in order. Each phase uses the corresponding skill. Do not
 
 4. Run Carpenter quality checklist
 
-5. Present complete draft to human for spot-check
+5. Deliver the draft as a preservation + edit pair: `draft-N.md` (never edited) and `draft-N-human-edits.md` (the copy the human marks up). Tell the human which file to edit and how to mark it up: `~~strikethrough~~` cuts, `[brackets]` leave notes, inline replacement text is a direct rewrite.
 
-**Handoff:** Complete draft to Phase 5
+6. When the human returns the edit copy, catalog every change and confirm the routing destination via AskUserQuestion:
+   - **Return to Architect** (Phase 3 re-entry): structural edits such as sections reordered, cut, or added, a reframed thesis, or a changed voice
+   - **Proceed to Judge** (Phase 5): sentence-level edits within the existing structure
+
+**Handoff:** `draft-N.md`, `draft-N-human-edits.md`, and the blueprint to Phase 5, or the edit catalog to Phase 3
 
 ---
 
@@ -118,20 +126,24 @@ Execute these 6 phases in order. Each phase uses the corresponding skill. Do not
 
 1. Load the `judge` skill
 
-2. Run all detection passes in order:
+2. Read `draft-N.md`, `draft-N-human-edits.md`, and the blueprint. Parse the edit copy into auto-propagate items (strikethroughs and direct rewrites, applied unconditionally) and brackets to resolve (each paired with a proposed resolution).
+
+3. Run all detection passes in order:
    - Pass 1: AI Voice Detection
    - Pass 2: Strunk & White Rules
    - Pass 3: Readability Scoring
    - Pass 4: Consistency Audit
    - Pass 5: SEO Validation (only if `--seo` flag)
 
-3. Present consolidated Judge Detection Report grouped by severity
+   Add any tonal Fool findings from Phase 1 as extra review-and-decide candidates.
 
-4. Human selects which findings to act on via AskUserQuestion
+4. Present the Judge Consolidated Report with all three signal types: auto-propagate, brackets to resolve, and detection findings grouped by severity
 
-5. Implement approved changes
+5. Use a single AskUserQuestion call for every decision: each bracket resolution, each review-and-decide finding, and the routing choice:
+   - **Full Carpenter rebuild:** substantial but non-structural edits. Return to Phase 4 with the approved bundle; the Carpenter rebuilds from the existing outline as `draft-N+1.md` + `draft-N+1-human-edits.md`.
+   - **Light polish:** minor edits. The Judge applies the approved bundle inline and writes `final-draft-X.md` + `final-draft-X-human-edits.md`, with `X` starting at 1. Further edits to a final draft return to the Judge and produce `final-draft-X+1`.
 
-**Handoff:** Polished draft to Phase 6
+**Handoff:** `final-draft-X.md` to Phase 6
 
 ---
 
@@ -172,8 +184,8 @@ Execute these 6 phases in order. Each phase uses the corresponding skill. Do not
 **Status:** {Publishable / Needs Rework}
 
 ### Deliverables
-- Article: [final content]
-- Judge Report: [detection findings]
+- Article: final-draft-X.md (edit copy: final-draft-X-human-edits.md)
+- Judge Consolidated Report: [auto-propagate, brackets, detection findings]
 - Quality Scorecard: [dimension scores]
 ```
 
@@ -182,13 +194,17 @@ Execute these 6 phases in order. Each phase uses the corresponding skill. Do not
 ## Constraints
 
 ### MUST DO
-- Execute all 6 phases in order
+- Execute all 6 phases in order. Routing back to an earlier phase (Phase 4 to Phase 3, Phase 5 to Phase 4) is a re-entry, not a skip.
 - Use AskUserQuestion at every human decision point
 - Load the corresponding skill for each phase
 - Present artifacts for human approval before proceeding
+- Deliver every draft as a preservation + edit pair and tell the human which file to edit
+- Apply auto-propagate edits (strikethroughs, direct rewrites) without asking again
 
 ### MUST NOT DO
 - Skip phases
 - Proceed without human approval at decision points
 - Make structural changes during Carpenter phase (go back to Architect)
+- Route structural edits from the Carpenter's edit catalog to the Judge (they go to the Architect)
+- Send structural Fool output to the Judge (it goes to the Architect; only tonal items go to the Judge)
 - Make autonomous editing decisions during Judge phase (present findings, human decides)
