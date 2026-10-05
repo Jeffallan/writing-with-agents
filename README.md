@@ -172,6 +172,7 @@ writing-with-agents/
     .claude-plugin/
       plugin.json
     LICENSE
+    README.md
     skills/
       madman/          (SKILL.md + 3 references)
       whirlybird/      (SKILL.md + 3 references)
