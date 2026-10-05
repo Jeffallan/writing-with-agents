@@ -139,3 +139,7 @@ The center of gravity is the most important decision in this phase. Different ce
 The Mermaid mindmap format enforces conciseness through its syntax constraints. Node labels of 2-6 words force the writer to distill ideas to their essence. The 15-25 node limit prevents the whirlybird from becoming a second Madman dump. These constraints are features, not limitations -- they force spatial thinking to stay at the structural level where it is most useful.
 
 The bridge function between Madman and Architect is deliberate. The Madman produces chaos. The Architect imposes order. Without the Whirlybird, the transition is abrupt and often results in the first plausible structure being adopted without exploring alternatives. The Whirlybird creates a structured intermediate step where multiple organizational approaches can be compared before any is committed to sequence.
+
+Maintained by [@jeffallan](https://github.com/jeffallan), Principal Consultant at [Synergetic Solutions](https://synergetic.solutions)
+
+[Documentation](https://jeffallan.github.io/writing-with-agents/skills/structure/whirlybird/)

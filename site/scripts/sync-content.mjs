@@ -330,6 +330,22 @@ function syncSkillPages(skillIndex) {
       relatedBlock = `> **Related Skills:** ${links.join(' · ')}\n\n`;
     }
 
+    // Strip the canonical documentation backlink: it exists in the source SKILL.md
+    // so aggregators (skills.sh, etc.) carry a link back to the docs site, but on
+    // the docs site itself the link points at the page rendering it. Self-link.
+    body = body.replace(
+      /\n+\[Documentation\]\(https:\/\/jeffallan\.github\.io\/writing-with-agents\/skills\/[^)]+\)\s*$/,
+      '',
+    );
+
+    // Strip the maintainer credit that sits just above it: like the
+    // documentation backlink, it is there for aggregators; the docs site
+    // shows the same credit once in its footer.
+    body = body.replace(
+      /\n+Maintained by \[@jeffallan\]\(https:\/\/github\.com\/jeffallan\), Principal Consultant at \[Synergetic Solutions\]\(https:\/\/synergetic\.solutions\/?\)\s*$/,
+      '',
+    );
+
     // Rewrite reference table links to GitHub blob URLs
     body = body.replace(
       /`references\/([^`]+)`/g,

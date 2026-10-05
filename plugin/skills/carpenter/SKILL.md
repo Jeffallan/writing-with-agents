@@ -189,3 +189,7 @@ The Carpenter's quality checklist requires verification of nine items before han
 When the Carpenter discovers a structural problem during construction -- an impossible transition, a section without enough material, or two sections that argue the same point -- the correct response is to send the problem back to the Architect phase. Do not patch the structure during prose construction. The round-trip to the Architect preserves coherence. Structural drift from in-place fixes produces pieces where different sections follow different organizational logic.
 
 The distinction between Carpenter and Judge work is critical. The Carpenter builds; the Judge refines. Construction means clear, solid prose that fulfills the blueprint. Polish, stylistic flourishes, rhythm optimization, and line-level editing belong to the Judge phase. A well-framed wall does not need to be beautiful yet. It needs to be plumb and square.
+
+Maintained by [@jeffallan](https://github.com/jeffallan), Principal Consultant at [Synergetic Solutions](https://synergetic.solutions)
+
+[Documentation](https://jeffallan.github.io/writing-with-agents/skills/craft/carpenter/)

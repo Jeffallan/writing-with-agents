@@ -151,3 +151,7 @@ The triage system (STAR / ARROW / CROSS) provides a consistent vocabulary for ma
 The throughline must be expressible in one sentence, arguable (a reasonable person could disagree), specific (concrete language, not vague), and supported by the starred material. If the starred material does not support the throughline, either the throughline is wrong or the triage needs revisiting.
 
 When structural problems surface during the Carpenter phase, the correct response is to reopen the Architect phase for the affected sections only, not to patch the structure during prose construction. Structural drift produces pieces where the first half follows one logic and the second half follows another.
+
+Maintained by [@jeffallan](https://github.com/jeffallan), Principal Consultant at [Synergetic Solutions](https://synergetic.solutions)
+
+[Documentation](https://jeffallan.github.io/writing-with-agents/skills/structure/architect/)
