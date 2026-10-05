@@ -170,6 +170,10 @@ CANONICAL_SECTIONS = [
 MIN_NON_BLANK_LINES = 80
 MAX_NON_BLANK_LINES = 100
 
+# Core Workflow step count range
+MIN_WORKFLOW_STEPS = 5
+MAX_WORKFLOW_STEPS = 7
+
 # Compiled regex patterns for body content checks
 CORE_WORKFLOW_PATTERN = re.compile(r"##\s*Core\s+Workflow")
 WHEN_TO_USE_PATTERN = re.compile(r"##\s*When\s+to\s+Use(?:\s+This\s+Skill)?", re.IGNORECASE)
@@ -769,7 +773,7 @@ class OutputFormatEnumChecker(MetadataEnumChecker):
 
 
 class CoreWorkflowStepCountChecker(BaseChecker):
-    """Validates Core Workflow section has exactly 5 numbered steps."""
+    """Validates Core Workflow section has 5-7 numbered steps."""
 
     name = "core-workflow-steps"
     category = "yaml"
@@ -802,12 +806,15 @@ class CoreWorkflowStepCountChecker(BaseChecker):
         steps = NUMBERED_STEP_PATTERN.findall(section_content)
         step_count = len(steps)
 
-        if step_count != 5:
+        if not MIN_WORKFLOW_STEPS <= step_count <= MAX_WORKFLOW_STEPS:
             return [ValidationIssue(
                 skill=skill_name,
                 check=self.name,
                 severity=Severity.WARNING,
-                message=f"Core Workflow has {step_count} steps (expected 5)",
+                message=(
+                    f"Core Workflow has {step_count} steps "
+                    f"(expected {MIN_WORKFLOW_STEPS}-{MAX_WORKFLOW_STEPS})"
+                ),
                 file=str(result.skill_md),
             )]
 

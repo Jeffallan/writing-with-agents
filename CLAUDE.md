@@ -54,7 +54,7 @@ metadata:
 **Tier 1 — SKILL.md (~80-100 lines)**
 - Role definition and collaborative model (who leads, who supports)
 - When-to-use guidance (triggers)
-- Core workflow (5 steps)
+- Core workflow (5-7 steps)
 - Constraints (MUST DO / MUST NOT DO)
 - Routing table to references
 
