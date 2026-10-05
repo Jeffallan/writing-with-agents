@@ -47,7 +47,7 @@ Inside Claude Code, add this repo as a plugin marketplace and install the plugin
 
 ```
 /plugin marketplace add Jeffallan/writing-with-agents
-/plugin install writing-with-agents@Jeffallan/writing-with-agents
+/plugin install writing-with-agents@writing-with-agents
 ```
 
 If you're already in a session, run `/reload-plugins` to activate.
