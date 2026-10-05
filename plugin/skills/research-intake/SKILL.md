@@ -89,6 +89,21 @@ The knowledge map is a structured inventory of what the research corpus contains
 - Present gaps without categorizing them -- every gap needs a category to determine the right investigation approach
 - Generate content or draw conclusions during the intake process -- intake is indexing and mapping, not synthesis
 
+## Output Frontmatter
+
+Every Research Intake artifact opens with YAML frontmatter so downstream phases can trace provenance:
+
+```yaml
+---
+type: knowledge-map
+version: N
+derived-from:
+  - <source-file-or-url>
+---
+```
+
+Research intake starts the outer loop, so `parent` is omitted. `derived-from` lists the indexed sources; use a folder or vault path when there are too many to list. Increment `version` when the map is rebuilt with new material or gap-fill results. Vault notes captured in Step 5 keep the vault's own note format.
+
 ## Output Templates
 
 ```markdown

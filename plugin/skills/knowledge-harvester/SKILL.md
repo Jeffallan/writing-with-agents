@@ -84,6 +84,23 @@ The Knowledge Harvester does not generate new research or content. It captures, 
 - Capture speculative connections that were not validated during upstream phases
 - Batch large artifact sets without giving the human an opportunity to review individual items
 
+## Output Frontmatter
+
+When the Capture Summary is saved as a file, it opens with YAML frontmatter so the cycle's provenance chain closes:
+
+```yaml
+---
+type: harvest-report
+version: N
+parent: final-draft-<X>.md
+derived-from:
+  - content-plan-<domain>.md
+  - knowledge-map-<domain>.md
+---
+```
+
+`parent` is the finished article the harvest came from. List in `derived-from` only the upstream artifacts that exist for this cycle. Notes written to the vault keep the frontmatter in `references/vault-format.md`; they do not carry this block.
+
 ## Output Templates
 
 **Capture Catalog (presented before writing):**
