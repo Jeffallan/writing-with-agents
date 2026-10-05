@@ -187,10 +187,12 @@ writing-with-agents/
       writing/
         flowers-cycle/    (COMMAND.md + yaml)
         content-strategy/ (COMMAND.md + yaml)
-      capture/            (COMMAND.md + yaml + references/)
+      capture/            (COMMAND.md + yaml)
       utilities/
         writing-setup/    (COMMAND.md + yaml)
       workflow-manifest.yaml
+    references/
+      capture/          (capture-note-template.md)
   scripts/
     validate-skills.py
     validate-markdown.py

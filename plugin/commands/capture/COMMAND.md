@@ -58,7 +58,7 @@ The user's answer seeds the "Relevance to My Work" section.
 
 Analyze the captured content and generate a structured note with:
 
-1. **Full Flowers frontmatter** — always the complete template from `references/capture-note-template.md`
+1. **Full Flowers frontmatter** — always the complete template from `${CLAUDE_PLUGIN_ROOT}/references/capture/capture-note-template.md`
 2. **Fixed body sections** in this order:
    - Key Claims
    - Architecture/Method
@@ -91,7 +91,7 @@ Open questions identified: {count}
 
 | Topic | Reference | Load When |
 |-------|-----------|-----------|
-| Note Template | `references/capture-note-template.md` | Always — defines frontmatter and body structure |
+| Note Template | `${CLAUDE_PLUGIN_ROOT}/references/capture/capture-note-template.md` | Always — defines frontmatter and body structure |
 
 ---
 
