@@ -44,7 +44,27 @@ FILES_TO_UPDATE = {
     "plugin/.claude-plugin/plugin.json": "json",
     ".claude-plugin/marketplace.json": "json",
     "README.md": "markdown",
+    "plugin/README.md": "regex",
+    "site/src/content/docs/index.mdx": "regex",
 }
+
+# Count patterns for files that cannot hold HTML comment markers (MDX, inline
+# headings). Each pattern has three groups: prefix, the number, and suffix.
+REGEX_PATTERNS = {
+    "plugin/README.md": [
+        (r'(\*\*Skills \()(\d+)(\):\*\*)', "skillCount"),
+        (r'(\*\*Commands \()(\d+)(\):\*\*)', "workflowCount"),
+    ],
+    "site/src/content/docs/index.mdx": [
+        (r'(^description:[^\n]*?)(\d+)(\s+specialized\s+(?:writing\s+)?skills)', "skillCount"),
+        (r'(title=")(\d+)( Skills")', "skillCount"),
+        (r'(title=")(\d+)( Workflows")', "workflowCount"),
+        (r'(title=")(\d+)( References")', "referenceFileCount"),
+    ],
+}
+
+# README tree line, e.g. "madman/          (SKILL.md + 3 references)"
+SKILL_TREE_PATTERN = r'^(\s+([\w-]+)/\s+\(SKILL\.md \+ )(\d+)( references?)(\))'
 
 # Marker names for each count type
 MARKERS = {
@@ -84,6 +104,44 @@ def count_workflows(base_path: Path) -> int:
     if not commands_dir.exists():
         return 0
     return sum(1 for _ in commands_dir.rglob("COMMAND.md"))
+
+
+def count_skill_references(skills_dir: Path, skill: str) -> int | None:
+    """Count reference files for one skill, or None if the skill is unknown."""
+    skill_dir = skills_dir / skill
+    if not (skill_dir / "SKILL.md").exists():
+        return None
+    return sum(1 for _ in (skill_dir / "references").glob("*.md"))
+
+
+# =============================================================================
+# Pattern-Based Replacement
+# =============================================================================
+
+def replace_count(content: str, pattern: str, value: int) -> tuple[str, int]:
+    """Replace the number group of a three-group pattern.
+
+    Returns:
+        Updated content and the number of matches found.
+    """
+    return re.subn(
+        pattern,
+        lambda m: f"{m.group(1)}{value}{m.group(3)}",
+        content,
+        flags=re.MULTILINE,
+    )
+
+
+def update_skill_tree(content: str, skills_dir: Path) -> str:
+    """Rewrite "(SKILL.md + N references)" tree lines from the filesystem."""
+    def repl(m: re.Match) -> str:
+        n = count_skill_references(skills_dir, m.group(2))
+        if n is None:
+            return m.group(0)
+        noun = " reference" if n == 1 else " references"
+        return f"{m.group(1)}{n}{noun}{m.group(5)}"
+
+    return re.sub(SKILL_TREE_PATTERN, repl, content, flags=re.MULTILINE)
 
 
 # =============================================================================
@@ -134,6 +192,9 @@ def update_markdown_file(file_path: Path, version: str, counts: dict, dry_run: b
         rf'\g<1>{version}\2',
         content
     )
+
+    # Update per-skill reference counts in the repository tree
+    content = update_skill_tree(content, Path(SKILLS_DIR))
 
     if content != original:
         if dry_run:
@@ -195,20 +256,53 @@ def update_json_file(file_path: Path, version: str, counts: dict, dry_run: bool)
     )
 
     # Update skill count in descriptions (anchored to "description":)
-    # Pattern: "65 specialized skills" within description strings
-    content = re.sub(
-        r'("description":\s*"[^"]*?)(\d+)\s+specialized\s+skills',
-        rf'\g<1>{counts["skillCount"]} specialized skills',
-        content
+    # Pattern: "10 specialized writing skills" within description strings
+    content, _ = replace_count(
+        content,
+        r'("description":\s*"[^"]*?)(\d+)(\s+specialized\s+(?:writing\s+)?skills)',
+        counts["skillCount"],
     )
 
     # Update workflow count in descriptions
-    # Pattern: "9 project workflow commands" within description strings
-    content = re.sub(
-        r'("description":\s*"[^"]*?)(\d+)\s+project\s+workflow\s+commands',
-        rf'\g<1>{counts["workflowCount"]} project workflow commands',
-        content
+    # Pattern: "4 workflow commands" within description strings
+    content, _ = replace_count(
+        content,
+        r'("description":\s*"[^"]*?)(\d+)(\s+(?:project\s+)?workflow\s+commands)',
+        counts["workflowCount"],
     )
+
+    if content != original:
+        if dry_run:
+            print(f"  Would update {file_path}")
+        else:
+            file_path.write_text(content)
+            print(f"  Updated {file_path}")
+        return True
+    return False
+
+
+# =============================================================================
+# Regex File Updates (MDX and headings that cannot hold markers)
+# =============================================================================
+
+def update_regex_file(file_path: Path, version: str, counts: dict, dry_run: bool) -> bool:
+    """Update counts using the file's entries in REGEX_PATTERNS.
+
+    A pattern that matches nothing means the wording changed and the count
+    can no longer be tracked, so it is treated as an error.
+    """
+    if not file_path.exists():
+        print(f"  Skipping {file_path} (not found)")
+        return False
+
+    content = file_path.read_text()
+    original = content
+
+    for pattern, key in REGEX_PATTERNS[file_path.as_posix()]:
+        content, found = replace_count(content, pattern, counts[key])
+        if not found:
+            print(f"Error: {file_path} has no match for {pattern!r}")
+            sys.exit(1)
 
     if content != original:
         if dry_run:
@@ -290,6 +384,7 @@ def main():
         "json": update_json_file,
         "markdown": update_markdown_file,
         "html": update_html_file,
+        "regex": update_regex_file,
     }
 
     for file_path, file_type in FILES_TO_UPDATE.items():
