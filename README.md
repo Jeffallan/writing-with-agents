@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  <!-- SKILL_COUNT -->10<!-- /SKILL_COUNT --> Skills · <!-- REFERENCE_COUNT -->32<!-- /REFERENCE_COUNT --> References · <!-- WORKFLOW_COUNT -->4<!-- /WORKFLOW_COUNT --> Workflows
+  <!-- SKILL_COUNT -->10<!-- /SKILL_COUNT --> Skills · <!-- REFERENCE_COUNT -->33<!-- /REFERENCE_COUNT --> References · <!-- WORKFLOW_COUNT -->4<!-- /WORKFLOW_COUNT --> Workflows
 </p>
 
 <p align="center">
@@ -110,7 +110,7 @@ This runs the full Flowers cycle: Madman, Whirlybird, Architect, Carpenter, Judg
 | `whirlybird` | structure | Produces nonlinear Mermaid mindmaps. Human selects and combines branches into a working outline. |
 | `architect` | structure | Builds a throughline and section blueprint from the chosen outline. Human leads structural decisions. |
 | `carpenter` | craft | Constructs full prose from the blueprint. Human spot-checks voice, tone, and accuracy. |
-| `judge` | quality | Runs 5 editing passes (AI voice, Strunk & White, readability, consistency, SEO). Human approves changes before any edits. |
+| `judge` | quality | Runs 5 editing passes (AI voice from a vendored human-voice catalog, Strunk & White, readability, consistency, SEO). Human approves changes before any edits. |
 | `quality-rubric` | quality | Scores across 10 dimensions (1-5 scale). Routes any dimension below 4 back to the responsible phase for targeted rework. |
 
 ### Cross-Cutting
@@ -178,7 +178,7 @@ writing-with-agents/
       whirlybird/      (SKILL.md + 3 references)
       architect/       (SKILL.md + 3 references)
       carpenter/       (SKILL.md + 4 references)
-      judge/           (SKILL.md + 5 references)
+      judge/           (SKILL.md + 6 references)
       quality-rubric/  (SKILL.md + 2 references)
       seo-writer/      (SKILL.md + 5 references)
       content-strategist/ (SKILL.md + 3 references)
@@ -222,6 +222,8 @@ Based on Betty S. Flowers' "Madman, Architect, Carpenter, Judge: Roles and the W
 Collaborative oscillation model developed through dialectic conversation between the maintainer ([@jeffallan](https://github.com/jeffallan)) and Claude (Anthropic).
 
 Plugin structure adapted from [fullstack-dev-skills](https://github.com/jeffallan/claude-skills) by [@jeffallan](https://github.com/jeffallan).
+
+The Judge's human-voice pattern catalog is vendored from [humanizer](https://github.com/blader/humanizer) v3.1.0 by Siqi Chen (MIT License), based on Wikipedia's [Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing).
 
 ---
 

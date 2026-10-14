@@ -59,7 +59,8 @@ Listed for transparency, not for approval.
 Issues that almost always improve the piece. These include needless words, throat-clearing, filler transitions, broken parallelism, negative form, clear formatting errors, and broken heading hierarchy.
 
 #### From Pass 1: AI Voice Detection
-- [Finding]: [Location] -- [Explanation]
+- §[N] [Pattern name]: [Location] -- "[exact phrase]" -- [Explanation]
+- [Project category]: [Location] -- [Explanation]
 
 #### From Pass 2: Strunk & White
 - [Finding]: [Location] -- [Explanation and suggested replacement]
@@ -75,7 +76,7 @@ Issues that almost always improve the piece. These include needless words, throa
 Issues that require human judgment. The AI flags these but does not presume they are wrong. Passive voice may be justified. A hedge word may reflect genuine uncertainty. A long sentence may be deliberately complex.
 
 #### From Pass 1: AI Voice Detection
-- [Finding]: [Location] -- [Explanation and recommendation]
+- §[N] [Pattern name]: [Location] -- "[exact phrase]" -- [Explanation and recommendation]
   Decision: apply / skip?
 
 #### From Pass 2: Strunk & White
@@ -151,6 +152,8 @@ If `the-fool` is not present in the available skills list, recommend the user in
 When assigning findings to "Must-Fix" or "Review-and-Decide," use these criteria:
 
 **Must-Fix** -- The finding is almost certainly a defect:
+- Staging tells from the human-voice catalog (§1 to §5) and chatbot residue (§22), on one sighting
+- Weak-alone catalog patterns (§8, §9, §10, §21, §25) when two or more tells share a paragraph
 - Filler transitions that add no meaning
 - Generic openings that could apply to any article
 - Needless word phrases with clear shorter replacements
@@ -163,6 +166,7 @@ When assigning findings to "Must-Fix" or "Review-and-Decide," use these criteria
 **Review-and-Decide** -- The finding may be intentional or context-dependent:
 - Passive voice (sometimes justified)
 - Hedge words (sometimes reflect genuine uncertainty)
+- A single weak-alone catalog tell, such as one dash (§8) or one curly quote (§21)
 - Long sentences (sometimes deliberately complex)
 - Tone shifts (sometimes mark intentional section transitions)
 - Vague language (sometimes serves transitional purposes)
