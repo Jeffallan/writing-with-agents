@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  <!-- SKILL_COUNT -->10<!-- /SKILL_COUNT --> Skills · <!-- REFERENCE_COUNT -->35<!-- /REFERENCE_COUNT --> References · <!-- WORKFLOW_COUNT -->4<!-- /WORKFLOW_COUNT --> Workflows
+  <!-- SKILL_COUNT -->10<!-- /SKILL_COUNT --> Skills · <!-- REFERENCE_COUNT -->35<!-- /REFERENCE_COUNT --> References · <!-- WORKFLOW_COUNT -->5<!-- /WORKFLOW_COUNT --> Workflows
 </p>
 
 <p align="center">
@@ -147,6 +147,7 @@ This runs the full Flowers cycle: Madman, Whirlybird, Architect, Carpenter, Judg
 | `/writing-with-agents:content-strategy` | Multi-article outer loop (6 phases) |
 | `/writing-with-agents:capture` | Capture source into structured research note |
 | `/writing-with-agents:writing-setup` | Configure session defaults |
+| `/writing-with-agents:human-voice` | Remove AI-voice tells from a draft, README, docstring, or commit message; `--embedded` returns only the final text |
 
 ---
 
@@ -201,6 +202,7 @@ writing-with-agents/
       capture/            (COMMAND.md + yaml)
       utilities/
         writing-setup/    (COMMAND.md + yaml)
+        human-voice/      (COMMAND.md + yaml)
       workflow-manifest.yaml
     references/
       capture/          (capture-note-template.md)

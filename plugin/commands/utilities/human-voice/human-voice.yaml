@@ -1,0 +1,28 @@
+command: "human-voice"
+path: plugin/commands/utilities/human-voice/COMMAND.md
+description: docs/workflow/human-voice.md
+inputs:
+  - name: file-or-text
+    type: string
+    required: true
+    description: Path to a file, or the text to edit
+  - name: embedded
+    type: flag
+    required: false
+    description: Return only the final text; no report, question, or new file
+  - name: sample
+    type: string
+    required: false
+    description: Path to a writing sample whose voice the rewrite should match
+outputs:
+  - name: rewrite
+    type: file
+    path: "<name>-human-voice.<ext>"
+    description: Rewritten text saved beside the original (interactive mode)
+  - name: report
+    type: report
+    description: Human-voice findings by §N with severity (interactive mode)
+requires: []
+status: existing
+argument-hint: "<file-or-text> [--embedded] [--sample PATH]"
+repeat: false

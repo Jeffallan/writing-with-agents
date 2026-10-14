@@ -11,7 +11,7 @@
     {
       "name": "writing-with-agents",
       "source": "./plugin",
-      "description": "10 specialized writing skills implementing Betty Flowers' Madman-Architect-Carpenter-Judge framework with Bryan Garner's whirlybird technique, SEO optimization, quality rubric, and multi-article content strategy. Includes 4 workflow commands for the Flowers writing cycle, content strategy, research capture, and session setup.",
+      "description": "10 specialized writing skills implementing Betty Flowers' Madman-Architect-Carpenter-Judge framework with Bryan Garner's whirlybird technique, SEO optimization, quality rubric, and multi-article content strategy. Includes 5 workflow commands for the Flowers writing cycle, content strategy, research capture, session setup, and a human-voice rewrite pass.",
       "version": "0.3.1",
       "author": {
         "name": "jeffallan",
