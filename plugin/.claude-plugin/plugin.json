@@ -42,6 +42,9 @@
     },
     "writing-setup": {
       "source": "./commands/utilities/writing-setup/COMMAND.md"
+    },
+    "human-voice": {
+      "source": "./commands/utilities/human-voice/COMMAND.md"
     }
   }
 }

@@ -10,12 +10,13 @@ Skills and commands for writing nonfiction with Claude, built on Betty S. Flower
 - **Cross-cutting:** `seo-writer`
 - **Outer loop:** `research-intake`, `content-strategist`, `knowledge-harvester`
 
-**Commands (4):**
+**Commands (5):**
 
 - `/writing-with-agents:flowers-cycle` takes one article through every phase
 - `/writing-with-agents:content-strategy` plans a multi-article series from a research corpus
 - `/writing-with-agents:capture` turns a URL, file, or text into a structured research note
 - `/writing-with-agents:writing-setup` saves session defaults
+- `/writing-with-agents:human-voice` removes AI-voice tells from a draft, README, docstring, or commit message, either with a report and approval or, with `--embedded`, by returning only the final text
 
 ## Install
 

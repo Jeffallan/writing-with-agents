@@ -24,3 +24,6 @@ utilities:
   - command: writing-setup
     definition: plugin/commands/utilities/writing-setup/writing-setup.yaml
     description: "Configure session defaults (vault path, content type, SEO preference)"
+  - command: human-voice
+    definition: plugin/commands/utilities/human-voice/human-voice.yaml
+    description: "Remove AI-voice tells from any text: interactive report and approval, or embedded final text only"
