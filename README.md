@@ -110,6 +110,30 @@ This runs the full Flowers cycle: Madman, Whirlybird, Architect, Carpenter, Judg
 
 ---
 
+## Final Prose rule
+
+Add this rule to a `CLAUDE.md` file so Claude runs `human-voice` in embedded mode on finished deliverables before handing them over:
+
+```markdown
+## Final Prose
+
+Before delivering a final deliverable, run the
+writing-with-agents:human-voice command on it in embedded mode and deliver
+its output. Final deliverables are finished content intended to be read
+by humans, such as READMEs, documentation pages, articles, release notes,
+and PR descriptions.
+
+Does not apply to commit messages, code comments, changelog entries, code,
+command output, drafts in progress, or conversational replies.
+```
+
+- **Where to put it.** Add it to a project's `CLAUDE.md` to cover one repository, or to `~/.claude/CLAUDE.md` to cover every project.
+- **Why the list is short.** Each run reads the full human-voice catalog (about 5,000 words), so the rule covers finished deliverables only. Commit messages, code comments, and changelog entries are small and frequent, and the cost of a pass on each one outweighs the gain.
+- **When it runs.** Once, on the finished deliverable. It does not run on every edit or on drafts in progress.
+- **Requirement.** The writing-with-agents plugin must be installed, since the rule calls its `human-voice` command.
+
+---
+
 ## Skills
 
 ### Inner Loop (Single Article)

@@ -23,6 +23,25 @@ Skills and commands for writing nonfiction with Claude, built on Betty S. Flower
 - **claude.ai (Cowork and the Claude apps):** open Customize, then Plugins, and search for "Writing With Agents", or open the [directory listing](https://claude.ai/customize/plugins/id/f54e0a10-f5d3-48c4-addb-2c74360c8130%40anthropic-plugin-directory) while signed in.
 - **Claude Code:** run `/plugin`, open Discover, search for "Writing With Agents" (Anthropic Directory), and pick user, project, or local scope.
 
+## Final Prose rule
+
+To have Claude clean up finished deliverables (READMEs, docs pages, articles, release notes, PR descriptions) automatically, add this to a project `CLAUDE.md` or to `~/.claude/CLAUDE.md`:
+
+```markdown
+## Final Prose
+
+Before delivering a final deliverable, run the
+writing-with-agents:human-voice command on it in embedded mode and deliver
+its output. Final deliverables are finished content intended to be read
+by humans, such as READMEs, documentation pages, articles, release notes,
+and PR descriptions.
+
+Does not apply to commit messages, code comments, changelog entries, code,
+command output, drafts in progress, or conversational replies.
+```
+
+Each run reads the full human-voice catalog, so the rule leaves out small, frequent prose such as commit messages, code comments, and changelog entries. The plugin must be installed for the rule to work.
+
 ## What the plugin reads, writes, and fetches
 
 The plugin contains only Markdown and YAML instructions. It has no scripts, hooks, or MCP servers, and it sends nothing anywhere on its own. When you use it, Claude acts through your host's built-in tools, under your host's permission settings:
