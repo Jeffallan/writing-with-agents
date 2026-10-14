@@ -14,17 +14,13 @@
   <a href="https://github.com/Jeffallan/writing-with-agents/stargazers"><img src="https://img.shields.io/github/stars/Jeffallan/writing-with-agents" alt="GitHub Stars" /></a>
 </p>
 
----
+## Why this exists
 
-## Why This Exists
-
-Most AI writing tools mix brainstorming, structuring, and editing into a single prompt. The result is flat, mediocre output that sounds like everything else. Betty Flowers identified in 1981 that writing requires four distinct cognitive modes, each demanding a different kind of thinking. Mixing them produces internal conflict: your inner critic shuts down your inner generator before it can produce anything worth editing.
+Most AI writing tools mix brainstorming, structuring, and editing into a single prompt. The result is flat, mediocre output that sounds like everything else. Betty Flowers identified in 1981 that writing requires four distinct cognitive modes. Mixing them produces internal conflict: your inner critic shuts down your inner generator before it can produce anything worth editing.
 
 This plugin gives each mode its own skill, workflow, and quality gates. The AI and human trade leadership at every phase: AI generates raw volume when quantity matters, human decides structure when judgment matters.
 
----
-
-## What This Is
+## What this is
 
 A Claude Code plugin that separates the writing process into five phases, each with a defined lead and support role:
 
@@ -36,9 +32,7 @@ A Claude Code plugin that separates the writing process into five phases, each w
 | Carpenter | AI builds | Human spot-checks | Complete draft |
 | Judge | AI detects | Human decides | Polished final piece |
 
-This is the **collaborative oscillation model**: not AI-only automation, not human-only writing. Each phase leverages what each party does best.
-
----
+This project calls the lead and support split the **collaborative oscillation model**.
 
 ## Installation
 
@@ -70,13 +64,11 @@ npx skills add Jeffallan/writing-with-agents
 
 Add `-g` to install globally across all projects.
 
-**Full documentation:** [jeffallan.github.io/writing-with-agents](https://jeffallan.github.io/writing-with-agents)
+The full documentation is at [jeffallan.github.io/writing-with-agents](https://jeffallan.github.io/writing-with-agents).
 
----
+## Quick start
 
-## Quick Start
-
-### Write a Single Article
+### Write a single article
 
 ```
 /writing-with-agents:flowers-cycle "API-first identity verification for fintech"
@@ -84,31 +76,29 @@ Add `-g` to install globally across all projects.
 
 This runs the full Flowers cycle: Madman, Whirlybird, Architect, Carpenter, Judge, Quality Rubric.
 
-### With SEO Optimization
+### With SEO optimization
 
 ```
 /writing-with-agents:flowers-cycle "API-first identity verification" --seo
 ```
 
-### Plan a Multi-Article Strategy
+### Plan a multi-article strategy
 
 ```
 /writing-with-agents:content-strategy /path/to/research/notes
 ```
 
-### Capture a Research Source
+### Capture a research source
 
 ```
 /writing-with-agents:capture /path/to/note.md https://example.com/article
 ```
 
-### Configure Session Defaults
+### Configure session defaults
 
 ```
 /writing-with-agents:writing-setup
 ```
-
----
 
 ## Final Prose rule
 
@@ -127,43 +117,40 @@ Does not apply to commit messages, code comments, changelog entries, code,
 command output, drafts in progress, or conversational replies.
 ```
 
-- **Where to put it.** Add it to a project's `CLAUDE.md` to cover one repository, or to `~/.claude/CLAUDE.md` to cover every project.
-- **Why the list is short.** Each run reads the full human-voice catalog (about 5,000 words), so the rule covers finished deliverables only. Commit messages, code comments, and changelog entries are small and frequent, and the cost of a pass on each one outweighs the gain.
-- **When it runs.** Once, on the finished deliverable. It does not run on every edit or on drafts in progress.
-- **Requirement.** The writing-with-agents plugin must be installed, since the rule calls its `human-voice` command.
+Put it in a project's `CLAUDE.md` to cover one repository, or in `~/.claude/CLAUDE.md` to cover every project. The rule runs once, on the finished deliverable.
 
----
+Each run reads the full human-voice catalog (about 5,000 words), which is why the list covers finished deliverables only. Commit messages, code comments, and changelog entries are small and frequent, and the cost of a pass on each one outweighs the gain.
+
+The rule calls the plugin's `human-voice` command, so the writing-with-agents plugin must be installed.
 
 ## Skills
 
-### Inner Loop (Single Article)
+### Inner loop (single article)
 
-| Skill | Domain | What It Does |
+| Skill | Domain | What it does |
 |-------|--------|-------------|
-| `madman` | generation | Generates 3-5x raw material from human-seeded topics across 8 dimensions. Quantity over quality. |
+| `madman` | generation | Generates 3-5x raw material from human-seeded topics across 8 dimensions, putting quantity ahead of quality at this stage. |
 | `whirlybird` | structure | Produces nonlinear Mermaid mindmaps. Human selects and combines branches into a working outline. |
 | `architect` | structure | Builds a throughline and section blueprint from the chosen outline. Human leads structural decisions. |
 | `carpenter` | craft | Constructs full prose from the blueprint. Human spot-checks voice, tone, and accuracy. |
 | `judge` | quality | Runs 5 editing passes (AI voice from a vendored human-voice catalog, Strunk & White, readability, consistency, SEO). Human approves changes before any edits. |
 | `quality-rubric` | quality | Scores across 10 dimensions (1-5 scale). Routes any dimension below 4 back to the responsible phase for targeted rework. |
 
-### Cross-Cutting
+### Cross-cutting
 
-| Skill | Domain | What It Does |
+| Skill | Domain | What it does |
 |-------|--------|-------------|
-| `seo-writer` | seo | Integrates during Architect (keyword mapping), Carpenter (natural placement), and Judge (validation). Not a post-draft bolt-on. |
+| `seo-writer` | seo | Integrates during Architect (keyword mapping), Carpenter (natural placement), and Judge (validation), so SEO shapes the article from the outline onward. |
 
-### Outer Loop (Multi-Article)
+### Outer loop (multi-article)
 
-| Skill | Domain | What It Does |
+| Skill | Domain | What it does |
 |-------|--------|-------------|
 | `research-intake` | research | Ingests sources into structured research notes and identifies gaps in coverage. |
 | `content-strategist` | strategy | Maps a domain into a multi-article content plan with prioritized topics and linking strategy. |
 | `knowledge-harvester` | research | Captures insights from completed articles back into the research vault for future use. |
 
----
-
-## Workflow Commands
+## Workflow commands
 
 | Command | Description |
 |---------|-------------|
@@ -173,11 +160,9 @@ command output, drafts in progress, or conversational replies.
 | `/writing-with-agents:writing-setup` | Configure session defaults |
 | `/writing-with-agents:human-voice` | Remove AI-voice tells from a draft, README, docstring, or commit message; `--embedded` returns only the final text |
 
----
-
 ## Architecture
 
-### Two Loops
+### Two loops
 
 ```
 Outer Loop (runs once per domain):
@@ -187,17 +172,15 @@ Inner Loop (runs once per article):
   Madman --> Whirlybird --> Architect --> Carpenter --> Judge --> Quality Rubric
 ```
 
-### Progressive Disclosure
+### Progressive disclosure
 
 Each skill loads in two tiers:
-- **Tier 1 (SKILL.md):** ~80-100 lines with role, triggers, workflow, constraints, routing table
-- **Tier 2 (references/):** Detailed procedural content loaded only when context requires
+- Tier 1 (SKILL.md): ~80-100 lines with role, triggers, workflow, constraints, routing table
+- Tier 2 (references/): Detailed procedural content loaded only when context requires
 
-This reduces initial token usage by ~50%. In practice, each skill conversation starts with ~80-100 lines instead of 400+, preserving your context window for actual content.
+This reduces initial token usage by ~50%. In practice, each skill conversation starts with ~80-100 lines instead of 400+, so more of your context window is left for the content you are writing.
 
----
-
-## Project Structure
+## Project structure
 
 ```
 writing-with-agents/
@@ -239,8 +222,6 @@ writing-with-agents/
   version.json
 ```
 
----
-
 ## Author
 
 Built by [**jeffallan**](https://jeffallan.github.io) [<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" width="16" height="16" alt="LinkedIn"/>](https://www.linkedin.com/in/jeff-smolinski/)
@@ -248,8 +229,6 @@ Built by [**jeffallan**](https://jeffallan.github.io) [<img src="https://cdn.jsd
 **Principal Consultant** at [**Synergetic Solutions**](https://synergetic.solutions) [<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" width="16" height="16" alt="LinkedIn"/>](https://www.linkedin.com/company/synergetic-holdings)
 
 Fullstack engineering, security engineering, compliance, and technical due diligence.
-
----
 
 ## Attribution
 
@@ -260,8 +239,6 @@ Collaborative oscillation model developed through dialectic conversation between
 Plugin structure adapted from [fullstack-dev-skills](https://github.com/jeffallan/claude-skills) by [@jeffallan](https://github.com/jeffallan).
 
 The Judge's human-voice pattern catalog is vendored from [humanizer](https://github.com/blader/humanizer) v3.1.0 by Siqi Chen (MIT License), based on Wikipedia's [Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing).
-
----
 
 ## License
 

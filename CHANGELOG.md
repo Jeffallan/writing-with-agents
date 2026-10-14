@@ -20,6 +20,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Madman asks one round of up to 3 clarifying questions in a single `AskUserQuestion` call, multiple choice where possible, when the seed is too thin. It still generates after that round with no follow-ups; the length question counts toward the cap (#7)
 - This repository's `CLAUDE.md` adopts the Final Prose rule for its own finished prose (READMEs, docs pages, release notes, PR descriptions). Skill and command files, commit messages, code comments, and changelog entries stay out of scope (#14)
+- Human-voice pass over the README, `plugin/README.md`, `docs/examples.md`, the workflow pages, and the docs site home page: staged contrasts, dashes, and bold labels removed, headings in sentence case. Links, commands, paths, and count markers are unchanged (#15)
 
 ### Fixed
 
