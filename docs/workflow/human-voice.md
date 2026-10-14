@@ -35,10 +35,9 @@ Does not apply to commit messages, code comments, changelog entries, code,
 command output, drafts in progress, or conversational replies.
 ```
 
-- **Where to put it.** Add it to a project's `CLAUDE.md` to cover one repository, or to `~/.claude/CLAUDE.md` to cover every project.
-- **Why the list is short.** Each run reads the full human-voice catalog (about 5,000 words), so the rule covers finished deliverables only. Commit messages, code comments, and changelog entries are small and frequent, and the cost of a pass on each one outweighs the gain.
-- **When it runs.** Once, on the finished deliverable. It does not run on every edit or on drafts in progress.
-- **Requirement.** The writing-with-agents plugin must be installed, since the rule calls its `human-voice` command.
+Put the rule in a project's `CLAUDE.md` to cover one repository, or in `~/.claude/CLAUDE.md` to cover every project. The writing-with-agents plugin must be installed, since the rule calls its `human-voice` command.
+
+The rule runs once per deliverable, after it is finished. Each run reads the full human-voice catalog (about 5,000 words), which is why the list of covered content is short. Commit messages, code comments, and changelog entries are small and frequent, and a pass on each one costs more than it gains.
 
 ## Voice
 

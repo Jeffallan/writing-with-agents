@@ -1,10 +1,10 @@
 # Examples
 
-Representative use cases for the Writing With Agents plugin, covering the primary slash commands and individual skills. Each example shows what the user types and what the plugin produces.
+These examples cover the main slash commands and individual skills in the Writing With Agents plugin. For each one, you'll see what to type and what the plugin produces.
 
 ## Example 1: Run a full Flowers cycle on a single article
 
-Use the `/flowers-cycle` command with a topic (e.g., `/flowers-cycle "API-first identity verification for fintech"`) to orchestrate the madman, whirlybird, architect, carpenter, judge, and quality-rubric skills end-to-end. You receive a publish-ready article along with the intermediate artifacts: raw idea dump from the madman skill, nonlinear mindmap of structural options from whirlybird, chosen outline from architect, drafted prose from carpenter, edits flagging AI voice tells and readability issues from judge, and a final score against the quality rubric.
+The `/flowers-cycle` command takes a topic (e.g., `/flowers-cycle "API-first identity verification for fintech"`) and orchestrates the madman, whirlybird, architect, carpenter, judge, and quality-rubric skills end to end. You receive a publish-ready article along with the intermediate artifacts: raw idea dump from the madman skill, nonlinear mindmap of structural options from whirlybird, chosen outline from architect, drafted prose from carpenter, edits flagging AI voice tells and readability issues from judge, and a final score against the quality rubric.
 
 ## Example 2: Plan a multi-article content campaign from a research corpus
 
@@ -12,7 +12,7 @@ Use the `/content-strategy` command to turn a folder of research notes and sourc
 
 ## Example 3: Capture a URL or PDF into a structured research note
 
-Use the `/capture` command (e.g., `/capture https://example.com/article-on-zero-trust`) to fetch a source and convert it into a Flowers-format research note in your knowledge vault. The capture command and knowledge-harvester skill extract key claims, generate a citation block with the source's metadata, and link the new note to existing related notes in your vault so downstream calls to research-intake can pick it up.
+To fetch a source and convert it into a Flowers-format research note in your knowledge vault, run the `/capture` command (e.g., `/capture https://example.com/article-on-zero-trust`). The capture command and knowledge-harvester skill extract the main claims, generate a citation block with the source's metadata, and link the new note to existing related notes in your vault so downstream calls to research-intake can pick it up.
 
 ## Example 4: Audit a finished draft for AI voice and prose quality
 

@@ -40,15 +40,15 @@ Does not apply to commit messages, code comments, changelog entries, code,
 command output, drafts in progress, or conversational replies.
 ```
 
-Each run reads the full human-voice catalog, so the rule leaves out small, frequent prose such as commit messages, code comments, and changelog entries. The plugin must be installed for the rule to work.
+Each run reads the full human-voice catalog, which is why the rule skips small, frequent prose such as commit messages, code comments, and changelog entries. The plugin must be installed for the rule to work.
 
 ## What the plugin reads, writes, and fetches
 
 The plugin contains only Markdown and YAML instructions. It has no scripts, hooks, or MCP servers, and it sends nothing anywhere on its own. When you use it, Claude acts through your host's built-in tools, under your host's permission settings:
 
-- **Reads** the files and folders you point it at, such as drafts or a notes vault
-- **Fetches** URLs you provide (for example with `/capture`) and runs web searches only for research gaps you select
-- **Writes** drafts, outlines, and notes to the locations you choose, and stores session defaults in `~/.claude/writing-with-agents/config.json`
+- Reads the files and folders you point it at, such as drafts or a notes vault
+- Fetches URLs you provide (for example with `/capture`) and runs web searches only for research gaps you select
+- Writes drafts, outlines, and notes to the locations you choose, and stores session defaults in `~/.claude/writing-with-agents/config.json`
 
 ## Documentation
 
