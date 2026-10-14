@@ -7,7 +7,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/version-0.3.1-blue.svg" alt="Version" />
+  <img src="https://img.shields.io/badge/version-0.3.2-blue.svg" alt="Version" />
   <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" />
   <img src="https://img.shields.io/badge/Claude%20Code-Plugin-blueviolet.svg" alt="Claude Code Plugin" />
   <a href="https://claude.ai/customize/plugins/id/f54e0a10-f5d3-48c4-addb-2c74360c8130%40anthropic-plugin-directory"><img src="https://img.shields.io/badge/Claude_Plugin_Directory-listed-D97757" alt="Claude Plugin Directory: Listed" /></a>
