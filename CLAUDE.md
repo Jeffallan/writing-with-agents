@@ -100,7 +100,11 @@ python scripts/validate-markdown.py
 
 Add new version entry following Keep a Changelog format.
 
-### 4. Check the Vendored Humanizer Catalog
+### 4. Plan for Directory Review
+
+The Claude plugin directory polls this repository about every 6 hours. Each new version needs Anthropic review before directory users get it, and directory installs pin the reviewed commit (v0.3.1 pins `9fa1bb2`). Expect directory users to stay on the previous version until the review passes; marketplace and `npx skills add` users get the release when the tag is pushed.
+
+### 5. Check the Vendored Humanizer Catalog
 
 `plugin/skills/judge/references/human-voice.md` is a pinned copy of humanizer. Compare its pinned tag with the latest upstream tag:
 ```bash

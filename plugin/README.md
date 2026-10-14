@@ -17,6 +17,11 @@ Skills and commands for writing nonfiction with Claude, built on Betty S. Flower
 - `/writing-with-agents:capture` turns a URL, file, or text into a structured research note
 - `/writing-with-agents:writing-setup` saves session defaults
 
+## Install
+
+- **claude.ai (Cowork and the Claude apps):** open Customize, then Plugins, and search for "Writing With Agents", or open the [directory listing](https://claude.ai/customize/plugins/id/f54e0a10-f5d3-48c4-addb-2c74360c8130%40anthropic-plugin-directory) while signed in.
+- **Claude Code:** run `/plugin`, open Discover, search for "Writing With Agents" (Anthropic Directory), and pick user, project, or local scope.
+
 ## What the plugin reads, writes, and fetches
 
 The plugin contains only Markdown and YAML instructions. It has no scripts, hooks, or MCP servers, and it sends nothing anywhere on its own. When you use it, Claude acts through your host's built-in tools, under your host's permission settings:
