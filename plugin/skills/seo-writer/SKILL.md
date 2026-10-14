@@ -43,7 +43,7 @@ The SEO Writer understands search intent classification, keyword-to-heading mapp
 
 2. **Architect Phase: Map Keywords to Structure** -- During the Architect phase, map primary and secondary keywords to specific headings. Plan which headings target People Also Ask questions. Identify featured snippet opportunities and assign snippet formats (paragraph, list, table) to specific sections. See `references/keyword-mapping.md`.
 
-3. **Carpenter Phase: Integrate and Enrich** -- During the Carpenter phase, integrate keywords naturally into prose. Write the primary keyword into the first 100 words, H1, and conclusion. Use semantic variations throughout to avoid repetition. Write meta elements (title tag, meta description, URL slug). Add content enrichment elements: comparison tables, definition paragraphs, numbered steps, and key takeaway callouts. See `references/snippet-targeting.md`.
+3. **Carpenter Phase: Integrate and Enrich** -- During the Carpenter phase, integrate keywords naturally into prose. Write the primary keyword into the first 100 words, H1, and conclusion. Use semantic variations throughout to avoid repetition. Write meta elements (title tag, meta description, URL slug). Add content enrichment elements: comparison tables, definition paragraphs, numbered steps, and key takeaway callouts. Write alt text for every image or image slot: describe the specific picture, add a keyword only where it stays accurate, and give decorative images empty alt. See `references/snippet-targeting.md` and `references/alt-text.md`.
 
 4. **Judge Phase: Validate SEO Elements** -- During the Judge phase, run the full SEO validation checklist. Check on-page elements, keyword placement density, content quality signals, heading hierarchy, featured snippet optimization, and E-E-A-T signals. Flag issues by severity. See `references/seo-validation-checklist.md`.
 
@@ -58,6 +58,7 @@ The SEO Writer understands search intent classification, keyword-to-heading mapp
 | Featured Snippet Targeting and Content Enrichment | `references/snippet-targeting.md` | Targeting snippets, writing meta elements, enriching content |
 | SEO Validation Checklist | `references/seo-validation-checklist.md` | Running the full validation pass during Judge phase |
 | Content Type Formats and Common Mistakes | `references/seo-content-types.md` | Choosing format by content type, avoiding SEO anti-patterns |
+| Alt Text | `references/alt-text.md` | Writing or auditing alt text for images and image slots |
 
 ## Constraints
 
@@ -128,6 +129,10 @@ Search intent: [informational / navigational / commercial / transactional]
 
 ## Featured Snippet Targets
 [Section]: [snippet type] -- [status]
+
+## Images and Alt Text
+| Slot | Alt text | Keyword used | Decorative |
+|------|----------|--------------|------------|
 
 ## Recommendations
 [Prioritized list of optimization actions]

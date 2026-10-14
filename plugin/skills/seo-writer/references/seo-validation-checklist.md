@@ -22,6 +22,7 @@ Word count: [n]
 - [ ] Meta description contains primary keyword naturally
 - [ ] Meta description describes value, not just topic
 - [ ] URL slug is short, hyphenated, and contains primary keyword
+- [ ] Every image has alt text that describes it; keywords appear only where accurate; decorative images use empty alt (see `alt-text.md`)
 
 ## Keyword Placement
 - [ ] Primary keyword appears in the first 100 words
