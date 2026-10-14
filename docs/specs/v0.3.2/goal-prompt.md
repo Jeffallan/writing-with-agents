@@ -69,3 +69,13 @@ When #15 is committed, stop and post:
 </final_report>
 
 Reminder: one commit per ticket on `v0.3.2`, no push or merge, stop before #18.
+
+---
+
+## Kickoff command
+
+The maintainer started the session with this `/goal` command. The original path pointed at the maintainer's local notes folder; it is shown here with the repo path.
+
+```
+/goal Follow the instructions in docs/specs/v0.3.2/goal-prompt.md exactly. Start by reading that file in full.
+```
