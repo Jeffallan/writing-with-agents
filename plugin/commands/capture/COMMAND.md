@@ -22,7 +22,7 @@ Captures content from a URL, file path, or raw text string and produces a struct
 | `path` | Yes | Where to write the note (file path) |
 | `source` | Yes | URL, file path, or quoted text string to capture |
 
-**Example:** `/writing-with-agents:capture /Users/dmitry/note-sync/my-note.md https://example.com/article`
+**Example:** `/writing-with-agents:capture ~/notes/my-note.md https://example.com/article`
 
 ---
 
