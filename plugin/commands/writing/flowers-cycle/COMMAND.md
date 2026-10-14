@@ -129,7 +129,7 @@ Execute these 6 phases in order. Each phase uses the corresponding skill. Do not
 2. Read `draft-N.md`, `draft-N-human-edits.md`, and the blueprint. Parse the edit copy into auto-propagate items (strikethroughs and direct rewrites, applied unconditionally) and brackets to resolve (each paired with a proposed resolution).
 
 3. Run all detection passes in order:
-   - Pass 1: AI Voice Detection
+   - Pass 1: AI Voice Detection, using the vendored human-voice catalog (`references/human-voice.md`); tells are reported by §N, detection only
    - Pass 2: Strunk & White Rules
    - Pass 3: Readability Scoring
    - Pass 4: Consistency Audit

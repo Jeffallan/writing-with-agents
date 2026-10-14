@@ -100,6 +100,14 @@ python scripts/validate-markdown.py
 
 Add new version entry following Keep a Changelog format.
 
+### 4. Check the Vendored Humanizer Catalog
+
+`plugin/skills/judge/references/human-voice.md` is a pinned copy of humanizer. Compare its pinned tag with the latest upstream tag:
+```bash
+gh api repos/blader/humanizer/tags -q '.[0].name'
+```
+If upstream is newer, review the diff of `SKILL.md` between the two tags, replace the body of `human-voice.md` below its attribution header, and bump the pinned tag in the header.
+
 ---
 
 ## Default Style Constraints
@@ -122,3 +130,5 @@ Collaborative oscillation model developed through dialectic conversation between
 the maintainer ([@jeffallan](https://github.com/jeffallan)) and Claude.
 
 Plugin structure adapted from [fullstack-dev-skills](https://github.com/jeffallan/claude-skills) by [@jeffallan](https://github.com/jeffallan).
+
+Judge Pass 1 pattern catalog (`plugin/skills/judge/references/human-voice.md`) vendored from [humanizer](https://github.com/blader/humanizer) v3.1.0 by Siqi Chen, MIT License.

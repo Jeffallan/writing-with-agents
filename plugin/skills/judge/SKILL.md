@@ -52,7 +52,7 @@ The third signal type, Judge detection findings, is produced by Steps 2 and 3.
 
 Execute all five passes in sequence. Each pass builds on the context of prior passes.
 
-1. **AI Voice Detection** -- Broadest scan. Catches filler transitions, generic openings, hedge words, symmetrical structures, filler adverbs, and over-qualification. See `references/ai-voice-detection.md`.
+1. **AI Voice Detection** -- Broadest scan. Marks the tells in the human-voice catalog (staged contrasts, closers, run-ups, triads, dashes, bold labels, chatbot residue) by §N, plus filler transitions, generic openings, hedges, and filler adverbs. Detection only. See `references/ai-voice-detection.md`.
 2. **Strunk & White Rules** -- Composition principles. Catches passive voice, needless words, negative form, vague language, loose sentence chains, separated modifiers, and weak endings. See `references/strunk-white-rules.md`.
 3. **Readability Scoring** -- Quantitative metrics. Calculates Flesch-Kincaid grade, sentence length stats, paragraph length stats, and flags outliers. See `references/readability-scoring.md`.
 4. **Consistency Audit** -- Cross-document checks. Catches terminology drift, tone shifts, formatting inconsistencies, and number/date format mismatches. See `references/consistency-audit.md`.
@@ -97,7 +97,8 @@ For either path, tell the user explicitly which file is the edit copy: **"Edit `
 
 | Topic | Reference | Load When |
 |-------|-----------|-----------|
-| AI Voice Detection | `references/ai-voice-detection.md` | Pass 1: filler, hedges, symmetry, generic openings |
+| AI Voice Detection | `references/ai-voice-detection.md` | Pass 1: run procedure, severity, exclusions, report format |
+| Human Voice Catalog | `references/human-voice.md` | Pass 1: pattern catalog (vendored humanizer v3.1.0) |
 | Strunk & White Rules | `references/strunk-white-rules.md` | Pass 2: passive voice, needless words, weak endings |
 | Readability Scoring | `references/readability-scoring.md` | Pass 3: Flesch-Kincaid, sentence/paragraph stats |
 | Consistency Audit | `references/consistency-audit.md` | Pass 4: terminology, tone, formatting checks |
@@ -122,7 +123,7 @@ For either path, tell the user explicitly which file is the edit copy: **"Edit `
 **MUST NOT DO:**
 
 - Make changes autonomously without human approval.
-- Rewrite sections. If a section needs rewriting, send it back to the Carpenter.
+- Rewrite sections or apply human-voice rewrites. Flag tells for the human; if a section needs rewriting, send it back to the Carpenter.
 - Skip passes. Every applicable pass runs, even if early passes find no issues.
 - Combine detection and editing into one step. Detect first, then edit after approval.
 - Add new content. The Judge refines what exists; it does not generate new material.
