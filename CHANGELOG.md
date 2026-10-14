@@ -26,6 +26,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - `scripts/update-docs.py` now keeps every stated count in sync: the manifest descriptions, the docs site home page, the skill and command headings in `plugin/README.md`, and the per-skill reference counts in the README tree. `--check` fails when any of them is stale or no longer matches its pattern (#16)
 
+### Contributors
+
+- [@courtneyheitman](https://github.com/courtneyheitman): post-launch review that shaped the Madman question round, human-voice pass, and SEO alt text and JSON-LD (#7, #8, #10, #11)
+
 ## [0.3.1] - 2026-10-05
 
 ### Added
