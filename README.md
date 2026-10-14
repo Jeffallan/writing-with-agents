@@ -10,6 +10,7 @@
   <img src="https://img.shields.io/badge/version-0.3.1-blue.svg" alt="Version" />
   <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" />
   <img src="https://img.shields.io/badge/Claude%20Code-Plugin-blueviolet.svg" alt="Claude Code Plugin" />
+  <a href="https://claude.ai/customize/plugins/id/f54e0a10-f5d3-48c4-addb-2c74360c8130%40anthropic-plugin-directory"><img src="https://img.shields.io/badge/Claude_Plugin_Directory-listed-D97757" alt="Claude Plugin Directory: Listed" /></a>
   <a href="https://github.com/Jeffallan/writing-with-agents/stargazers"><img src="https://img.shields.io/github/stars/Jeffallan/writing-with-agents" alt="GitHub Stars" /></a>
 </p>
 
@@ -41,7 +42,16 @@ This is the **collaborative oscillation model**: not AI-only automation, not hum
 
 ## Installation
 
-### Option 1: Claude Code plugin marketplace (native)
+### Option 1: From the Claude plugin directory
+
+Writing With Agents is listed in the Claude plugin directory for Claude Code, Cowork, and the Claude apps.
+
+- **claude.ai (Cowork and the Claude apps):** open Customize, then Plugins, and search for "Writing With Agents". You can also open the [directory listing](https://claude.ai/customize/plugins/id/f54e0a10-f5d3-48c4-addb-2c74360c8130%40anthropic-plugin-directory) directly; it requires a claude.ai sign-in.
+- **Claude Code:** run `/plugin`, open Discover, search for "Writing With Agents" (Anthropic Directory), and install it at user, project, or local scope.
+
+Directory installs receive a new version after Anthropic reviews it, so they can trail the GitHub release by a few days.
+
+### Option 2: Claude Code plugin marketplace (native)
 
 Inside Claude Code, add this repo as a plugin marketplace and install the plugin:
 
@@ -52,7 +62,7 @@ Inside Claude Code, add this repo as a plugin marketplace and install the plugin
 
 If you're already in a session, run `/reload-plugins` to activate.
 
-### Option 2: skills.sh via npx
+### Option 3: skills.sh via npx
 
 ```bash
 npx skills add Jeffallan/writing-with-agents
