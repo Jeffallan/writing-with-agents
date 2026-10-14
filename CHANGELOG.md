@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Fixed
+
+- `scripts/update-docs.py` now keeps every stated count in sync: the manifest descriptions, the docs site home page, the skill and command headings in `plugin/README.md`, and the per-skill reference counts in the README tree. `--check` fails when any of them is stale or no longer matches its pattern (#16)
+
 ## [0.3.1] - 2026-10-05
 
 ### Added
