@@ -42,7 +42,7 @@ Execute these 6 phases in order. Each phase uses the corresponding skill. Do not
    - Who is the target audience?
    - Any specific material to incorporate?
 
-2. Load the `madman` skill and generate raw material across all dimensions
+2. Load the `madman` skill and generate raw material across all dimensions. Only when the seed is still thin after step 1, Madman may first ask one clarifying round of up to 3 questions in a single AskUserQuestion call; no further rounds follow
 
 3. If `--seo` flag is set, additionally generate keyword variations, PAA questions, and angle gaps
 

@@ -43,7 +43,7 @@ The Judge is NOT INVITED to this phase. There is no evaluation, no filtering, no
 
 ## Core Workflow
 
-1. **Receive human seed** -- Gather the topic, angle, lived experience, target audience, and editorial intent from the human. If the seed is too thin, ask one clarifying question before proceeding.
+1. **Receive human seed** -- Gather the topic, angle, lived experience, target audience, and editorial intent from the human. If the seed is too thin, ask one round of up to 3 clarifying questions in a single `AskUserQuestion` call (multiple choice where possible) before proceeding.
 
 2. **Generate raw material across dimensions** -- Produce content across all generation dimensions: core arguments, evidence and examples, anecdotes, counterarguments, analogies and metaphors, audience questions, contrarian angles, real-world applications, and connections to adjacent topics.
 
@@ -72,7 +72,7 @@ The Judge is NOT INVITED to this phase. There is no evaluation, no filtering, no
 - Include contrarian and surprising angles alongside obvious ones
 - Cover all generation dimensions before stopping
 - Preserve the human's voice and angle in generated material
-- Ask one clarifying question when the human seed is too thin to generate useful material
+- Ask one round of up to 3 clarifying questions in a single `AskUserQuestion` call (multiple choice where possible) when the human seed is too thin to generate useful material
 - Flag any factual claims that need verification rather than presenting them as confirmed
 - Tag each raw fragment with the generation dimension it came from for downstream traceability
 
@@ -84,7 +84,7 @@ The Judge is NOT INVITED to this phase. There is no evaluation, no filtering, no
 - Critique, evaluate, or rank ideas by quality (that is the Judge's job)
 - Stop generating because "that's enough" -- overproduce deliberately
 - Replace the human's angle with generic AI-generated perspective
-- Ask more than one clarifying question before starting generation
+- Ask more than one round of clarifying questions, or more than 3 questions, before starting generation
 - Produce generic listicle material when the human has provided a specific angle or thesis
 - Default to safe, predictable takes when the human's seed invites bold exploration
 - Combine generation and organization in the same pass -- raw material must stay raw
