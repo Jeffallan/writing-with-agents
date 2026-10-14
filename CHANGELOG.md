@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - seo-writer ends the SEO Report with a ready-to-paste JSON-LD block for Article, BlogPosting, FAQPage, HowTo, or Review, filled only from the draft and blueprint. Missing values stay as `TODO:` strings and are listed in the report. Templates and the content-type mapping live in `seo-writer/references/structured-data.md` (#11)
 - Install instructions for the Claude plugin directory (Claude Code, Cowork, and the Claude apps) in the README, `plugin/README.md`, and the docs site home page, a text-only directory badge, and a release checklist note on directory polling, review, and commit pinning (#12)
 - `/writing-with-agents:human-voice` command. It runs the human-voice catalog's full process on any text. Interactive mode reports tells by §N, asks once for approval, and saves the rewrite beside the original without overwriting it. `--embedded` (or a call from another task) returns only the final text. Code, doc tags, commit prefixes, issue references, and trailers stay unchanged (#9)
+- Final Prose rule: a `CLAUDE.md` snippet in the README, `plugin/README.md`, and the human-voice workflow page that runs `human-voice` in embedded mode on finished deliverables (READMEs, docs pages, articles, release notes, PR descriptions). Commit messages, code comments, and changelog entries are left out because each run reads the full catalog (#13)
 
 ### Changed
 
