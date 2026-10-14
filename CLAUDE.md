@@ -125,6 +125,22 @@ These constraints apply to the Carpenter and Judge phases. The Madman phase is e
 
 ---
 
+## Final Prose
+
+Before delivering a final deliverable, run the
+writing-with-agents:human-voice command on it in embedded mode and deliver
+its output. Final deliverables are finished content intended to be read
+by humans, such as READMEs, documentation pages, docs site pages, release
+notes, and PR descriptions.
+
+Does not apply to commit messages, code comments, changelog entries, code,
+command output, drafts in progress, or conversational replies. Each run
+reads the full human-voice catalog, so the list stays short.
+
+Default Style Constraints govern the article content the skills generate in the Carpenter and Judge phases (Madman stays exempt). Final Prose governs this repository's own prose. Skill and command files under `plugin/skills/` and `plugin/commands/` are instructions for Claude and are excluded.
+
+---
+
 ## Attribution
 
 Based on Betty S. Flowers' "Madman, Architect, Carpenter, Judge" framework (1981),
