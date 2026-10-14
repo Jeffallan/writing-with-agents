@@ -66,15 +66,18 @@ Any material the human wants woven into the piece:
 
 ## When the Seed Is Thin
 
-If the human provides only a topic with no angle, audience, or experience, the AI should ask exactly one clarifying question before proceeding. Do not ask multiple questions -- that stalls the creative phase.
+If the human provides only a topic with no angle, audience, or experience, the AI asks one round of up to 3 clarifying questions in a single `AskUserQuestion` call before proceeding. One round keeps the creative phase moving; a second round would stall it.
 
-Choose the single question that will most improve output quality. Priority order:
+Ask only about what the seed is missing, and pick the questions in this priority order:
 
-1. **Angle:** "What is your unique take or experience with this topic?" (Highest impact on output relevance)
+1. **Angle:** "What is your take on this topic?" (Highest impact on output relevance)
 2. **Audience:** "Who specifically is this for?" (Shapes tone and depth)
 3. **Problem:** "What should the reader be able to do after reading this?" (Shapes content selection)
+4. **Lived experience:** "What have you seen or done firsthand that bears on this?" (Supplies anecdotes the AI cannot invent)
 
-If the human declines to elaborate, proceed with the thin seed. Generating material from a thin seed is better than not generating at all. The Whirlybird phase can compensate.
+Make each question multiple choice where possible: offer 2 to 4 concrete options drawn from the topic, and leave an "Other" path so the human can answer in their own words. A seed missing only one element gets a single question.
+
+If the human skips a question or declines to elaborate, generate with what you have. Generating material from a thin seed is better than not generating at all. The Whirlybird phase can compensate.
 
 ---
 
@@ -84,9 +87,13 @@ A typical seeding exchange looks like this:
 
 **Human:** "I want to write about developer productivity."
 
-**AI (one clarifying question):** "What is your unique take or experience with developer productivity? For example, do you have data from your own team, a contrarian opinion, or a specific aspect you care about most?"
+**AI (one `AskUserQuestion` round, 3 questions):**
 
-**Human:** "I've been tracking my team's output for 2 years and found that our most productive weeks were the ones with the most 'wasted' time -- long lunches, side projects, unstructured pairing."
+1. "What is your angle on developer productivity?" Options: data from your own team; a contrarian opinion; a specific slice (code review, onboarding, tooling); Other.
+2. "Who is this for?" Options: individual engineers; engineering managers; executives; Other.
+3. "Do you have a firsthand story to anchor it?" Options: yes, a team turnaround; yes, a metric that backfired; no, keep it general; Other.
+
+**Human:** Picks "data from your own team" and "engineering managers", and adds under Other: "I've been tracking my team's output for 2 years and found that our most productive weeks were the ones with the most 'wasted' time -- long lunches, side projects, unstructured pairing."
 
 **AI:** [Proceeds to generate Madman output seeded with this angle]
 

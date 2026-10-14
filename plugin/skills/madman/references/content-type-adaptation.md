@@ -198,4 +198,4 @@ If the human does not specify a target length, estimate based on content type:
 1. Check the content type table at the top of this document for typical length ranges.
 2. Default to the middle of the range for that content type.
 3. Select the scaling tier that matches.
-4. If uncertain, ask the human: "How long do you want the final piece to be?" This is a reasonable clarifying question that does not stall the creative phase.
+4. If uncertain, ask the human: "How long do you want the final piece to be?" Ask it inside the single clarifying round, where it counts toward the 3-question cap.

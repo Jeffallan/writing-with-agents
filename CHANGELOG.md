@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Judge Pass 1 now marks AI-voice tells from a human-voice pattern catalog vendored from [humanizer](https://github.com/blader/humanizer) v3.1.0 (MIT, Siqi Chen) in `judge/references/human-voice.md`. Findings carry the catalog's pattern number (§N); staging tells (§1 to §5) and chatbot residue (§22) are must-fix. The Judge stays detection-only, and passive voice stays with the Strunk & White pass (#8)
 
+### Changed
+
+- Madman asks one round of up to 3 clarifying questions in a single `AskUserQuestion` call, multiple choice where possible, when the seed is too thin. It still generates after that round with no follow-ups; the length question counts toward the cap (#7)
+
 ### Fixed
 
 - `scripts/update-docs.py` now keeps every stated count in sync: the manifest descriptions, the docs site home page, the skill and command headings in `plugin/README.md`, and the per-skill reference counts in the README tree. `--check` fails when any of them is stale or no longer matches its pattern (#16)
