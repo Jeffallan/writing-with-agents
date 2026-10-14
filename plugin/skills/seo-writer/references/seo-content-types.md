@@ -97,7 +97,7 @@ These mistakes are frequent in AI-assisted content and will hurt both rankings a
 
 **Duplicate title tags:** Multiple pages with the same title tag compete against each other. Every page needs a unique title tag targeting a distinct keyword.
 
-**Missing alt text on images:** Images without alt text are invisible to search engines. Write alt text that describes the image content and includes a relevant keyword when natural.
+**Missing alt text on images:** Images without alt text are invisible to search engines and to screen reader users. Write alt text that describes the specific image and includes a keyword only when the description stays accurate. See `alt-text.md` for the rule, examples, and decorative images.
 
 **Ignoring page speed:** Content quality is irrelevant if the page loads slowly. Large uncompressed images, render-blocking scripts, and excessive third-party requests harm both rankings and user experience.
 
