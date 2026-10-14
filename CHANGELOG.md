@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Judge Pass 1 now marks AI-voice tells from a human-voice pattern catalog vendored from [humanizer](https://github.com/blader/humanizer) v3.1.0 (MIT, Siqi Chen) in `judge/references/human-voice.md`. Findings carry the catalog's pattern number (§N); staging tells (§1 to §5) and chatbot residue (§22) are must-fix. The Judge stays detection-only, and passive voice stays with the Strunk & White pass (#8)
 - seo-writer writes alt text for every image or image slot: it describes the specific picture, adds a keyword only where the description stays accurate, and gives decorative images empty alt. Rules and examples live in `seo-writer/references/alt-text.md`, and the SEO Report gains an Images and Alt Text table (#10)
+- seo-writer ends the SEO Report with a ready-to-paste JSON-LD block for Article, BlogPosting, FAQPage, HowTo, or Review, filled only from the draft and blueprint. Missing values stay as `TODO:` strings and are listed in the report. Templates and the content-type mapping live in `seo-writer/references/structured-data.md` (#11)
 
 ### Changed
 
