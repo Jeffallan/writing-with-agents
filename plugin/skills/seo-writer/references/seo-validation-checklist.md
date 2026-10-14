@@ -65,18 +65,11 @@ Word count: [n]
 - [ ] Author context present: bio, credentials, or relevant experience referenced (if applicable)
 
 ## Schema Markup Recommendation
-Based on the content type, recommend the appropriate schema:
-
-| Content Type | Recommended Schema |
-|---|---|
-| How-to / Tutorial | HowTo schema |
-| FAQ content | FAQPage schema |
-| Article / Guide | Article schema |
-| Product review | Review schema |
-| Comparison | Article schema with itemReviewed |
+Based on the content type, recommend the appropriate schema (Article, BlogPosting, FAQPage, HowTo, or Review; mapping and templates in structured-data.md):
 
 Recommended schema for this piece: [schema type]
 Reason: [brief justification based on content type and snippet targets]
+JSON-LD block: [filled block and TODO list, built with structured-data.md]
 ```
 
 ## How to Use This Checklist

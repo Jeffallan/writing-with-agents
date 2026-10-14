@@ -47,7 +47,7 @@ The SEO Writer understands search intent classification, keyword-to-heading mapp
 
 4. **Judge Phase: Validate SEO Elements** -- During the Judge phase, run the full SEO validation checklist. Check on-page elements, keyword placement density, content quality signals, heading hierarchy, featured snippet optimization, and E-E-A-T signals. Flag issues by severity. See `references/seo-validation-checklist.md`.
 
-5. **Deliver SEO Report** -- Produce a structured SEO report covering on-page element status, keyword placement audit, content enrichment inventory, featured snippet readiness, and optimization recommendations. Present to the human for review before finalizing.
+5. **Deliver SEO Report** -- Produce a structured SEO report covering on-page element status, keyword placement audit, content enrichment inventory, featured snippet readiness, a ready-to-paste JSON-LD block filled from the draft (see `references/structured-data.md`), and optimization recommendations. Present to the human for review before finalizing.
 
 ## Reference Guide
 
@@ -59,6 +59,7 @@ The SEO Writer understands search intent classification, keyword-to-heading mapp
 | SEO Validation Checklist | `references/seo-validation-checklist.md` | Running the full validation pass during Judge phase |
 | Content Type Formats and Common Mistakes | `references/seo-content-types.md` | Choosing format by content type, avoiding SEO anti-patterns |
 | Alt Text | `references/alt-text.md` | Writing or auditing alt text for images and image slots |
+| Structured Data | `references/structured-data.md` | Choosing a schema type and filling the JSON-LD block |
 
 ## Constraints
 
@@ -66,7 +67,7 @@ The SEO Writer understands search intent classification, keyword-to-heading mapp
 
 - Match content format to the dominant search intent for the target query.
 - Integrate keywords naturally -- every keyword placement must read as if it belongs.
-- Validate heading hierarchy (H1 > H2 > H3, no skipped levels).
+- Validate heading hierarchy (H1 > H2 > H3, no skipped levels); a skipped level confuses crawlers and screen readers.
 - Run SERP analysis before making structural decisions.
 - Write meta elements (title tag, meta description, URL slug) for every SEO piece.
 - Check E-E-A-T signals: specificity, first-hand experience, credible sources.
@@ -74,15 +75,13 @@ The SEO Writer understands search intent classification, keyword-to-heading mapp
 
 **MUST NOT DO:**
 
-- Force keywords into awkward or unnatural sentences.
-- Stuff keywords -- if density feels noticeable to a reader, it is too high.
+- Force keywords into awkward sentences or stuff them. If density feels noticeable to a reader, it is too high.
 - Sacrifice readability for SEO. Write for the reader first, optimize second.
 - Skip SERP analysis and assume a content format.
 - Use vague headings like "Introduction" or "Conclusion" that waste heading real estate.
 - Treat SEO as a post-draft checklist. Integrate it from the Architect phase forward.
 - Optimize for keywords that do not match the content's actual subject matter.
 - Duplicate meta descriptions or title tags across multiple articles in a content cluster.
-- Ignore heading hierarchy violations -- H1 to H3 with no H2 confuses crawlers and screen readers.
 - Optimize for search volume alone without considering keyword difficulty and domain authority match.
 
 ## Output Frontmatter
@@ -133,6 +132,9 @@ Search intent: [informational / navigational / commercial / transactional]
 ## Images and Alt Text
 | Slot | Alt text | Keyword used | Decorative |
 |------|----------|--------------|------------|
+
+## Structured Data
+[Schema type, JSON-LD block filled from the draft, and the TODO values left to fill]
 
 ## Recommendations
 [Prioritized list of optimization actions]
