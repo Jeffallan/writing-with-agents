@@ -9,7 +9,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
-import yaml from 'js-yaml';
+import * as yaml from 'js-yaml';
 
 const ROOT = path.resolve(import.meta.dirname, '..', '..');
 const DOCS_DIR = path.resolve(import.meta.dirname, '..', 'src', 'content', 'docs');
