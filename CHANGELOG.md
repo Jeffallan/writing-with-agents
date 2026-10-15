@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - GitHub Actions in `ci.yml`, `validate.yml`, and `release.yml` are pinned to commit SHAs, with the release tag in a trailing comment. Each action stays on its current major version
 - Dependabot checks GitHub Actions and the docs site's npm dependencies weekly, one grouped pull request per ecosystem (`.github/dependabot.yml`)
+- `actions/checkout` 7.0.1, `actions/setup-node` 7.1.0, and `actions/setup-python` 7.0.0, pinned to commit SHAs (#21)
 
 ## [0.3.2] - 2026-10-14
 
