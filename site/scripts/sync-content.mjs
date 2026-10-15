@@ -253,7 +253,9 @@ function syncWorkflowDocs() {
 function buildSkillIndex() {
   const index = new Map(); // name → { domain, title }
   const skillsDir = path.join(ROOT, 'plugin', 'skills');
-  const dirs = fs.readdirSync(skillsDir).filter((d) => fs.statSync(path.join(skillsDir, d)).isDirectory());
+  const dirs = fs
+    .readdirSync(skillsDir)
+    .filter((d) => fs.statSync(path.join(skillsDir, d)).isDirectory());
 
   for (const dir of dirs) {
     const skillPath = path.join(skillsDir, dir, 'SKILL.md');
@@ -262,7 +264,8 @@ function buildSkillIndex() {
     const content = fs.readFileSync(skillPath, 'utf-8');
     const { data, body } = parseFrontmatter(content);
     const domain = data.metadata?.domain || 'generation';
-    const title = extractH1(body) || dir.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
+    const title =
+      extractH1(body) || dir.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
     index.set(dir, { domain, title });
   }
 
@@ -273,7 +276,9 @@ function buildSkillIndex() {
 
 function syncSkillPages(skillIndex) {
   const skillsDir = path.join(ROOT, 'plugin', 'skills');
-  const dirs = fs.readdirSync(skillsDir).filter((d) => fs.statSync(path.join(skillsDir, d)).isDirectory());
+  const dirs = fs
+    .readdirSync(skillsDir)
+    .filter((d) => fs.statSync(path.join(skillsDir, d)).isDirectory());
 
   let count = 0;
   for (const dir of dirs) {
@@ -349,7 +354,8 @@ function syncSkillPages(skillIndex) {
     // Rewrite reference table links to GitHub blob URLs
     body = body.replace(
       /`references\/([^`]+)`/g,
-      (_match, refPath) => `[references/${refPath}](${GITHUB_BLOB}/plugin/skills/${dir}/references/${refPath})`,
+      (_match, refPath) =>
+        `[references/${refPath}](${GITHUB_BLOB}/plugin/skills/${dir}/references/${refPath})`,
     );
 
     body = rewriteLinks(body);
