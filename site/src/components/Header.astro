@@ -7,7 +7,8 @@ import SiteTitle from 'virtual:starlight/components/SiteTitle';
 import SocialIcons from 'virtual:starlight/components/SocialIcons';
 import ThemeSelect from 'virtual:starlight/components/ThemeSelect';
 
-const shouldRenderSearch = config.pagefind || config.components.Search !== '@astrojs/starlight/components/Search.astro';
+const shouldRenderSearch =
+  config.pagefind || config.components.Search !== '@astrojs/starlight/components/Search.astro';
 
 const pathname = Astro.url.pathname;
 const mirrorUrl = pathname.endsWith('/') ? `${pathname}index.html.md` : `${pathname}/index.html.md`;
@@ -76,14 +77,17 @@ const mirrorUrl = pathname.endsWith('/') ? `${pathname}index.html.md` : `${pathn
         --__main-column-fr: calc(
           (
               100% + var(--__sidebar-pad, 0rem) - var(--__toc-width, var(--sl-sidebar-width)) -
-                (2 * var(--__toc-width, var(--sl-nav-pad-x))) - var(--sl-content-inline-start, 0rem) -
-                var(--sl-content-width)
+                (2 * var(--__toc-width, var(--sl-nav-pad-x))) -
+                var(--sl-content-inline-start, 0rem) - var(--sl-content-width)
             ) /
             2
         );
         display: grid;
         grid-template-columns:
-          minmax(calc(var(--__sidebar-width) + max(0rem, var(--__main-column-fr) - var(--sl-nav-gap))), auto)
+          minmax(
+            calc(var(--__sidebar-width) + max(0rem, var(--__main-column-fr) - var(--sl-nav-gap))),
+            auto
+          )
           1fr
           auto;
         align-content: center;
