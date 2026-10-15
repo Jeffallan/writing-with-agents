@@ -83,44 +83,44 @@ export default defineConfig({
             {
               label: 'Generation',
               collapsed: true,
-              autogenerate: { directory: 'skills/generation' },
+              items: [{ autogenerate: { directory: 'skills/generation' } }],
             },
             {
               label: 'Structure',
               collapsed: true,
-              autogenerate: { directory: 'skills/structure' },
+              items: [{ autogenerate: { directory: 'skills/structure' } }],
             },
             {
               label: 'Craft',
               collapsed: true,
-              autogenerate: { directory: 'skills/craft' },
+              items: [{ autogenerate: { directory: 'skills/craft' } }],
             },
             {
               label: 'Quality',
               collapsed: true,
-              autogenerate: { directory: 'skills/quality' },
+              items: [{ autogenerate: { directory: 'skills/quality' } }],
             },
             {
               label: 'SEO',
               collapsed: true,
-              autogenerate: { directory: 'skills/seo' },
+              items: [{ autogenerate: { directory: 'skills/seo' } }],
             },
             {
               label: 'Strategy',
               collapsed: true,
-              autogenerate: { directory: 'skills/strategy' },
+              items: [{ autogenerate: { directory: 'skills/strategy' } }],
             },
             {
               label: 'Research',
               collapsed: true,
-              autogenerate: { directory: 'skills/research' },
+              items: [{ autogenerate: { directory: 'skills/research' } }],
             },
           ],
         },
         {
           label: 'Workflows',
           collapsed: true,
-          autogenerate: { directory: 'workflows' },
+          items: [{ autogenerate: { directory: 'workflows' } }],
         },
         {
           label: 'Project',

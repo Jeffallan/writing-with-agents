@@ -12,6 +12,10 @@ updates:
     directory: /site
     schedule:
       interval: weekly
+    ignore:
+      # Starlight 0.42 bundles its own js-yaml 4 and breaks when the site pins js-yaml 5.
+      - dependency-name: js-yaml
+        update-types: ['version-update:semver-major']
     groups:
       site:
         patterns:
