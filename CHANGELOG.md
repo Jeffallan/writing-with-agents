@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - CI lints and builds the docs site on every pull request and push to `main`, and the deploy waits for it. Before, the site was only built during deploy, which pull requests skip (#23)
 - The docs site has a Prettier config (`site/.prettierrc`) matching its existing style, and its hand-written files are formatted to it (#23)
+- The docs site moves to Astro 7.3, Starlight 0.42, sharp 0.35, Prettier 3.9, and prettier-plugin-astro 1.1. Sidebar groups use the `items` form Starlight 0.39 requires. js-yaml stays on 4 because Starlight still depends on its default export, and Dependabot skips js-yaml major updates (#22)
 
 ### Security
 
