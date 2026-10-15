@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Security
+
+- GitHub Actions in `ci.yml`, `validate.yml`, and `release.yml` are pinned to commit SHAs, with the release tag in a trailing comment. Each action stays on its current major version
+- Dependabot checks GitHub Actions and the docs site's npm dependencies weekly, one grouped pull request per ecosystem (`.github/dependabot.yml`)
+
 ## [0.3.2] - 2026-10-14
 
 ### Added
@@ -103,4 +110,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Progressive disclosure architecture (Tier 1 SKILL.md + Tier 2 references)
 - Collaborative oscillation model defining AI/human lead and support roles per phase
 
+[Unreleased]: https://github.com/Jeffallan/writing-with-agents/compare/v0.3.2...HEAD
 [0.3.2]: https://github.com/Jeffallan/writing-with-agents/compare/v0.3.1...v0.3.2
