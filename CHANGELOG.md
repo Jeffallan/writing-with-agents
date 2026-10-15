@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- CI lints and builds the docs site on every pull request and push to `main`, and the deploy waits for it. Before, the site was only built during deploy, which pull requests skip (#23)
+- The docs site has a Prettier config (`site/.prettierrc`) matching its existing style, and its hand-written files are formatted to it (#23)
+
 ### Security
 
 - GitHub Actions in `ci.yml`, `validate.yml`, and `release.yml` are pinned to commit SHAs, with the release tag in a trailing comment
