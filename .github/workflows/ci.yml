@@ -12,9 +12,36 @@ jobs:
     name: Validate
     uses: ./.github/workflows/validate.yml
 
+  site:
+    name: Lint and Build Docs Site
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '24'
+          cache: 'npm'
+          cache-dependency-path: site/package-lock.json
+
+      - name: Install dependencies
+        working-directory: site
+        run: npm ci
+
+      - name: Lint
+        working-directory: site
+        run: npm run lint
+
+      - name: Build
+        working-directory: site
+        run: npm run build
+
   deploy-pages:
     name: Deploy Docs
-    needs: validate
+    needs: [validate, site]
     if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
     permissions:
