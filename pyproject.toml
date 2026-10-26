@@ -1,0 +1,93 @@
+# skill-linter configuration (https://pypi.org/project/skill-linter/).
+# CI runs it as a report-only job while its current findings are fixed; until then
+# scripts/validate-skills.py, validate-markdown.py and update-docs.py stay the blocking checks.
+
+[tool.skill-linter]
+skills_dir = "plugin/skills"
+shared_dirs = ["_shared"]
+commands_dir = "plugin/commands"
+manifest = "plugin/commands/workflow-manifest.yaml"
+workflow_glob = "**/COMMAND.md"
+markdown_paths = ["plugin/skills"]
+plugin_root = "plugin"
+docs_url = "https://jeffallan.github.io/writing-with-agents/skills/{domain}/{name}/"
+domains = [
+  { id = "generation", label = "Generation" },
+  { id = "structure", label = "Structure" },
+  { id = "craft", label = "Craft" },
+  { id = "quality", label = "Quality" },
+  { id = "seo", label = "SEO" },
+  { id = "strategy", label = "Strategy" },
+  { id = "research", label = "Research" },
+]
+
+[tool.skill-linter.credit]
+text = "Maintained by [@jeffallan](https://github.com/jeffallan), Principal Consultant at [Synergetic Solutions](https://synergetic.solutions)"
+when = { "metadata.company" = "https://synergetic.solutions" }
+
+[tool.skill-linter.allowed_values]
+role = ["specialist", "expert"]
+scope = ["design", "analysis", "implementation"]
+output-format = ["document", "report", "analysis"]
+phases = ["writing", "capture"]
+requires = ["ticketing", "documentation"]
+input-types = ["string", "url", "list[url]", "list[string]", "flag", "file[]"]
+output-types = ["url", "document", "tickets", "report", "file", "directory"]
+
+[tool.skill-linter.policy]
+required_sections = ["Role Definition", "When to Use This Skill", "Core Workflow", "Reference Guide", "Constraints"]
+section_order = true
+workflow_steps = [5, 7]
+body_lines = [80, 100]
+reference_lines = [40, 600]
+license = "MIT"
+reciprocal_related_skills = true
+resolve_relative_paths = true
+
+[tool.skill-linter.changelog]
+since = "0.3.3"  # first release under the changelog convention; older entries stay as published
+
+[tool.skill-linter.severity]
+workflow-step-count = "warning"
+body-line-count = "warning"
+related-skills-reciprocal = "warning"
+plugin-icon = "off"  # keep the GitHub avatar as the listing icon, as claude-skills does (#245)
+
+[[tool.skill-linter.vendored]]
+path = "plugin/skills/judge/references/human-voice.md"
+source = "https://github.com/blader/humanizer/blob/v3.1.0/SKILL.md"
+tag = "v3.1.0"
+
+[[tool.skill-linter.rules.custom]]
+id = "X-lead-support"
+target = "body"
+pattern = '(?m)^\*\*Lead:\*\* .+\n\*\*Support:\*\* .+'
+severity = "warning"
+message = "State the roles as a **Lead:** line followed by a **Support:** line"
+
+[[tool.skill-linter.stamp.files]]
+path = "README.md"
+patterns = [{ key = "version", regex = 'version-([\d.]+)-blue\.svg' }, { key = "referenceFileCount.{skill}", regex = '(?m)^\s+(?P<skill>[\w-]+)/\s+\(SKILL\.md \+ (?P<count>\d+) reference(?P<s>s?)\)' }]
+[[tool.skill-linter.stamp.files]]
+path = "plugin/README.md"
+markers = false
+patterns = [{ key = "skillCount", regex = '\*\*Skills \((\d+)\):\*\*' }, { key = "workflowCount", regex = '\*\*Commands \((\d+)\):\*\*' }]
+[[tool.skill-linter.stamp.files]]
+path = "plugin/.claude-plugin/plugin.json"
+json = { "/version" = "version" }
+patterns = [{ key = "skillCount", regex = '(\d+) specialized writing skills' }]
+[[tool.skill-linter.stamp.files]]
+path = ".claude-plugin/marketplace.json"
+json = { "/metadata/version" = "version", "/plugins/0/version" = "version" }
+patterns = [{ key = "skillCount", regex = '(\d+) specialized writing skills' }, { key = "workflowCount", regex = '(\d+) workflow commands' }]
+[[tool.skill-linter.stamp.files]]
+path = "site/astro.config.mjs"
+patterns = [{ key = "skillCount", regex = '(\d+) specialized writing skills' }]
+[[tool.skill-linter.stamp.files]]
+path = "site/src/content/docs/index.mdx"
+patterns = [
+  { key = "skillCount", regex = '(?m)^description:[^\n]*?(\d+)\s+specialized\s+(?:writing\s+)?skills' },
+  { key = "skillCount", regex = 'title="(\d+) Skills"' },
+  { key = "workflowCount", regex = 'title="(\d+) Workflows"' },
+  { key = "referenceFileCount", regex = 'title="(\d+) References"' },
+]
