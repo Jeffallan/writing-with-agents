@@ -13,6 +13,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - The docs site has a Prettier config (`site/.prettierrc`) matching its existing style, and its hand-written files are formatted to it (#23)
 - The docs site moves to Astro 7.3, Starlight 0.42, sharp 0.35, Prettier 3.9, and prettier-plugin-astro 1.1. Sidebar groups use the `items` form Starlight 0.39 requires. js-yaml stays on 4 because Starlight still depends on its default export, and Dependabot skips js-yaml major updates (#22)
 
+### Fixed
+
+- The docs site footer reads "Principal Consultant at Synergetic Solutions" again. Astro 7 dropped the line break before the link, so the live site showed "atSynergetic"
+
 ### Security
 
 - GitHub Actions in `ci.yml`, `validate.yml`, and `release.yml` are pinned to commit SHAs, with the release tag in a trailing comment
