@@ -96,6 +96,8 @@ python scripts/validate-skills.py
 python scripts/validate-markdown.py
 ```
 
+**skill-linter (being adopted):** CI also runs [skill-linter](https://pypi.org/project/skill-linter/) as a report-only job, configured in `pyproject.toml`. Run it locally with `uvx skill-linter release` and `uvx skill-linter stamp --check`. It will replace `validate-skills.py`, `validate-markdown.py` and `update-docs.py` once the findings it reports today are fixed; until then those scripts stay the blocking checks.
+
 ### 3. Update CHANGELOG.md
 
 Add new version entry following Keep a Changelog format.

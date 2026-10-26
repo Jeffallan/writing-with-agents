@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- CI runs skill-linter as a report-only job, configured in `pyproject.toml`. It will replace the three validation scripts once its current findings (the missing H1 titles, #28) are fixed
+
 ### Changed
 
 - CI lints and builds the docs site on every pull request and push to `main`, and the deploy waits for it. Before, the site was only built during deploy, which pull requests skip (#23)
