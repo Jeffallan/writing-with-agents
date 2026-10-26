@@ -20,6 +20,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- Code blocks keep their styles on pages whose first code block is a Mermaid diagram. Expressive Code puts its one stylesheet and script inside the first code block, and rendering the diagram replaced that block, so every other code block lost its frame and horizontal scrolling. No page is affected today; claude-skills had two
 - The docs site footer reads "Principal Consultant at Synergetic Solutions" again. Astro 7 dropped the line break before the link, so the live site showed "atSynergetic"
 - The docs site loads its own Google tag, `GT-MK98CW3N`, which reports to the site's Google Analytics stream. It had loaded the hub's tag (`G-QS4KFCN3S4`), whose page views also went to this site's stream, so hub and docs-site views were counted twice
 
