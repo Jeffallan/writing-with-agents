@@ -20,7 +20,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - The docs site footer reads "Principal Consultant at Synergetic Solutions" again. Astro 7 dropped the line break before the link, so the live site showed "atSynergetic"
-- The docs site reports to its own Google Analytics stream, `G-3PWV8C8LTD`, instead of the hub's (`G-QS4KFCN3S4`). Both streams are in the same property, so the site's traffic can now be filtered by stream as well as by page path; the privacy page names the new ID
 
 ### Security
 
