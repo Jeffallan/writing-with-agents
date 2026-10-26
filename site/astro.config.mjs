@@ -9,7 +9,13 @@ export default defineConfig({
       title: 'Writing With Agents',
       description:
         '10 specialized writing skills for Claude Code — AI-assisted writing with progressive disclosure and collaborative oscillation.',
-      customCss: ['./src/styles/custom.css'],
+      customCss: [
+        '@fontsource-variable/outfit',
+        '@fontsource-variable/source-sans-3',
+        './src/components/site-style/tokens.css',
+        './src/components/site-style/starlight.css',
+        './src/styles/custom.css',
+      ],
       head: [
         {
           tag: 'script',
@@ -71,6 +77,7 @@ export default defineConfig({
         SocialIcons: './src/components/SocialIcons.astro',
         Header: './src/components/Header.astro',
         Footer: './src/components/Footer.astro',
+        Hero: './src/components/Hero.astro',
       },
       social: [
         {
