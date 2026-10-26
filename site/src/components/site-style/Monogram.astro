@@ -1,0 +1,43 @@
+---
+// Jeff's "JS" monogram, linking to the hub. Comes from the handbook's
+// personal-sites/site-style; change it there, not in the project.
+//
+// monogram.png is white on transparent; it is used as a CSS mask so the
+// mark takes the text color of whichever theme is active.
+import sites from '../site-nav/sites.json';
+import monogram from './monogram.png';
+
+interface Props {
+  /** Height and width of the mark. */
+  size?: string;
+}
+
+const { size = '2rem' } = Astro.props;
+const home = sites.find((site) => site.home);
+---
+
+<a class="site-monogram" href={home?.url} aria-label={home?.name} title={home?.name}>
+  <span style={`--site-monogram: url(${monogram.src}); --site-monogram-size: ${size}`}></span>
+</a>
+
+<style>
+  .site-monogram {
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  .site-monogram span {
+    display: block;
+    width: var(--site-monogram-size);
+    height: var(--site-monogram-size);
+    background-color: var(--site-text, currentColor);
+    mask: var(--site-monogram) center / contain no-repeat;
+    transition: background-color 0.2s ease;
+  }
+
+  .site-monogram:hover span,
+  .site-monogram:focus-visible span {
+    background-color: var(--site-accent-ui, currentColor);
+  }
+</style>
