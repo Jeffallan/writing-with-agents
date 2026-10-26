@@ -20,6 +20,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - The docs site footer reads "Principal Consultant at Synergetic Solutions" again. Astro 7 dropped the line break before the link, so the live site showed "atSynergetic"
+- The docs site loads its own Google tag, `GT-MK98CW3N`, which reports to the site's Google Analytics stream. It had loaded the hub's tag (`G-QS4KFCN3S4`), whose page views also went to this site's stream, so hub and docs-site views were counted twice
 
 ### Security
 
