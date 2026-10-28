@@ -9,17 +9,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- The docs site takes the shared light and dark theme from the handbook's `site-style`: the teal palette and fonts (Outfit, Source Sans 3) from Jeff Smolinski's site, a teal-based dark theme, and the monogram before the title, linking to that site
+- The docs site takes the shared light and dark theme (`site/src/components/site-style/`), delivered from a private repo that keeps the docs sites in step: the teal palette and fonts (Outfit, Source Sans 3) from the author's site, a teal-based dark theme, and the monogram before the title, linking to that site
 - A shared footer (`site-footer`): About the Author and Contact, links to the docs sites, profile links, the credit line, copyright and a privacy link
 - A Contact call to action (`site-contact`) that opens the contact form in a dialog: under the home page's buttons, before the first heading on skill pages, and at the end of workflow pages. README, Changelog and Privacy have none. The form records the site, page and button, and has an optional topic field
-- The docs site header has a Sites menu linking Jeff Smolinski's site and both docs sites, with the current one marked. The menu comes from the handbook's `site-nav` through Copier (`.copier-answers.yml`); `handbook-update.yml` opens a PR when it changes
+- The docs site header has a Sites menu linking the author's site and both docs sites, with the current one marked. The menu (`site/src/components/site-nav/`) is shared code from the same private repo, delivered with Copier (`.copier-answers.yml`); `handbook-update.yml` opens a PR when it changes
 - CI runs skill-linter as a report-only job, configured in `pyproject.toml`. It will replace the three validation scripts once its current findings (the missing H1 titles, #28) are fixed
 
 ### Changed
 
-- The docs site's content sync comes from the handbook's `site-sync` through Copier; `site/scripts/sync-content.mjs` keeps only this site's settings, and the skills folder, domains, docs URL and credit come from `[tool.skill-linter]` in `pyproject.toml`. `llms.txt` is now written by astro-seo-graph's `seoGraph()` from the sync's page list, and lists `llms-full.txt` under Optional
-- Skill page meta descriptions are the skill's description as written, without the "Writing With Agents | <title> |" prefix
-- The Sites menu lists the Trust Center Directory
+- The docs site's content sync is shared code, delivered from a private repo that keeps the docs sites in step (`site/src/components/site-sync/`). `site/scripts/sync-content.mjs` keeps only this site's settings, and the skills folder, domains, docs URL and credit come from the [skill-linter](https://pypi.org/project/skill-linter/) settings in `pyproject.toml` (`[tool.skill-linter]`). `llms.txt` is now written by astro-seo-graph's `seoGraph()`, and lists `llms-full.txt` under Optional (#39)
+- Skill page meta descriptions are the skill's description as written, without the "Writing With Agents | <title> |" prefix (#39)
+- The Sites menu lists the Trust Center Directory (#39)
 - The docs site's indigo palette and its own footer credit line are replaced by the shared theme and footer. The privacy page lists Formspree, which now delivers messages sent from this site, and has a new effective date
 - CI lints and builds the docs site on every pull request and push to `main`, and the deploy waits for it. Before, the site was only built during deploy, which pull requests skip (#23)
 - The docs site has a Prettier config (`site/.prettierrc`) matching its existing style, and its hand-written files are formatted to it (#23)
@@ -27,8 +27,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-- Four skill pages (madman, quality-rubric, research-intake, seo-writer) took their title from a heading inside a code block, and the build deleted that heading from the block. Titles now come from the first heading outside code blocks, or the skill's folder name (#27)
-- Every link in `llms.txt`, and the README link in the home page's Markdown copy, left out the `/writing-with-agents` base path and returned 404 (#29)
+- Four skill pages (madman, quality-rubric, research-intake, seo-writer) took their title from a heading inside a code block, and the build deleted that heading from the block. Titles now come from the first heading outside code blocks, or the skill's folder name (#27, #39)
+- Every link in `llms.txt`, and the README link in the home page's Markdown copy, left out the `/writing-with-agents` base path and returned 404 (#29, #39)
 - Code blocks keep their styles on pages whose first code block is a Mermaid diagram. Expressive Code puts its one stylesheet and script inside the first code block, and rendering the diagram replaced that block, so every other code block lost its frame and horizontal scrolling. No page is affected today; claude-skills had two
 - The docs site footer reads "Principal Consultant at Synergetic Solutions" again. Astro 7 dropped the line break before the link, so the live site showed "atSynergetic"
 - The docs site loads its own Google tag, `GT-MK98CW3N`, which reports to the site's Google Analytics stream. It had loaded the hub's tag (`G-QS4KFCN3S4`), whose page views also went to this site's stream, so hub and docs-site views were counted twice
