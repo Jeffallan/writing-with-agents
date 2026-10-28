@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- The docs site build fails on a broken internal link (`starlight-links-validator`)
 - Every docs site page has a 1200×630 preview image (`og:image`) for links shared on social sites: the site's name beside the monogram, the page title, and the page description cut to the whole sentences that fit in 260 characters. The cards are generated at build time (`site/src/pages/og/`) with astro-og-canvas
 - Every docs site page carries a JSON-LD graph naming its author. Skill and doc pages are a `TechArticle` and the home page a `WebPage` about the repo (`SoftwareSourceCode`), each pointing at one `Person` (`https://jeffallan.github.io/#person`) declared on the author's site. It is added through Starlight's route middleware (`site/src/routeData.ts`), so Starlight's own title, description and Open Graph tags stay as they are
 - The docs site takes the shared light and dark theme (`site/src/components/site-style/`), delivered from a private repo that keeps the docs sites in step: the teal palette and fonts (Outfit, Source Sans 3) from the author's site, a teal-based dark theme, and the monogram before the title, linking to that site
@@ -19,6 +20,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- CI: the docs site lint and build job moves from `ci.yml` to `docs-site.yml`, shared with the other docs sites and kept in step from the same private repo as the site code. It runs on every pull request and push to `main`; the deploy job keeps its own build
 - The docs site's content sync is shared code, delivered from a private repo that keeps the docs sites in step (`site/src/components/site-sync/`). `site/scripts/sync-content.mjs` keeps only this site's settings, and the skills folder, domains, docs URL and credit come from the [skill-linter](https://pypi.org/project/skill-linter/) settings in `pyproject.toml` (`[tool.skill-linter]`). `llms.txt` is now written by astro-seo-graph's `seoGraph()`, and lists `llms-full.txt` under Optional (#39)
 - Skill page meta descriptions are the skill's description as written, without the "Writing With Agents | <title> |" prefix (#39)
 - The Sites menu lists the Trust Center Directory (#39)
