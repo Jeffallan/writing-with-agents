@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Every docs site page carries a JSON-LD graph naming its author. Skill and doc pages are a `TechArticle` and the home page a `WebPage` about the repo (`SoftwareSourceCode`), each pointing at one `Person` (`https://jeffallan.github.io/#person`) declared on the author's site. It is added through Starlight's route middleware (`site/src/routeData.ts`), so Starlight's own title, description and Open Graph tags stay as they are
 - The docs site takes the shared light and dark theme (`site/src/components/site-style/`), delivered from a private repo that keeps the docs sites in step: the teal palette and fonts (Outfit, Source Sans 3) from the author's site, a teal-based dark theme, and the monogram before the title, linking to that site
 - A shared footer (`site-footer`): About the Author and Contact, links to the docs sites, profile links, the credit line, copyright and a privacy link
 - A Contact call to action (`site-contact`) that opens the contact form in a dialog: under the home page's buttons, before the first heading on skill pages, and at the end of workflow pages. README, Changelog and Privacy have none. The form records the site, page and button, and has an optional topic field
