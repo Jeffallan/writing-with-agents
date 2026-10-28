@@ -3,6 +3,7 @@ import starlight from '@astrojs/starlight';
 import starlightLinksValidator from 'starlight-links-validator';
 import seoGraph from '@jdevalk/astro-seo-graph/integration';
 import { llmsSectionsFromSync } from './src/components/site-sync/llms.mjs';
+import { indexNowOptions } from './src/components/site-seo/indexnow.mjs';
 
 const SITE_URL = 'https://jeffallan.github.io/writing-with-agents';
 const DESCRIPTION =
@@ -155,6 +156,8 @@ export default defineConfig({
       // Its link check reads links from the domain root and misses the base path, so it
       // reports every internal link as a 404. starlight-links-validator checks them instead
       validateInternalLinks: false,
+      // Submits changed pages to IndexNow, from the deploy build only (site-seo)
+      indexNow: indexNowOptions(SITE_URL),
       llmsTxt: {
         title: 'Writing With Agents',
         siteUrl: SITE_URL,
