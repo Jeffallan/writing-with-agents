@@ -20,6 +20,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- CI: the docs site deploy moves from `ci.yml` to `docs-deploy.yml`, shared with the other docs sites. It still publishes on every push to `main`; `ci.yml` keeps only validation
 - CI: the docs site lint and build job moves from `ci.yml` to `docs-site.yml`, shared with the other docs sites and kept in step from the same private repo as the site code. It runs on every pull request and push to `main`; the deploy job keeps its own build
 - The docs site's content sync is shared code, delivered from a private repo that keeps the docs sites in step (`site/src/components/site-sync/`). `site/scripts/sync-content.mjs` keeps only this site's settings, and the skills folder, domains, docs URL and credit come from the [skill-linter](https://pypi.org/project/skill-linter/) settings in `pyproject.toml` (`[tool.skill-linter]`). `llms.txt` is now written by astro-seo-graph's `seoGraph()`, and lists `llms-full.txt` under Optional (#39)
 - Skill page meta descriptions are the skill's description as written, without the "Writing With Agents | <title> |" prefix (#39)
