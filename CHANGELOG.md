@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Each deploy tells search engines that support IndexNow (Bing, Yandex and others) which pages changed, so they recrawl them sooner. Only the deploy build submits, and only pages whose HTML changed since the last deploy (the first deploy submits all). The key is served once for every site at `https://jeffallan.github.io/17c975f34bbe97c32cf68c4f58503478.txt`
 - The docs site build fails on a broken internal link (`starlight-links-validator`)
 - Every docs site page has a 1200×630 preview image (`og:image`) for links shared on social sites: the site's name beside the monogram, the page title, and the page description cut to the whole sentences that fit in 260 characters. The cards are generated at build time (`site/src/pages/og/`) with astro-og-canvas
 - Every docs site page carries a JSON-LD graph naming its author. Skill and doc pages are a `TechArticle` and the home page a `WebPage` about the repo (`SoftwareSourceCode`), each pointing at one `Person` (`https://jeffallan.github.io/#person`) declared on the author's site. It is added through Starlight's route middleware (`site/src/routeData.ts`), so Starlight's own title, description and Open Graph tags stay as they are
