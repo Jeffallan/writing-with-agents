@@ -21,7 +21,7 @@ syncSite({
   siteDir: path.resolve(import.meta.dirname, '..'),
   base: BASE_PATH,
   githubBlob: GITHUB_BLOB,
-  pageTitle: 'Writing With Agents | {title}',
+  pageTitle: '{title} Agent Skill for Claude Code',
   docs: [
     {
       src: 'README.md',
