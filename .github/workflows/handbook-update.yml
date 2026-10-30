@@ -19,7 +19,7 @@ jobs:
     if: vars.HANDBOOK_APP_ID != ''
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/create-github-app-token@v2
+      - uses: actions/create-github-app-token@v3
         id: app
         with:
           app-id: ${{ vars.HANDBOOK_APP_ID }}
@@ -28,10 +28,10 @@ jobs:
           repositories: |
             handbook
             ${{ github.event.repository.name }}
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           token: ${{ steps.app.outputs.token }}
-      - uses: astral-sh/setup-uv@v5
+      - uses: astral-sh/setup-uv@v7
       - name: Let git read the private handbook
         run: git config --global url."https://x-access-token:${{ steps.app.outputs.token }}@github.com/".insteadOf "https://github.com/"
       - name: Check for a new handbook version
@@ -46,7 +46,7 @@ jobs:
         run: uvx copier update --defaults
       - name: Open the update PR
         if: steps.check.outputs.available == 'true'
-        uses: peter-evans/create-pull-request@v7
+        uses: peter-evans/create-pull-request@v8
         with:
           token: ${{ steps.app.outputs.token }}
           branch: handbook/update
