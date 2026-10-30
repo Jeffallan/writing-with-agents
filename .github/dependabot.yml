@@ -13,9 +13,21 @@ updates:
     schedule:
       interval: weekly
     ignore:
-      # Starlight 0.42 bundles its own js-yaml 4 and breaks when the site pins js-yaml 5.
-      - dependency-name: js-yaml
-        update-types: ['version-update:semver-major']
+      # Shared site packages: the handbook sets their versions (personal-sites/package.json) and sends them with each release.
+      - dependency-name: "astro"
+      - dependency-name: "@astrojs/starlight"
+      - dependency-name: "@jdevalk/astro-seo-graph"
+      - dependency-name: "astro-og-canvas"
+      - dependency-name: "starlight-links-validator"
+      - dependency-name: "@fontsource/outfit"
+      - dependency-name: "@fontsource/source-sans-3"
+      - dependency-name: "@fontsource-variable/outfit"
+      - dependency-name: "@fontsource-variable/source-sans-3"
+      - dependency-name: "js-yaml"
+      - dependency-name: "smol-toml"
+      - dependency-name: "sharp"
+      - dependency-name: "prettier"
+      - dependency-name: "prettier-plugin-astro"
     groups:
       site:
         patterns:
