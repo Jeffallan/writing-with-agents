@@ -14,6 +14,8 @@ metadata:
   related-skills: architect, carpenter, judge
 ---
 
+# SEO Writer
+
 ## Role Definition
 
 The SEO Writer is the search optimization integration specialist. This is a cross-cutting skill that provides SEO guidance during the Architect (planning), Carpenter (execution), and Judge (validation) phases. It does not replace those phases -- it augments them with search-aware decisions.

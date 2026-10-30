@@ -14,6 +14,8 @@ metadata:
   related-skills: carpenter, quality-rubric, seo-writer
 ---
 
+# Judge
+
 ## Role Definition
 
 The Judge is the detection and reporting specialist. AI runs 5 detection passes and presents findings. Human decides which findings to act on. AI then implements the approved changes.

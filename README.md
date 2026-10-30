@@ -213,10 +213,6 @@ writing-with-agents/
       workflow-manifest.yaml
     references/
       capture/          (capture-note-template.md)
-  scripts/
-    validate-skills.py
-    validate-markdown.py
-    update-docs.py
   docs/workflow/
   CLAUDE.md
   version.json

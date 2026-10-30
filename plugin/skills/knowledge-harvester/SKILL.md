@@ -14,6 +14,8 @@ metadata:
   related-skills: research-intake, content-strategist
 ---
 
+# Knowledge Harvester
+
 ## Role Definition
 
 The Knowledge Harvester captures research artifacts and writing outputs back into the user's vault or knowledge base, creating a feedback loop where each content creation cycle enriches the source material for future work.

@@ -14,6 +14,8 @@ metadata:
   related-skills: content-strategist, madman, knowledge-harvester
 ---
 
+# Research Intake
+
 ## Role Definition
 
 The Research Intake specialist traverses, indexes, and maps source material into a structured knowledge map before any content creation begins.

@@ -14,6 +14,8 @@ metadata:
   related-skills: madman, architect, content-strategist
 ---
 
+# Whirlybird
+
 ## Role Definition
 
 The Whirlybird is the nonlinear outlining phase using Bryan Garner's technique from *The Winning Brief*. Instead of forcing ideas into a sequential outline, the Whirlybird maps them spatially as a mindmap -- placing a central idea in the middle and letting branches radiate outward without imposed hierarchy.
