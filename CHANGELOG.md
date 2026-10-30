@@ -21,6 +21,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- The shared site packages (Astro, Starlight and the others listed in `CLAUDE.md`) take their versions from the handbook, which sends them with each release. `handbook-update.yml` sets up Node and runs `copier update --trust` for that step
 - CI: skill-linter is the blocking check. The Validate job runs `skill-linter release` and `skill-linter stamp --check`, and `scripts/validate-skills.py`, `validate-markdown.py` and `update-docs.py` are removed. The `CLAUDE.md` release checklist uses the same commands (#38)
 - Every skill's `SKILL.md` has an H1 title after its frontmatter, which the docs site uses as the page title, so seo-writer is "SEO Writer" instead of "Seo Writer" (#28)
 - CI: the docs site deploy moves from `ci.yml` to `docs-deploy.yml`, shared with the other docs sites. It still publishes on every push to `main`; `ci.yml` keeps only validation
