@@ -52,6 +52,7 @@ metadata:
 ### Progressive Disclosure Architecture
 
 **Tier 1 — SKILL.md (~80-100 lines)**
+- An H1 title (`# Skill Name`) directly after the frontmatter, and no other H1 outside code fences
 - Role definition and collaborative model (who leads, who supports)
 - When-to-use guidance (triggers)
 - Core workflow (5-7 steps)
@@ -84,19 +85,19 @@ Skills must encode this lead/support dynamic, not treat phases as AI-only.
 
 ### 1. Update Version and Counts
 
-Update `version.json`, then run:
+Update `version.json`, then write the version and counts into the docs:
 ```bash
-python scripts/update-docs.py
+uvx skill-linter@0.2.0 stamp
 ```
 
 ### 2. Validate Skills Integrity
 
 ```bash
-python scripts/validate-skills.py
-python scripts/validate-markdown.py
+uvx skill-linter@0.2.0 release
+uvx skill-linter@0.2.0 stamp --check
 ```
 
-**skill-linter (being adopted):** CI also runs [skill-linter](https://pypi.org/project/skill-linter/) as a report-only job, configured in `pyproject.toml`. Run it locally with `uvx skill-linter release` and `uvx skill-linter stamp --check`. It will replace `validate-skills.py`, `validate-markdown.py` and `update-docs.py` once the findings it reports today are fixed; until then those scripts stay the blocking checks.
+These are the checks CI runs. [skill-linter](https://pypi.org/project/skill-linter/) is configured in `pyproject.toml`; `uvx skill-linter rules` lists every rule.
 
 ### 3. Update CHANGELOG.md
 
