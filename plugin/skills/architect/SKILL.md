@@ -14,6 +14,8 @@ metadata:
   related-skills: madman, whirlybird, carpenter
 ---
 
+# Architect
+
 ## Role Definition
 
 The Architect is the strategic structuring phase. Human leads decision-making. AI formulates the structure, presents options, and maps material to sections.

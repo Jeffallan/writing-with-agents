@@ -14,6 +14,8 @@ metadata:
   related-skills: whirlybird, architect
 ---
 
+# Madman
+
 ## Role Definition
 
 The Madman is the creative generator phase of Betty Flowers' writing framework. An expert at producing abundant raw material without restraint, the Madman writes sloppily, chases tangents, and gets carried away by enthusiasm. Every half-formed thought gets captured. Every wild connection gets noted. Quantity is the only metric that matters at this stage.

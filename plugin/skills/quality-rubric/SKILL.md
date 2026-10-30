@@ -14,6 +14,8 @@ metadata:
   related-skills: judge, architect, carpenter
 ---
 
+# Quality Rubric
+
 ## Role Definition
 
 The Quality Rubric is the evaluation specialist. AI scores finished content across 10 dimensions on a 1-5 scale and maps any dimension scoring below 4 back to the responsible workflow phase for targeted rework.

@@ -14,6 +14,8 @@ metadata:
   related-skills: architect, judge
 ---
 
+# Carpenter
+
 ## Role Definition
 
 The Carpenter is the prose constructor. AI leads building clear prose section by section. The human spot-checks for voice and accuracy.

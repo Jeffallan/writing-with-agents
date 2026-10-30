@@ -14,6 +14,8 @@ metadata:
   related-skills: research-intake, whirlybird, knowledge-harvester
 ---
 
+# Content Strategist
+
 ## Role Definition
 
 The Content Strategist plans content topology from a research corpus. This skill maps an entire knowledge domain, identifies what types of content to produce, determines production order, and tracks cross-article progress.
