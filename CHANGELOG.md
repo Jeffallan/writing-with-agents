@@ -21,6 +21,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Skill page titles lead with the skill's name, as "Carpenter Agent Skill for Claude Code | Writing With Agents" (was "Writing With Agents | Carpenter | Writing With Agents"), so search results show what the page is about first and the site name appears once
 - Dependabot skips the workflows the handbook delivers (`handbook-update.yml`, `docs-site.yml`, `docs-deploy.yml`); the handbook bumps their actions and sends them with each release
 - The shared site packages (Astro, Starlight and the others listed in `CLAUDE.md`) take their versions from the handbook, which sends them with each release. `handbook-update.yml` sets up Node and runs `copier update --trust` for that step
 - CI: skill-linter is the blocking check. The Validate job runs `skill-linter release` and `skill-linter stamp --check`, and `scripts/validate-skills.py`, `validate-markdown.py` and `update-docs.py` are removed. The `CLAUDE.md` release checklist uses the same commands (#38)
