@@ -1,0 +1,13 @@
+# Delivered by the handbook (Copier) only when the repo had no pre-commit config; the handbook
+# never updates it afterward. The hook reads notes_paths and notes_schema from .copier-answers.yml
+# when it runs, so changing those answers needs no edit here.
+repos:
+  - repo: local
+    hooks:
+      - id: handbook-notes
+        name: notes front matter (handbook Base Schema)
+        entry: python .handbook/base-schema/check-notes.py --from-answers
+        language: python
+        additional_dependencies: ["pyyaml>=6", "jsonschema>=4.18"]
+        pass_filenames: false
+        always_run: true
