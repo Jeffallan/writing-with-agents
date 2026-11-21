@@ -21,6 +21,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- The homepage title is "Writing With Agents: Writing Skills for Claude Code" (was "Writing With Agents | Writing With Agents"). A postbuild test checks it and fails the build if any page title repeats the site name (#66)
 - Skill page titles lead with the skill's name, as "Carpenter Agent Skill for Claude Code | Writing With Agents" (was "Writing With Agents | Carpenter | Writing With Agents"), so search results show what the page is about first and the site name appears once
 - Dependabot skips the workflows the handbook delivers (`handbook-update.yml`, `docs-site.yml`, `docs-deploy.yml`); the handbook bumps their actions and sends them with each release
 - The shared site packages (Astro, Starlight and the others listed in `CLAUDE.md`) take their versions from the handbook, which sends them with each release. `handbook-update.yml` sets up Node and runs `copier update --trust` for that step

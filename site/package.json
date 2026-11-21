@@ -6,6 +6,7 @@
     "sync": "node scripts/sync-content.mjs",
     "dev": "npm run sync && astro dev",
     "build": "npm run sync && astro build",
+    "postbuild": "node --test scripts/titles.test.mjs",
     "preview": "astro preview",
     "lint": "prettier --plugin prettier-plugin-astro --check \"src/**\" \"scripts/**\" astro.config.mjs",
     "format": "prettier --plugin prettier-plugin-astro --write \"src/**\" \"scripts/**\" astro.config.mjs"
